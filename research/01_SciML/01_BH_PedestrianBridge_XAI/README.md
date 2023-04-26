@@ -12,6 +12,8 @@
 *   [Content](#content)
 *   [Contributors](#contributors)
 
+Paper preprint: https://arxiv.org/abs/2211.16406
+
 <!-- -->
 <!-- *   [Citation](#citation)-->
 
