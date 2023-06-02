@@ -19,7 +19,7 @@
 ## <a name="Abstract"></a>Abstract
 This research investigates the suitability and interpretability of a data-driven deep learning algorithm for multi cross sectional overstrength factor prediction. For this purpose, we first compile datasets consisting of experiments from litera-ture on the overstrength factor of circular, rectangular and square hollow sec-tions as well as I- and H-sections. We then propose a novel multi-head en-coder architecture consisting of three input heads (one head per section type represented by respective features), a shared embedding layer as well as a subsequent regression tail for predicting the overstrength factor. By construc-tion, this multi-head architecture simultaneously allows for (i) the exploration of the nonlinear embedding of different cross-sectional profiles towards the overstrength factor within the shared layer, and (ii) a forward prediction of the overstrength factor given profile features. Our framework enables for the first time an exploration of cross-section similarity w.r.t. the overstrength factor across multiple sections and hence provides new domain insights in bearing capacities of steel cross-sections, a much wider data exploration, since the encoder-regressor can serve as meta model predictor. We demonstrate the quality of the predictive capabilities of the model and gain new insights of the latent space of different steel sections w.r.t. the overstrength factor. Our pro-posed method can easily be transferred to other multi-input problems of Scientific Machine Learning.
 
-<a href="https://arxiv.org/abs/2211.16406" target="_blank"> The publication can be found here:</a>
+<a href="https://github.com/mkrausAi/mkrausAI.github.io/blob/main/ResearchWork/published/20230422_Kraus_Mueller_Bischof_Taras_Overstrength.pdf" target="_blank"> The publication can be found here</a>
 
 
 
@@ -45,6 +45,14 @@ The objective of this research is to
 *   create a demonstrator application of an explainable and intuitive co-pilot for conceptual design. 
 
 We demonstrate the applicability of this approach in the forward as well as inverse design setting for the generic example of a bridge design project in St. Gallen, Switzerland. By integrating our ML algorithms into established Building-Information-Modelling (BIM) software, which is Autodesk Revit 2022 for this project, the proposed framework can easily be transferred to future bridge project scenarios (and beyond, e.g. to housing or office buildings) as soon as the parametric bridge model together with requested boundary conditions and performance criteria are defined within Revit. Therefore, our solution integrates seamlessly into the current design paradigm known by AEC domain experts. In combination with implemented explainable AI methods such as the Sensitivity Analysis (SA), this ubiquitousness ensures acceptance amongst engineers or project managers with limited expertise in ML or AI and fosters wide-spread use of such tools in practice.
+
+
+Visit this <a href="https://wandb.ai/ai4structeng_ethz/Multihead_AE_forward_overstrength_full/reports/Predictive-modelling-and-latent-space-exploration-of-steel-profile-overstrength-factors-using-multi-head-autoencoder-regressors--Vmlldzo0NTQyNTU5" target="_blank"> Weights & Biases project page</a> for interactive details about the hyperparameters of the trained model.
+
+
+
+
+
 
 
 ## <a name="content"></a> Project Details
