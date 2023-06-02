@@ -147,21 +147,28 @@ body {
 }
 -->
 
-<img src="https://mkrausai.github.io/img/persons/VeraBalmer.jpg" width="20%" alt="Vera Balmer" /><br />
-**M.Sc. Vera Balmer**<br />
-Doctoral Researcher in SciML4AEC at ETH Zurich<br />
 
-<img src="https://mkrausai.github.io/img/persons/Rafael-Bischof-2.jpg" width="20%" alt="Rafael Bischof" /><br />
-**M.Sc. Rafael Bischof**<br />
-Data Scientist (Swiss Data Science Center) and Researcher in SciML4AEC<br />
-
-<img src="https://mkrausai.github.io/img/persons/bild_sophia.jpeg" width="20%" alt="Sophia Kuhn" /><br />
-**M.Sc. Sophia Kuhn**<br />
-Doctoral Researcher in SciML4AEC at ETH Zurich<br />
-
-<img src="https://mkrausai.github.io/img/persons/Michael6_3.jpg" width="20%" alt="Michael Kraus" /><br />
-**Dr. Michael A. Kraus, M.Sc.(hons)**<br />
-Senior Researcher in SciML4AEC and Co-Leader of the Immersive Design Lab of Design++ at ETH Zurich<br />
+<h3 id="beteiligte">Beteiligte</h3>
+<div style="display:flex">
+  <div style="flex:1; margin-right:10px">
+    <img src="https://mkrausai.github.io/img/persons/Michael6_3.jpg" alt="Michael" style="width:100%">
+    <div style="text-align:center"> Dr. Michael A. Kraus, M.Sc.(hons) <br />
+    Senior Researcher in SciML4AEC and Co-Leader of the Immersive Design Lab of Design++ at ETH Zurich <br /></div>
+  </div>
+  <div style="flex:1; margin-right:10px">
+    <img src="https://mkrausai.github.io/img/persons/andreasmueller.jpeg" alt="Mueller" style="width:100%">
+    <div style="text-align:center">M.Eng. Andreas Müller<br />
+Doctoral Researcher in Steel Structures and SciML4AEC at ETH Zurich <br /></div>
+  </div>
+  <div style="flex:1; margin-right:10px">
+    <img src="https://mkrausai.github.io/img/persons/Rafael-Bischof.png" alt="Rafi" style="width:100%">
+    <div style="text-align:center">M.Sc. Rafael Bischof <br /> Doctoral Researcher in SciML4AEC at ETH Zurich</div>
+  </div>
+  <div style="flex:1">
+    <img src="https://mkrausai.github.io/img/persons/AndreasTaras.jpg" alt="Taras" style="width:95%">
+    <div style="text-align:center"> Prof. Dr. Andreas Taras <br /> Professor for Steel Construction and Composite Structures at ETH Zurich </div>
+  </div>
+</div>
 
 # Contact
 Dr. Michael A. Kraus, M.Sc.(hons)
