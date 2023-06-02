@@ -19,7 +19,7 @@
 ## <a name="Abstract"></a>Abstract
 This research investigates the suitability and interpretability of a data-driven deep learning algorithm for multi cross sectional overstrength factor prediction. For this purpose, we first compile datasets consisting of experiments from litera-ture on the overstrength factor of circular, rectangular and square hollow sec-tions as well as I- and H-sections. We then propose a novel multi-head en-coder architecture consisting of three input heads (one head per section type represented by respective features), a shared embedding layer as well as a subsequent regression tail for predicting the overstrength factor. By construc-tion, this multi-head architecture simultaneously allows for (i) the exploration of the nonlinear embedding of different cross-sectional profiles towards the overstrength factor within the shared layer, and (ii) a forward prediction of the overstrength factor given profile features. Our framework enables for the first time an exploration of cross-section similarity w.r.t. the overstrength factor across multiple sections and hence provides new domain insights in bearing capacities of steel cross-sections, a much wider data exploration, since the encoder-regressor can serve as meta model predictor. We demonstrate the quality of the predictive capabilities of the model and gain new insights of the latent space of different steel sections w.r.t. the overstrength factor. Our pro-posed method can easily be transferred to other multi-input problems of Scientific Machine Learning.
 
-<a href="https://github.com/mkrausAi/mkrausAI.github.io/blob/main/ResearchWork/published/20230422_Kraus_Mueller_Bischof_Taras_Overstrength.pdf" target="_blank"> The publication can be found here</a>
+The publication can be found <a href="https://mkrausai.github.io/ResearchWork/published/20230422_Kraus_Mueller_Bischof_Taras_Overstrength.pdf" target="_blank"> here</a>.
 
 
 
@@ -31,49 +31,25 @@ Accurately quantifying the maximum bending moment experienced by beams is crucia
 While empirical methods exist to estimate the rotation capacity (r) and flexural overstrength (s) of steel members, there is a need for comprehensive analytical estimation, specifically for circular (CHS), rectangular (RHS), and square (SHS) hollow sections, as well as I and H profiles. This study aims to develop a precise and efficient deep learning technique for predicting the flexural overstrength factor of steel beams with different cross sections under pure bending. This technique will enable the identification of latent correlations and provide a better understanding of cross-sectional similarities concerning flexural overstrength (s).
 
 
-<img src="https://mkrausai.github.io/research/01_SciML/01_BH_PedestrianBridge_XAI/figs/VR_Walk.JPG" width="50%" alt="VR_Walk" /><br />
+
+## <a name="methods"></a>Methods
+
+# <a name="sec:Overstrength"></a> The Flexural Overstrength Factor $$s$$
+This research adopts the propositions of SIA 112 for chosing the bridge design features, which specifies a level of development (LOD) 300 for the task at hand. The design features define the girder height $$h_{girder}$$ and thickness $$t_{girder}$$, the amount $$n_{p}$$ and dimensions $$h_{p}$$ of the piers as well as parameters $$w,i$$ of the NURBS curve for defining the bridge alignment. For the set of performance metrics $$y = \mathcal{P}(\mathbf{x})$$ we employ structural safety and serviceability (resistances, utilisations, internal actions and displacements) criteria next to structural dynamics aspects (eigenfrequencies), costs (computed via the weight and volume) and the boundary conditions for SP, EP and the trees. The structural performance objectives together with the load definitions for the pedestrian bridge (such as loads due to dead weight, pedestrians, wind, snow and temperature) are derived from currently applicable design standards in Switzerland by SIA 261 and 262. 
+
+The flexural overstrength factor $$s$$ is a non-dimensional parameter used for characterizing the ultimate bending capacity of steel beams exceeding the plastic bending strength due to the strain hardening [2]. It is originally ([3],[4]) computed by the ratio of the stress fLB corresponding to complete local buckling development or the lateral torsional buckling to the yield stress $$fy$$:
+$$s = \frac{f_LB}{f_y} = \frac{M_u}{M_p} $$
+or by the more practical relation using the maximum moment $$M_u$$ to the theoretical full plastic moment $$M_p$$. The ultimate bearing capacity of steel beams can be significantly greater than the plastic bending strength because of strain hardening before complete local buckling or fractures as given in Figure 1 by the generalized moment-rotation curves. The overstrength factor is used for seismic design in the Italian codes OPCM 3274 (2003) and NTC 2018 but neglected for cross-section classes in Eurocode 3 (EN 1993:1-1).
+
+<img src="https://mkrausai.github.io/research/01_SciML/02_Overstrength/figs/Figure_01.png" width="50%" alt="VR_Walk" /><br />
 [![VR Walk on the "Brücke über den Graben"](https://youtu.be/g3Hgu1M1gj8/0.jpg)](https://youtu.be/TEeiKn9M20U "VR Walk on the "Brücke über den Graben"")
 
 
-<!--More background and implementation details can be found here: ([Keogh, E. and Kasetty, S.: On the need for time series data mining benchmarks: A survey and empirical demonstration. Data Mining and Knowledge Discovery, 7(4):349–371, Oct. 2003.](https://link.springer.com/article/10.1023/A:1024988512476))-->
 
-
-## <a name="methods"></a>Methods
-The objective of this research is to 
-*   develop a synthetic dataset generation pipeline for quantifyable (structural) design performances
-*   implement, train and evaluate a suitable design meta-model for the forward and inverse design setting
-*   create a demonstrator application of an explainable and intuitive co-pilot for conceptual design. 
-
-We demonstrate the applicability of this approach in the forward as well as inverse design setting for the generic example of a bridge design project in St. Gallen, Switzerland. By integrating our ML algorithms into established Building-Information-Modelling (BIM) software, which is Autodesk Revit 2022 for this project, the proposed framework can easily be transferred to future bridge project scenarios (and beyond, e.g. to housing or office buildings) as soon as the parametric bridge model together with requested boundary conditions and performance criteria are defined within Revit. Therefore, our solution integrates seamlessly into the current design paradigm known by AEC domain experts. In combination with implemented explainable AI methods such as the Sensitivity Analysis (SA), this ubiquitousness ensures acceptance amongst engineers or project managers with limited expertise in ML or AI and fosters wide-spread use of such tools in practice.
-
-
-Visit this <a href="https://wandb.ai/ai4structeng_ethz/Multihead_AE_forward_overstrength_full/reports/Predictive-modelling-and-latent-space-exploration-of-steel-profile-overstrength-factors-using-multi-head-autoencoder-regressors--Vmlldzo0NTQyNTU5" target="_blank"> Weights & Biases project page</a> for interactive details about the hyperparameters of the trained model.
-
-
-
-
-
-
-
-## <a name="content"></a> Project Details
-The pedestrian bridge "Brücke über den Graben" provides a pedestrian crossing from an exit of a building next to a parking garage (start point / SP), over a busy cantonal street and then through the St. Mangen park, to terminate next to a church (end point / EP). The currently existing surroundings of the bridge project as well as the corresponding coordinate system is given as a scanned point cloud within a BIM model in Autodesk Revit, cf. the videos below. 
-
-The city of St. Gallen defined fixed boundary conditions for the project: (i) SP and EP of the bridge are fixed to specific locations together with the request of straight alignments, (ii) a prescribed clearance height over the cantonal street and the path in the park need to be respected, (iii) to minimise cut down of trees due to cultural heritage protection, and (iv) a fixed bridge width of b=2.50 m.
-
-**Project site**<br />
-<img src="https://mkrausai.github.io/research/01_SciML/01_BH_PedestrianBridge_XAI/figs/ProjectSite.png" width="30%" alt="project_site" /><br />
- M 1:750, Basler&Hoffmann 2022<br />
-
-This study develops AI-based meta models for both design situations, forward and inverse design setting, together with respective interaction interfaces, which are described below.
-
-
-# <a name="sec:DesignRepresentation"></a> Design {Representation, Features, and Performances}
-This research adopts the propositions of SIA 112 for chosing the bridge design features, which specifies a level of development (LOD) 300 for the task at hand. The design features define the girder height $$h_{girder}$$ and thickness $$t_{girder}$$, the amount $$n_{p}$$ and dimensions $$h_{p}$$ of the piers as well as parameters $$w,i$$ of the NURBS curve for defining the bridge alignment. For the set of performance metrics $$y = \mathcal{P}(\mathbf{x})$$ we employ structural safety and serviceability (resistances, utilisations, internal actions and displacements) criteria next to structural dynamics aspects (eigenfrequencies), costs (computed via the weight and volume) and the boundary conditions for SP, EP and the trees. The structural performance objectives together with the load definitions for the pedestrian bridge (such as loads due to dead weight, pedestrians, wind, snow and temperature) are derived from currently applicable design standards in Switzerland by SIA 261 and 262. 
-
-# <a name="sec:data"></a> Synthetic Data Generation Pipeline and Dataset
+# <a name="sec:data"></a> Database
 The training of the deep latent generative model is collected in a two-stage approach: a central Latin Hypercube Sampling of the design space is launched at first. At second, the sampled design features $$\mathbf{x}$$ are handed to performance simulators to obtain the performance metrics $$\mathcal{P}(\mathbf{x})$$ as defined before, where analytical formoluae as well as the Finite-Element-Analysis software "Sofistik" is utilised. A parametric template for the FEA-based structural analysis was developed and connected to Revit via zero-touch nodes inside Dynamo for the FEA performance simulator to be able to evaluate the vast amounts of parameter samples in a standardised way.
 
-# <a name="sec:MLmodel"></a> Machine Learning Model
+# <a name="sec:MLmodel"></a> Deep Learning Model
 The ML model used in this study is a variation of Conditional Variational Autoencoders (CVAE) \cite{cvae_sohn}. In light of having to solve both a forward as well as an inverse problem, we forgo feeding the conditional $$\mathbf{y}$$ to the encoder and instead let it predict the performance metrics together with a latent vector in two separate heads as shown below.
 
 **cVAE Model**<br />
@@ -115,48 +91,7 @@ journal = "xx"
 }
 ```
  -->
- 
-<!-- 
 ## <a name="contributors"></a>Contributors
-
-<div id="cover">
-  <img src="https://mkrausai.github.io/img/persons/VeraBalmer.jpg" width="20%" alt="Vera Balmer" /><br />
-  **M.Sc. Vera Balmer**<br />
-  Doctoral Researcher in SciML4AEC at ETH Zurich<br />
-
-  <img src="https://mkrausai.github.io/img/persons/Rafael-Bischof-2.jpg" width="20%" alt="Rafael Bischof" /><br />
-  **M.Sc. Rafael Bischof**<br />
-  Data Scientist (Swiss Data Science Center) and Researcher in SciML4AEC<br />
-
-  <img src="https://mkrausai.github.io/img/persons/bild_sophia.jpeg" width="20%" alt="Sophia Kuhn" /><br />
-  **M.Sc. Sophia Kuhn**<br />
-  Doctoral Researcher in SciML4AEC at ETH Zurich<br />
-
-  <img src="https://mkrausai.github.io/img/persons/Michael6_3.jpg" width="20%" alt="Michael Kraus" /><br />
-  **Dr. Michael A. Kraus, M.Sc.(hons)**<br />
-  Senior Researcher in SciML4AEC and Co-Leader of the Immersive Design Lab of Design++ at ETH Zuric <br />
-</div>
-
-body {
-  background-color: #343434;
-}
-
-#cover {
-  width: 800px;
-  height: 800px;
-  margin: 0 auto;
-}
-
-#cover > img {
-  float: left;
-  border: 2px solid black;
-  width: 45%;
-  margin: 1.66%;
-}
--->
-
-
-<h3 id="beteiligte">Beteiligte</h3>
 <div style="display:flex">
   <div style="flex:1; margin-right:10px">
     <img src="https://mkrausai.github.io/img/persons/Michael6_3.jpg" alt="Michael" style="width:100%">
