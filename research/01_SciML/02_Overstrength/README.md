@@ -157,7 +157,7 @@ body {
   </div>
   <div style="flex:1; margin-right:10px">
     <img src="https://mkrausai.github.io/img/persons/andreasmueller.jpeg" alt="Mueller" style="width:100%">
-    <div style="text-align:center">M.Eng. Andreas Müller<br />
+    <div style="text-align:center">M.Sc. Andreas Müller<br />
 Doctoral Researcher in Steel Structures and SciML4AEC at ETH Zurich <br /></div>
   </div>
   <div style="flex:1; margin-right:10px">
