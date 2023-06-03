@@ -158,14 +158,14 @@ journal = "xx"
 ```
  -->
 ## <a name="contributors"></a>Contributors
-<div style="display:flex">
+<div style="display:flex; justify-content: center;">
   <div style="flex:1; margin-right:10px">
     <img src="https://mkrausai.github.io/img/persons/Michael6_3.jpg" alt="Michael" style="width:60%">
     <div style="text-align:center"> Dr. Michael A. Kraus, M.Sc.(hons) <br />
     Senior Researcher in SciML4AEC and Co-Leader of the Immersive Design Lab of Design++ at ETH Zurich <br /></div>
   </div>
   <div style="flex:1; margin-right:10px">
-    <img src="https://mkrausai.github.io/img/persons/andreasmueller.jpeg" alt="Mueller" style="width:65%">
+    <img src="https://mkrausai.github.io/img/persons/andreasmueller.jpeg" alt="Mueller" style="width:62%">
     <div style="text-align:center">M.Sc. Andreas Müller<br />
 Doctoral Researcher in Steel Structures and SciML4AEC at ETH Zurich <br /></div>
   </div>
@@ -174,18 +174,18 @@ Doctoral Researcher in Steel Structures and SciML4AEC at ETH Zurich <br /></div>
     <div style="text-align:center">M.Sc. Rafael Bischof <br /> Doctoral Researcher in SciML4AEC at ETH Zurich</div>
   </div>
   <div style="flex:1">
-    <img src="https://mkrausai.github.io/img/persons/AndreasTaras.jpg" alt="Taras" style="width:95%">
+    <img src="https://mkrausai.github.io/img/persons/AndreasTaras.jpg" alt="Taras" style="width:80%">
     <div style="text-align:center"> Prof. Dr. Andreas Taras <br /> Professor for Steel Construction and Composite Structures at ETH Zurich </div>
   </div>
 </div>
+
 
 # Contact
 Dr. Michael A. Kraus, M.Sc.(hons)
 Institute für Baustatik und Konstruktion (IBK)
 ETH Zürich
 kraus@ibk.baug.ethz.ch
-https://kaufmann.ibk.ethz.ch/de/personen/mitarbeitende/dr-michael-anton-kraus.html
-
+<a href="https://kaufmann.ibk.ethz.ch/de/personen/mitarbeitende/dr-michael-anton-kraus.html">Visit Dr. Michael Anton Kraus</a>
 
 ------------
 Shield: [![CC BY 4.0][cc-by-shield]][cc-by]
