@@ -29,19 +29,24 @@ The performance of steel structures is influenced by the behavior of their load-
 
 # <a name="sec:Overstrength"></a> The Flexural Overstrength Factor $$s$$
 The flexural overstrength factor $$s$$ is a non-dimensional parameter used for characterizing the ultimate bending capacity of steel beams exceeding the plastic bending strength due to the strain hardening [2]. It is originally ([3],[4]) computed by the ratio of the stress fLB corresponding to complete local buckling development or the lateral torsional buckling to the yield stress $$fy$$: <br />
+<div style="text-align:center;">
 $$s = \frac{f_LB}{f_y} = \frac{M_u}{M_p} $$ <br />
+</div>
 or by the more practical relation using the maximum moment $$M_u$$ to the theoretical full plastic moment $$M_p$$. The ultimate bearing capacity of steel beams can be significantly greater than the plastic bending strength because of strain hardening before complete local buckling or fractures as given in Figure 1 by the generalized moment-rotation curves. The overstrength factor is used for seismic design in the Italian codes OPCM 3274 (2003) and NTC 2018 but neglected for cross-section classes in Eurocode 3 (EN 1993:1-1).
 
 <div style="text-align:center;">
   <img src="https://mkrausai.github.io/research/01_SciML/02_Overstrength/figs/Figure_01.png" width="50%" alt="cVAE_Model" /><br />
   Figure 1: Generalized moment–rotation curve for a steel beam and EN 1993:1-1 classification criteria.<br />
-  </a>
 </div>
 
 # <a name="sec:data"></a> Database
 The databases used for calibrating our deep learning model for predicting the flexural overstrength factor s for CHS, RHS, SHS and I-H steel beams were collected from the available scientific literature. The examined test configurations accounting for different load patterns (i.e. bending moment distribution) and cross-sectional. The databases contain samples covering a wide range of cross-sectional typologies under monotonic loading with different local slenderness ratios. The features consist of geometric properties of the section, mechanical prop-erties of the material, and the shear length of the steel beams.
 
-The data set for circular sections contains 128 samples with features: section diameter $$D$$, thickness $$t$$, shear length $$L_v$$, yield strength $$f_y$$. The data set for I-H sections consists of 76 samples with features: flange width $$bf$$, section depth $$d$$, flange thickness $$t_f$$, web thickness $$t_w$$, shear length $$L_v$$, flange yield stress $$f_{y,flange}$$, web yield stress $$fy,web, ratio of the modulus of elasticity of steel to the hardening modulus $$E/{E_h}$$, and ratio of the strain corresponding to the beginning of hardening to the yield strain $$\epsilon_h/\epsilon_y$$. The data set for RHS-SHS sections comprises of 76 samples with features : section width $$b$$, section depth $$d$$, wall thickness $$t$$, inside corner radius $$r$$, shear length $$L_v$$, yield stress $$f_y$$, modulus ratio $$E/{E_h}$$, and strain ratio $$\epsilon_h/\epsilon_y$$.
+The data set for circular sections contains 128 samples with features: section diameter <span style="white-space: nowrap">DD</span>, thickness <span style="white-space: nowrap">tt</span>, shear length <span style="white-space: nowrap">LvLv​</span>, yield strength <span style="white-space: nowrap">fyfy​</span>.
+
+The data set for I-H sections consists of 76 samples with features: flange width <span style="white-space: nowrap">bfbf</span>, section depth <span style="white-space: nowrap">dd</span>, flange thickness <span style="white-space: nowrap">tftf​</span>, web thickness <span style="white-space: nowrap">twtw​</span>, shear length <span style="white-space: nowrap">LvLv​</span>, flange yield stress <span style="white-space: nowrap">fy,flangefy,flange​</span>, web yield stress <span style="white-space: nowrap">fy,webfy,web</span>, ratio of the modulus of elasticity of steel to the hardening modulus <span style="white-space: nowrap">EEhEh​E​</span>, and ratio of the strain corresponding to the beginning of hardening to the yield strain <span style="white-space: nowrap">ϵhϵyϵy​ϵh​​</span>.
+
+The data set for RHS-SHS sections comprises 76 samples with features: section width <span style="white-space: nowrap">bb</span>, section depth <span style="white-space: nowrap">dd</span>, wall thickness <span style="white-space: nowrap">tt</span>, inside corner radius <span style="white-space: nowrap">rr</span>, shear length <span style="white-space: nowrap">LvLv​</span>, yield stress <span style="white-space: nowrap">fyfy​</span>, modulus ratio <span style="white-space: nowrap">EEhEh​E​</span>, and strain ratio <span style="white-space: nowrap">ϵhϵyϵy​ϵh​​</span>.
 
 
 # <a name="sec:MLmodel"></a> Multi-Head Encoder - Regressor Deep Neural Network (MHER-DNN)
