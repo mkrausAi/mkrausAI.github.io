@@ -28,14 +28,14 @@ The performance of steel structures is influenced by the behavior of their load-
 ## <a name="methods"></a>Methods
 
 # <a name="sec:Overstrength"></a> The Flexural Overstrength Factor $$s$$
-This research adopts the propositions of SIA 112 for chosing the bridge design features, which specifies a level of development (LOD) 300 for the task at hand. The design features define the girder height $$h_{girder}$$ and thickness $$t_{girder}$$, the amount $$n_{p}$$ and dimensions $$h_{p}$$ of the piers as well as parameters $$w,i$$ of the NURBS curve for defining the bridge alignment. For the set of performance metrics $$y = \mathcal{P}(\mathbf{x})$$ we employ structural safety and serviceability (resistances, utilisations, internal actions and displacements) criteria next to structural dynamics aspects (eigenfrequencies), costs (computed via the weight and volume) and the boundary conditions for SP, EP and the trees. The structural performance objectives together with the load definitions for the pedestrian bridge (such as loads due to dead weight, pedestrians, wind, snow and temperature) are derived from currently applicable design standards in Switzerland by SIA 261 and 262. 
-
-The flexural overstrength factor $$s$$ is a non-dimensional parameter used for characterizing the ultimate bending capacity of steel beams exceeding the plastic bending strength due to the strain hardening [2]. It is originally ([3],[4]) computed by the ratio of the stress fLB corresponding to complete local buckling development or the lateral torsional buckling to the yield stress $$fy$$:
-$$s = \frac{f_LB}{f_y} = \frac{M_u}{M_p} $$
+The flexural overstrength factor $$s$$ is a non-dimensional parameter used for characterizing the ultimate bending capacity of steel beams exceeding the plastic bending strength due to the strain hardening [2]. It is originally ([3],[4]) computed by the ratio of the stress fLB corresponding to complete local buckling development or the lateral torsional buckling to the yield stress $$fy$$: <br />
+$$s = \frac{f_LB}{f_y} = \frac{M_u}{M_p} $$ <br />
 or by the more practical relation using the maximum moment $$M_u$$ to the theoretical full plastic moment $$M_p$$. The ultimate bearing capacity of steel beams can be significantly greater than the plastic bending strength because of strain hardening before complete local buckling or fractures as given in Figure 1 by the generalized moment-rotation curves. The overstrength factor is used for seismic design in the Italian codes OPCM 3274 (2003) and NTC 2018 but neglected for cross-section classes in Eurocode 3 (EN 1993:1-1).
 
-<img src="https://mkrausai.github.io/research/01_SciML/02_Overstrength/figs/Figure_01.png" width="50%" alt="VR_Walk" /><br />
-[![VR Walk on the "Brücke über den Graben"](https://youtu.be/g3Hgu1M1gj8/0.jpg)](https://youtu.be/TEeiKn9M20U "VR Walk on the "Brücke über den Graben"")
+<div style="text-align:center;">
+  <img src="https://mkrausai.github.io/research/01_SciML/02_Overstrength/figs/Figure_01.png" alt="Generalized moment–rotation curve for a steel beam and EN 1993:1-1 classification criteria." />
+  </a>
+</div>
 
 
 
