@@ -141,6 +141,8 @@ This study addresses the regression of overstrength factors for specific types o
 ## <a name="WebApp"></a> Web Application
 Now it is your turn to try out our neural network overstrength predictors yourself!
 
+The web apps will be released soon!
+
 
 <!--
 ## <a name="citation"></a>Citation
