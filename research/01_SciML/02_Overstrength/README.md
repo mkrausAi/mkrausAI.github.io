@@ -108,14 +108,14 @@ A parallel coordinate plot, cf. Figure 3, is used to visualize the hyperparamete
 Figure 4 provides plots for comparing predictions  $$\hat{s}$$ and ground truth data $$s$$ for the finally chosen MHER-DNN hyperparameters for all cross sectional data sets (while different markers indicate training, validation and test data sets).
  
 <div style="text-align:center;">
-  <img src="https://mkrausai.github.io/research/01_SciML/02_Overstrength/figs/Figure_08.png" width="70%" alt="Predictioncapability1" /><br />
+  <img src="https://mkrausai.github.io/research/01_SciML/02_Overstrength/figs/Figure_08.png" width="100%" alt="Predictioncapability1" /><br />
   Figure 4: Prediction capability of the MHER-DNN model on the train, validation and test data sets over all cross sections.<br />
 </div><br />
 
 First, it should be noted that the three MHER-DNN cross sectional sub-regression models predict their respective targets very well as proven by the respective reported RMSE, MAE and $$R^2$$ values. However, approximately linear deviation trends with different magnitudes can be observed. In order to investigate the deviations more closely, Fig. 5 compares the performance of the proposed MHER-DNN models by plotting the overstrength ratios of predictions s ̂ against the corresponding experimental normalised by the experimental ground truth values s. 
 
 <div style="text-align:center;">
-  <img src="https://mkrausai.github.io/research/01_SciML/02_Overstrength/figs/Figure_09.png" width="70%" alt="Predictioncapability2" /><br />
+  <img src="https://mkrausai.github.io/research/01_SciML/02_Overstrength/figs/Figure_09.png" width="100%" alt="Predictioncapability2" /><br />
   Figure 5: Prediction capability of the MHER-DNN model on the train, validation and test data sets over all cross sections.<br />
 </div><br />
 
@@ -125,9 +125,9 @@ In Fig. 5, a normalized value of 1.0 represents a perfect estimation and indicat
 A key feature of the proposed MHER-DNN model is inspection of the cross sectional embeddings into the latent space variables of the shared layer. Latent space inspection is a critical step in evaluating the performance of a deep learning model and gaining understanding of the latent structure within the data. In this regard, the latent space is a low-dimensional representation of the cross sections within the data set learned by the MHER-DNN model during training. As the finally chose MHER-DNN possesses a three dimensional latent space, no further dimensionality reduction e.g. via $$t$$-distributed stochastic neighbour embedding (t-SNE) or Uniform Manifold Approximation and Projection (UMAP) projection is necessary for human perception.
 
 <div style="text-align:center;">
-  <img src="https://mkrausai.github.io/research/01_SciML/02_Overstrength/figs/Figure_10.png" width="70%" alt="Parallel_coordinates_plot" /><br />
+  <img src="https://mkrausai.github.io/research/01_SciML/02_Overstrength/figs/Figure_10.png" width="100%" alt="Parallel_coordinates_plot" /><br />
   Figure 6: Visualisation of the 3-D latent space spanned by the coordinates of the embedding layer of MHER-DNN.<br />
-</div>
+</div><br />
 
 Fig. 6 provides a visualisation of the latent space as 3D plot together with projections in the latent dimen-sions as top and side views. Cross sections are indi-cated by markers while the colouring highlights the overstrength factor. By examining the visualization in Fig. 6 humans can get a sense of how the MHER-DNN has learned to separate the cross sectional input data together with detection of clusters in the latent representation of the input data. It especially allows to recognize, that the model detected several cross sectional clusters in the latent space. The individual clusters seem to possess a 1-dimensional intrinsic dimension (as the data are aligned on one line), however multiple branches within the 3D space can be recognized. Further model archi-tecture changes as well as feature engineering is nec-essary to further improve the overall model perfor-mances due to the obvious intrinsic correlation clusters between the cross sections w.r.t. the overstrength.
 
@@ -162,17 +162,17 @@ journal = "xx"
 ## <a name="contributors"></a>Contributors
 <div style="display:flex">
   <div style="flex:1; margin-right:10px">
-    <img src="https://mkrausai.github.io/img/persons/Michael6_3.jpg" alt="Michael" style="width:100%">
+    <img src="https://mkrausai.github.io/img/persons/Michael6_3.jpg" alt="Michael" style="width:60%">
     <div style="text-align:center"> Dr. Michael A. Kraus, M.Sc.(hons) <br />
     Senior Researcher in SciML4AEC and Co-Leader of the Immersive Design Lab of Design++ at ETH Zurich <br /></div>
   </div>
   <div style="flex:1; margin-right:10px">
-    <img src="https://mkrausai.github.io/img/persons/andreasmueller.jpeg" alt="Mueller" style="width:100%">
+    <img src="https://mkrausai.github.io/img/persons/andreasmueller.jpeg" alt="Mueller" style="width:65%">
     <div style="text-align:center">M.Sc. Andreas Müller<br />
 Doctoral Researcher in Steel Structures and SciML4AEC at ETH Zurich <br /></div>
   </div>
   <div style="flex:1; margin-right:10px">
-    <img src="https://mkrausai.github.io/img/persons/Rafael-Bischof.png" alt="Rafi" style="width:100%">
+    <img src="https://mkrausai.github.io/img/persons/Rafael-Bischof.png" alt="Rafi" style="width:60%">
     <div style="text-align:center">M.Sc. Rafael Bischof <br /> Doctoral Researcher in SciML4AEC at ETH Zurich</div>
   </div>
   <div style="flex:1">
