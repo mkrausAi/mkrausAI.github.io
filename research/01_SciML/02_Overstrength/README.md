@@ -59,35 +59,36 @@ The MHER-DNN, cf. Figure 2, is designed with three input heads, one for each cro
 All MHER-DNN hyperparameters together with their search intervalls and final choices are summarized in the following table.
 
 <div style="text-align:center;">
-Table 1: DL architecture search space: hyperparameters and ranges for the gridsearch as well as final hyperparameter choices.<br />
-<table>
-  <tr>
-    <th>Hyperparameter</th>
-    <th>Range</th>
-    <th>Final Choice</th>
-  </tr>
-  <tr>
-    <td># Layers NL</td>
-    <td>[2, 8, 32]</td>
-    <td>8</td>
-  </tr>
-  <tr>
-    <td># Nodes NN</td>
-    <td>[32, 64, 128]</td>
-    <td>64</td>
-  </tr>
-  <tr>
-    <td>Latent Dim dz</td>
-    <td>[2, 3, 10, 15]</td>
-    <td>3</td>
-  </tr>
-  <tr>
-    <td>Dropout Rate rd</td>
-    <td>[0, 0.25]</td>
-    <td>0.25</td>
-  </tr>
-</table>
+  <p>Table 1: DL architecture search space: hyperparameters and ranges for the gridsearch as well as final hyperparameter choices.</p>
+  <table style="margin: 0 auto;">
+    <tr>
+      <th>Hyperparameter</th>
+      <th>Range</th>
+      <th>Final Choice</th>
+    </tr>
+    <tr>
+      <td># Layers NL</td>
+      <td>[2, 8, 32]</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td># Nodes NN</td>
+      <td>[32, 64, 128]</td>
+      <td>64</td>
+    </tr>
+    <tr>
+      <td>Latent Dim dz</td>
+      <td>[2, 3, 10, 15]</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>Dropout Rate rd</td>
+      <td>[0, 0.25]</td>
+      <td>0.25</td>
+    </tr>
+  </table>
 </div>
+
 
 **Training and Validation of MHER-DNN**<br />
 The data sets for CHS, RHS, SHS, I and H cross sections are split into training (80% of $$N_{S,i}$$) set, validation (10% of $$N_{S,i}$$) set and test (10% of $$N_{S,i}$$) set. The data sets were furthermore standardized before training to yield zero mean and unit standard deviation, where a data scaler function per section type was employed and calibrated using the training sets only. Due to the differing sizes of the single cross-sectional data sets within the data base, a custom data loader for consistent batch training was programmed to ensure a fixed batch length during training for the MHER-DNN.
