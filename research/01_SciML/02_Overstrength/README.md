@@ -102,22 +102,22 @@ A parallel coordinate plot, cf. Figure 3, is used to visualize the hyperparamete
 
 <div style="text-align:center;">
   <img src="https://mkrausai.github.io/research/01_SciML/02_Overstrength/figs/Figure_07.png" width="70%" alt="Parallel_coordinates_plot" /><br />
-  Figure 3: Parallel coordinates plot of the hyperparameter tuning together with the MAE results on the test data sets for the cross sections as well as the average MAE score.<br />
-</div>
+  Figure 3: Parallel coordinates plot of the hyperparameter tuning including MAE test data results as well as the average MAE score.<br />
+</div><br />
 
 Figure 4 provides plots for comparing predictions  $$\hat{s}$$ and ground truth data $$s$$ for the finally chosen MHER-DNN hyperparameters for all cross sectional data sets (while different markers indicate training, validation and test data sets).
  
 <div style="text-align:center;">
   <img src="https://mkrausai.github.io/research/01_SciML/02_Overstrength/figs/Figure_08.png" width="70%" alt="Predictioncapability1" /><br />
   Figure 4: Prediction capability of the MHER-DNN model on the train, validation and test data sets over all cross sections.<br />
-</div>
+</div><br />
 
 First, it should be noted that the three MHER-DNN cross sectional sub-regression models predict their respective targets very well as proven by the respective reported RMSE, MAE and $$R^2$$ values. However, approximately linear deviation trends with different magnitudes can be observed. In order to investigate the deviations more closely, Fig. 5 compares the performance of the proposed MHER-DNN models by plotting the overstrength ratios of predictions s ̂ against the corresponding experimental normalised by the experimental ground truth values s. 
 
 <div style="text-align:center;">
   <img src="https://mkrausai.github.io/research/01_SciML/02_Overstrength/figs/Figure_09.png" width="70%" alt="Predictioncapability2" /><br />
   Figure 5: Prediction capability of the MHER-DNN model on the train, validation and test data sets over all cross sections.<br />
-</div>
+</div><br />
 
 In Fig. 5, a normalized value of 1.0 represents a perfect estimation and indicates the most accurate prediction performance area. It can be seen, that most values are within a precision band of $$+/- 10\%$$, where the linear patterns of predictive deviations confirm model dependent heteroscedasticity. The sub-model deviations manifest in the form that smaller value ranges (on the left side of the diagrams) are generally underestimating overstrength whereas larger value ranges are rather overestimated. The coefficients of variation (CoV) for the cross sectional MHER-DNN sub-models are around 0.14 and would now allow for the determination of the design values for predictions given by the sub-models together with partial safety factors in accordance with Annex D of EN 1990, which is omitted at this point.
 
