@@ -69,12 +69,12 @@ All MHER-DNN hyperparameters together with their search intervalls and final cho
       <th>Final Choice</th>
     </tr>
     <tr>
-      <td># Layers $$N_L$$</td>
+      <td>Number of Layers $$N_L$$</td>
       <td>[2, 8, 32]</td>
       <td>8</td>
     </tr>
     <tr>
-      <td># Nodes $$N_N$$</td>
+      <td>Number of Nodes $$N_N$$</td>
       <td>[32, 64, 128]</td>
       <td>64</td>
     </tr>
