@@ -58,7 +58,7 @@ The MHER-DNN is designed with three input heads, one for each cross-sectional ty
 
 All MHER-DNN hyperparameters together with their search intervalls and final choices are summarized in the following table.
 
-DL architecture search space: hyperparameters and ranges for the gridsearch as well as final hyperparameter choices.<br />
+Table 1: DL architecture search space: hyperparameters and ranges for the gridsearch as well as final hyperparameter choices.<br />
 <table>
   <tr>
     <th>Hyperparameter</th>
@@ -88,34 +88,62 @@ DL architecture search space: hyperparameters and ranges for the gridsearch as w
 </table>
 
 
+**Training and Validation of MHER-DNN**<br />
+The data sets for CHS, RHS, SHS, I and H cross sections are split into training (80% of $$N_{S,i}$$) set, validation (10% of $$N_{S,i}$$) set and test (10% of $$N_{S,i}$$) set. The data sets were furthermore standardized before training to yield zero mean and unit standard deviation, where a data scaler function per section type was employed and calibrated using the training sets only. Due to the differing sizes of the single cross-sectional data sets within the data base, a custom data loader for consistent batch training was programmed to ensure a fixed batch length during training for the MHER-DNN.
+
+A hyperparameter search was conducted in order to find the MHER-DNN architecture with optimal performance. The hyperparameters investigated are: number of layers $$N_L$$, number of nodes $$N_N$$ nodes, latent space dimension $$d_z$$, and dropout rate $$r_d$$, while the activation function was not changed, cf. table 1. The hyperparameters value ranges spanning the MHER-DNN’s search space as well as the final choices are provided in Table 1, where a grid search approach was used to find the optimal combination of hyperparameters. The results of the hyperparameter tuning can be found at our Weights&Biases <a href="https://wandb.ai/ai4structeng_ethz/Multihead_AE_forward_overstrength_full/reports/Predictive-modelling-and-latent-space-exploration-of-steel-profile-overstrength-factors-using-multi-head-autoencoder-regressors--Vmlldzo0NTQyNTU5" target="_blank"> project homepage </a>.
+
+Each MHER-DNN training run consisted of 2,000 update epochs with 10 training and 5 validation steps per epoch. We employed a MSE loss as objective without further regularization, where the Adam optimizer with initial learning rate of 0.001 is used. The training also enforces callbacks for learning rate reduction and early stopping for tracking the validation loss with patience of 120 respectively 200 
+
+
+A parallel coordinate plot was used in Fig. 7 to visual-ize the hyperparameters of MHER-DNN as well as the MAE computed by MHER-DNN on the test data sets of the cross sections. The parallel coordinate plot clearly highlights a trade-off between the test set MAEs of the overstrength factor $$s$$ of the three NN models and their hyperparameter choices without a clear favourite choice. Hence the choice of the final MHER-DNN hy-perparameters can only be made in a Pareto optimal sense. Therefore we use the average MAE on the test sets (represented by the colorbar) as decision criterion for choosing the values reported in table 1. 
+
+<div style="text-align:center;">
+  <img src="https://mkrausai.github.io/research/01_SciML/02_Overstrength/figs/Figure_07.png" width="70%" alt="Parallel_coordinates_plot" /><br />
+  Parallel coordinates plot of the hyperparameter tuning together with the MAE results on the test data sets for the cross sections as well as the average MAE score.<br />
+  </a>
+</div>
+
+
+Fig. 8 provides plots for comparing predictions s ̂ and ground truth data s for the finally chosen MHER-DNN hyperparameters for all cross sectional data sets (while different markers indicate training, validation and test data sets).
+ 
+<div style="text-align:center;">
+  <img src="https://mkrausai.github.io/research/01_SciML/02_Overstrength/figs/Figure_07.png" width="70%" alt="Parallel_coordinates_plot" /><br />
+  Parallel coordinates plot of the hyperparameter tuning together with the MAE results on the test data sets for the cross sections as well as the average MAE score.<br />
+  </a>
+</div>
+
+Figure 8 Prediction capability of the MHER-DNN model on the train, validation and test data sets over all cross sections.
+First, it should be noted that the three MHER-DNN cross sectional sub-regression models predict their respective targets very well as proven by the respective reported RMSE, MAE and R² values. However, approximately linear deviation trends with different magnitudes can be observed. In order to investigate the deviations more closely, Fig. 9 compares the performance of the proposed MHER-DNN models by plotting the overstrength ratios of predictions s ̂ against the corresponding experimental normalised by the experimental ground truth values s. 
+ 
+Figure 9 Prediction capability of the MHER-DNN model on the train, validation and test data sets over all cross sections.
+In Fig. 9, a normalized value of 1.0 represents a perfect estimation and indicates the most accurate prediction performance area. It can be seen, that most values are within a precision band of +/- 10%, where the linear patterns of predictive deviations confirm model dependent heteroscedasticity. The sub-model deviations manifest in the form that smaller value ranges (on the left side of the diagrams) are generally underestimating overstrength whereas larger value ranges are rather overestimated. The coefficients of variation (CoV) for the cross sectional MHER-DNN sub-models are around 0.14 and would now allow for the determination of the design values for predictions given by the sub-models together with partial safety factors in accordance with Annex D of EN 1990, which is omitted at this point.
+
+<div style="text-align:center;">
+  <img src="https://mkrausai.github.io/research/01_SciML/02_Overstrength/figs/Figure_07.png" width="70%" alt="Parallel_coordinates_plot" /><br />
+  Parallel coordinates plot of the hyperparameter tuning together with the MAE results on the test data sets for the cross sections as well as the average MAE score.<br />
+  </a>
+</div>
+
+
+# <a name="sec:sensitivity"></a> Latent Space Inspection and Interpretation
+A key feature of the proposed MHER-DNN model is inspection of the cross sectional embeddings into the latent space variables of the shared layer. Latent space inspection is a critical step in evaluating the performance of a deep learning model and gaining understanding of the latent structure within the data. In this regard, the latent space is a low-dimensional representation of the cross sections within the data set learned by the MHER-DNN model during training. As the finally chose MHER-DNN possesses a three dimensional latent space, no further dimensionality reduction e.g. via t-distributed stochastic neighbour embedding (t-SNE) or Uniform Manifold Approximation and Projection (UMAP) projection is necessary for human perception.
+
+<div style="text-align:center;">
+  <img src="https://mkrausai.github.io/research/01_SciML/02_Overstrength/figs/Figure_10.png" width="70%" alt="Parallel_coordinates_plot" /><br />
+  Visualisation of the 3-D latent space spanned by the coordinates of the embedding layer of MHER-DNN.<br />
+  </a>
+</div>
+
+Fig. 10 provides a visualisation of the latent space as 3D plot together with projections in the latent dimen-sions as top and side views. Cross sections are indi-cated by markers while the colouring highlights the overstrength factor. By examining the visualization in Fig. 10 humans can get a sense of how the MHER-DNN has learned to separate the cross sectional input data together with detection of clusters in the latent representation of the input data.
 
 
 
-
-
-# <a name="sec:sensitivity"></a> Explainability through Design Sensitivity Analysis
-This research adopts the idea of Sensitivity Analysis (SA), which is well-known in Finite-Element-Analysis by taking the derivative of the performance metrics w.r.t. the design variables Computing these derivatives in established solvers such as the FEM is expensive, while deep learning models, such as the proposed CVAE of this project, deliver these very efficiently through Automatic Differentiation (AD). When inspecting the sensitivity of a performance metric $$\frac{\partial \mathbf{\hat{y}_i}}{\partial \mathbf{x}}$$ for a certain design $$\mathbf{x}$$, the designer receives information in which direction the design variables should be changed in order to improve the particular performance attribute. Furthermore, the distribution of sensitivities over a large set of designs yields information about the network's decision-making. An expert designer with prior knowledge in the design, analysis and construction of bridges can therefore, to a certain extent, estimate the model's reliability based on the relations it found between the features.
-%
-
-## <a name="sec:Results"></a> Results and Discussion
-
-The results of the hyperparameter tuning can be found at our Weights&Biases <a href="https://wandb.ai/ai4structeng_ethz/Multihead_AE_forward_overstrength_full/reports/Predictive-modelling-and-latent-space-exploration-of-steel-profile-overstrength-factors-using-multi-head-autoencoder-regressors--Vmlldzo0NTQyNTU5" target="_blank"> project homepage </a>.
-
-
-
-We sampled 18'000 instances of the pedestrian bridges together with their performances within the generative design as described before to form the dataset for subsequent CVAE training. While the Latin-Hypercube-Sampling of the Design space was conducted in a few seconds, obtaining performances of a batch of 600 design instances via FEA took on average around 55 minutes.
-
-Below we show the prototype of a user interface for the inverse design situation developed within Revit Dynamo. It provides the user with sliders and check-boxes, allowing to set desired performance metrics such as ranges for costs or the maximum structural utilisation in the ultimate as well as serviceability limit state. More fine grained requests for different objectives, as well as an additional visualisation of the latent space and the mapping of the objectives, is also possible, yet has been omitted for the sake of clearness. The right hand side of the user interface displays the sensitivity plots as well as a scatter plot for finding the Pareto front. Finally, a rendering of the generated bridge is shown, which can be inspected either on the screen in 2D, or in 3D through virtual reality on smartphones or dedicated devices.
-
-We demonstrated our developments to a selected group of researchers and practitioners (15 persons) within a hands-on session. The collected feedback towards ergonomics, efficiency and quality prove our framework to be intuitive, efficient, reliable and to bear a great potential for applications in practice.
-
-<img src="https://mkrausai.github.io/research/01_SciML/01_BH_PedestrianBridge_XAI/figs/XAI_Overview.PNG" width="80%" alt="XAI_Overview" /><br />
-[![Explainable AI Interface for Forward and Inverse Pedestrian Bridge Design](https://youtu.be/6pVvFye_5ko/0.jpg)](https://youtu.be/GbXYkEoFv9Q "Explainable AI Interface for Forward and Inverse Pedestrian Bridge Design")
 
 ## <a name="sec:Conclusions"></a> Conclusions
-Our proposed framework for design subspace learning establishes a new paradigm for performance-conditioned exploration of design spaces, which is neither an optimisation setting nor a random process. Rather, it provides an intuitive and efficient cartography of the vastness of these design spaces. Instead of replacing human intuition with predefined, deterministic, quantitative rules, the AI acts as a design collaborator/co-pilot that augments the human designer's intuition on the problem at hand.
 
-This research provides a variation of CVAEs tailored to forward and inverse design situations. We showed the potential of our CVAE in meta-modelling (i) the forward problem by providing a surrogate to estimate more efficiently and quickly design performances given design features, (ii) compression of complex design spaces into continuous, smooth, low-dimensional design subspaces. With a forward pass through our CVAE being extremely efficient, it can provide performance conditioned designs in quasi real-time and thus augment human designers by providing instant feedback and proposals during the iterative prototyping phase. Furthermore, with analytical derivatives inherently provided in neural networks, we demonstrated that the sensitivity analysis serves as powerful tool for both design optimisation as well as model interpretability. The latter is crucial for building trust and achieving wide acceptance of this kind of design augmentation tools in the AEC domain. The collected user responses prove our framework possesses the potential to find wide application in industry and research as a co-pilot for conceptual design studies in the AEC domain beyond pedestrian bridges.
+This study addresses the regression of overstrength factors for specific types of steel sections. We propose novel methods for formulating relations between cross-sectional features and the overstrength of beams in CHS, RHS, SHS, I, and H sections. We introduce a multi-head encoder-regressor Deep Neural Network (MHER-DNN) architecture to predict the overstrength factor and learn a compressed representation of section-specific inputs for regression and inspection purposes. Experimental data for different cross sections are used to train and validate the MHER-DNN. The model shows reasonable precision and accuracy compared to existing models. We also explore the disentanglement of the latent space representation of the MHER-DNN, allowing for common feature derivation and human interpretation. Future research involves further tuning of hyperparameters, investigating hybrid autoencoder-multi-head regressor architectures, and establishing Eurocode-compliant models for engineering design practice.
+
 
 
 ## <a name="sec:WebApp"></a> Web Application
