@@ -1,4 +1,4 @@
-<!--https://mkrausai.github.io/research/01_SciML/01_BH_PedestrianBridge_XAI/-->
+<!--https://mkrausai.github.io/research/01_SciML/02_Overstrength-->
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=default'></script>
 
 
@@ -22,15 +22,8 @@ This research investigates the suitability and interpretability of a data-driven
 The publication can be found <a href="https://mkrausai.github.io/ResearchWork/published/20230422_Kraus_Mueller_Bischof_Taras_Overstrength.pdf" target="_blank"> here</a>.
 
 
-
 ## <a name="intro"></a>Introduction
-The performance of steel structures is influenced by the behavior of their load-bearing components, particularly the flexural characteristics. Designing steel constructions that can provide sufficient local ductility for the development of plastic hinges while maintaining moment capacity is crucial for ensuring a global dissipative mechanism. In the context of bending steel beams, two key parameters, rotation capacity (r) and flexural overstrength (s), play a decisive role. Understanding these parameters is essential for achieving safe and reliable structural designs, especially when considering seismic codes such as EN 1998.
-
-Accurately quantifying the maximum bending moment experienced by beams is crucial for the design of non-dissipative elements, like connections and columns. However, current seismic codes often underestimate the actual ultimate flexural strength of steel beams due to the lack of comprehensive formulas covering various cross-section types and their geometric and mechanical aspects.
-
-While empirical methods exist to estimate the rotation capacity (r) and flexural overstrength (s) of steel members, there is a need for comprehensive analytical estimation, specifically for circular (CHS), rectangular (RHS), and square (SHS) hollow sections, as well as I and H profiles. This study aims to develop a precise and efficient deep learning technique for predicting the flexural overstrength factor of steel beams with different cross sections under pure bending. This technique will enable the identification of latent correlations and provide a better understanding of cross-sectional similarities concerning flexural overstrength (s).
-
-
+The performance of steel structures is influenced by the behavior of their load-bearing components, particularly the flexural characteristics. Designing steel constructions that can provide sufficient local ductility for the development of plastic hinges while maintaining moment capacity is crucial for ensuring a global dissipative mechanism. In the context of bending steel beams, two key parameters, rotation capacity ($$r$$) and flexural overstrength ($$s$$), play a decisive role. Understanding these parameters is essential for achieving safe and reliable structural designs, especially when considering seismic codes such as EN 1998. While empirical methods exist to estimate the rotation capacity $$r$$ and flexural overstrength $$s$$ of steel members, there is a need for comprehensive analytical estimation, specifically for circular (CHS), rectangular (RHS), and square (SHS) hollow sections, as well as I and H profiles. This study aims to develop a precise and efficient deep learning technique for predicting the flexural overstrength factor of steel beams with different cross sections under pure bending. This technique will enable the identification of latent correlations and provide a better understanding of cross-sectional similarities concerning flexural overstrength $$s$$.
 
 ## <a name="methods"></a>Methods
 
@@ -62,6 +55,11 @@ This research adopts the idea of Sensitivity Analysis (SA), which is well-known 
 %
 
 ## <a name="sec:Results"></a> Results and Discussion
+
+The results of the hyperparameter tuning can be found at our Weights&Biases <a href="https://wandb.ai/ai4structeng_ethz/Multihead_AE_forward_overstrength_full/reports/Predictive-modelling-and-latent-space-exploration-of-steel-profile-overstrength-factors-using-multi-head-autoencoder-regressors--Vmlldzo0NTQyNTU5" target="_blank"> project homepage </a>.
+
+
+
 We sampled 18'000 instances of the pedestrian bridges together with their performances within the generative design as described before to form the dataset for subsequent CVAE training. While the Latin-Hypercube-Sampling of the Design space was conducted in a few seconds, obtaining performances of a batch of 600 design instances via FEA took on average around 55 minutes.
 
 Below we show the prototype of a user interface for the inverse design situation developed within Revit Dynamo. It provides the user with sliders and check-boxes, allowing to set desired performance metrics such as ranges for costs or the maximum structural utilisation in the ultimate as well as serviceability limit state. More fine grained requests for different objectives, as well as an additional visualisation of the latent space and the mapping of the objectives, is also possible, yet has been omitted for the sake of clearness. The right hand side of the user interface displays the sensitivity plots as well as a scatter plot for finding the Pareto front. Finally, a rendering of the generated bridge is shown, which can be inspected either on the screen in 2D, or in 3D through virtual reality on smartphones or dedicated devices.
@@ -75,6 +73,14 @@ We demonstrated our developments to a selected group of researchers and practiti
 Our proposed framework for design subspace learning establishes a new paradigm for performance-conditioned exploration of design spaces, which is neither an optimisation setting nor a random process. Rather, it provides an intuitive and efficient cartography of the vastness of these design spaces. Instead of replacing human intuition with predefined, deterministic, quantitative rules, the AI acts as a design collaborator/co-pilot that augments the human designer's intuition on the problem at hand.
 
 This research provides a variation of CVAEs tailored to forward and inverse design situations. We showed the potential of our CVAE in meta-modelling (i) the forward problem by providing a surrogate to estimate more efficiently and quickly design performances given design features, (ii) compression of complex design spaces into continuous, smooth, low-dimensional design subspaces. With a forward pass through our CVAE being extremely efficient, it can provide performance conditioned designs in quasi real-time and thus augment human designers by providing instant feedback and proposals during the iterative prototyping phase. Furthermore, with analytical derivatives inherently provided in neural networks, we demonstrated that the sensitivity analysis serves as powerful tool for both design optimisation as well as model interpretability. The latter is crucial for building trust and achieving wide acceptance of this kind of design augmentation tools in the AEC domain. The collected user responses prove our framework possesses the potential to find wide application in industry and research as a co-pilot for conceptual design studies in the AEC domain beyond pedestrian bridges.
+
+
+## <a name="sec:WebApp"></a> Web Application
+Now it is turn to try out our neural network overstrength predictors yourself. Just follow these steps:
+1) 
+
+
+
 
 <!--
 ## <a name="citation"></a>Citation
