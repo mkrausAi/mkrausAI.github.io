@@ -69,22 +69,22 @@ All MHER-DNN hyperparameters together with their search intervalls and final cho
       <th>Final Choice</th>
     </tr>
     <tr>
-      <td># Layers NL</td>
+      <td># Layers $$N_L$$</td>
       <td>[2, 8, 32]</td>
       <td>8</td>
     </tr>
     <tr>
-      <td># Nodes NN</td>
+      <td># Nodes $$N_N$$</td>
       <td>[32, 64, 128]</td>
       <td>64</td>
     </tr>
     <tr>
-      <td>Latent Dim dz</td>
+      <td>Latent Dim $$d_z$$</td>
       <td>[2, 3, 10, 15]</td>
       <td>3</td>
     </tr>
     <tr>
-      <td>Dropout Rate rd</td>
+      <td>Dropout Rate $$r_d$$</td>
       <td>[0, 0.25]</td>
       <td>0.25</td>
     </tr>
