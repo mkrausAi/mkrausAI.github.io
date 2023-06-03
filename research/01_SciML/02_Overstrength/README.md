@@ -50,10 +50,11 @@ This research proposes a novel DL architecture called multi-head encoder - regre
 **MHER-DNN Model**<br />
 The MHER-DNN, cf. Figure 2, is designed with three input heads, one for each cross-sectional type, i.e. CHS, RHS, SHS, and I as well as H. The input heads with feature dimensions $$d_{CHS} = 4$$, $$d_{RHSSHS} = 8$$ and $$d_{IH} = 9$$ consist of fully connected Multi-Layer Perceptron (MLP) networks with ‘relu’ activation function, batch normalisation as well as dropout layers and feed into a shared embed-ding layer of dimension $$d_z$$, which learns the similarities and differences between the cross-section types. The embedding layer output is then passed to the regressor MLP network (also with batch normalisation as well as dropout layers) for predicting the overstrength factor s given cross-sectional features for circular, RHS/SHS, and I/H profiles. The MLPs are designed as encoders with decreasing layer width, starting with NN nodes and a subsequent shrinkage at a rate of $$1/N_L$$.
 
-<div style="text-align:center;">
+<div style="text-align:center; white-space: nowrap;">
   <img src="https://mkrausai.github.io/research/01_SciML/02_Overstrength/figs/Figure_05.png" width="50%" alt="cVAE_Model" /><br />
-  Figure 2: Multi-head encoder – Regressor Deep Neural Network (MHER-DNN) with shared embedding layer for predicting the overstrength factor $$s$$ given cross-sectional features for CHS, RHS, SHS, I and H profiles.<br />
+  Figure 2: Multi-head encoder – Regressor Deep Neural Network (MHER-DNN) with shared embedding layer for predicting the overstrength factor \(s\) given cross-sectional features for CHS, RHS, SHS, I and H profiles.<br />
 </div>
+
 
 All MHER-DNN hyperparameters together with their search intervalls and final choices are summarized in the following table.
 
