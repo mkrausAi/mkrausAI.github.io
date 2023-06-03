@@ -53,8 +53,8 @@ The MHER-DNN, cf. Figure 2, is designed with three input heads, one for each cro
 
 <div style="text-align:center; white-space: nowrap;">
   <img src="https://mkrausai.github.io/research/01_SciML/02_Overstrength/figs/Figure_05.png" width="50%" alt="cVAE_Model" /><br />
-  Figure 2: Multi-head encoder – Regressor Deep Neural Network (MHER-DNN) with shared embedding layer for predicting the overstrength factor \(s\) given 
-  cross-sectional features for CHS, RHS, SHS, I and H profiles.<br />
+  Figure 2: Multi-head encoder – Regressor Deep Neural Network (MHER-DNN) with shared embedding layer for predicting the overstrength factor \(s\) <br />
+  given cross-sectional features for CHS, RHS, SHS, I and H profiles.<br />
 </div>
 <br />
 
@@ -160,17 +160,21 @@ journal = "xx"
  -->
 ## <a name="contributors"></a>Contributors
 <div style="display:flex; justify-content: center;">
+  <div style="flex:1">
     <img src="https://mkrausai.github.io/img/persons/Michael6_3.jpg" alt="Michael" style="width:60%">
     <div style="text-align:center"> Dr. Michael A. Kraus, M.Sc.(hons) <br />
     Senior Researcher in SciML4AEC and Co-Leader of the Immersive Design Lab of Design++ at ETH Zurich <br /></div>
   </div>
+  <div style="flex:1">
     <img src="https://mkrausai.github.io/img/persons/andreasmueller.jpeg" alt="Mueller" style="width:62%">
     <div style="text-align:center">M.Sc. Andreas Müller<br />
 Doctoral Researcher in Steel Structures and SciML4AEC at ETH Zurich <br /></div>
   </div>
+  <div style="flex:1">
     <img src="https://mkrausai.github.io/img/persons/Rafael-Bischof.png" alt="Rafi" style="width:60%">
     <div style="text-align:center">M.Sc. Rafael Bischof <br /> Doctoral Researcher in SciML4AEC at ETH Zurich</div>
   </div>
+  <div style="flex:1">
     <img src="https://mkrausai.github.io/img/persons/AndreasTaras.jpg" alt="Taras" style="width:80%">
     <div style="text-align:center"> Prof. Dr. Andreas Taras <br /> Professor for Steel Construction and Composite Structures at ETH Zurich </div>
   </div>
