@@ -34,7 +34,7 @@ or by the more practical relation using the maximum moment $$M_u$$ to the theore
 
 <div style="text-align:center;">
   <img src="https://mkrausai.github.io/research/01_SciML/02_Overstrength/figs/Figure_01.png" width="50%" alt="cVAE_Model" /><br />
-  Generalized moment–rotation curve for a steel beam and EN 1993:1-1 classification criteria.<br />
+  Figure 1: Generalized moment–rotation curve for a steel beam and EN 1993:1-1 classification criteria.<br />
   </a>
 </div>
 
@@ -48,11 +48,11 @@ The data set for circular sections contains 128 samples with features: section d
 This research proposes a novel DL architecture called multi-head encoder - regressor Deep Neural Network (MHER-DNN) for twofold use: (i) prediction of the overstrength factor s for five cross section types (CHS, SHS, RHS, I and H) of various steel grades, and (ii) learning a compressed representation of the cross section specific inputs for subsequent regression but also domain-informed inspection. Note, that the MHER-DNN architecture as provided in Fig. 5 is solely used for training as proxy combining the individual models (without the other heads), which have to be used at inference resp. prediction. Inspection of the latent parameters and cross-sectional similarities can be executed on the shared embedding layer.
 
 **MHER-DNN Model**<br />
-The MHER-DNN is designed with three input heads, one for each cross-sectional type, i.e. CHS, RHS, SHS, and I as well as H. The input heads with feature dimensions $$d_{CHS} = 4$$, $$d_{RHSSHS} = 8$$ and $$d_{IH} = 9$$ consist of fully connected Multi-Layer Perceptron (MLP) networks with ‘relu’ activation function, batch normalisation as well as dropout layers and feed into a shared embed-ding layer of dimension $$d_z$$, which learns the similarities and differences between the cross-section types. The embedding layer output is then passed to the regressor MLP network (also with batch normalisation as well as dropout layers) for predicting the overstrength factor s given cross-sectional features for circular, RHS/SHS, and I/H profiles. The MLPs are designed as encoders with decreasing layer width, starting with NN nodes and a subsequent shrinkage at a rate of $$1/N_L$$.
+The MHER-DNN, cf. Figure 2, is designed with three input heads, one for each cross-sectional type, i.e. CHS, RHS, SHS, and I as well as H. The input heads with feature dimensions $$d_{CHS} = 4$$, $$d_{RHSSHS} = 8$$ and $$d_{IH} = 9$$ consist of fully connected Multi-Layer Perceptron (MLP) networks with ‘relu’ activation function, batch normalisation as well as dropout layers and feed into a shared embed-ding layer of dimension $$d_z$$, which learns the similarities and differences between the cross-section types. The embedding layer output is then passed to the regressor MLP network (also with batch normalisation as well as dropout layers) for predicting the overstrength factor s given cross-sectional features for circular, RHS/SHS, and I/H profiles. The MLPs are designed as encoders with decreasing layer width, starting with NN nodes and a subsequent shrinkage at a rate of $$1/N_L$$.
 
 <div style="text-align:center;">
   <img src="https://mkrausai.github.io/research/01_SciML/02_Overstrength/figs/Figure_05.png" width="50%" alt="cVAE_Model" /><br />
-  Multi-head encoder – Regressor Deep Neural Network (MHER-DNN) with shared embedding layer for predicting the overstrength factor $$s$$ given cross-sectional features for CHS, RHS, SHS, I and H profiles.<br />
+  Figure 2: Multi-head encoder – Regressor Deep Neural Network (MHER-DNN) with shared embedding layer for predicting the overstrength factor $$s$$ given cross-sectional features for CHS, RHS, SHS, I and H profiles.<br />
   </a>
 </div>
 
@@ -96,54 +96,47 @@ A hyperparameter search was conducted in order to find the MHER-DNN architecture
 Each MHER-DNN training run consisted of 2,000 update epochs with 10 training and 5 validation steps per epoch. We employed a MSE loss as objective without further regularization, where the Adam optimizer with initial learning rate of 0.001 is used. The training also enforces callbacks for learning rate reduction and early stopping for tracking the validation loss with patience of 120 respectively 200 
 
 
-A parallel coordinate plot was used in Fig. 7 to visual-ize the hyperparameters of MHER-DNN as well as the MAE computed by MHER-DNN on the test data sets of the cross sections. The parallel coordinate plot clearly highlights a trade-off between the test set MAEs of the overstrength factor $$s$$ of the three NN models and their hyperparameter choices without a clear favourite choice. Hence the choice of the final MHER-DNN hy-perparameters can only be made in a Pareto optimal sense. Therefore we use the average MAE on the test sets (represented by the colorbar) as decision criterion for choosing the values reported in table 1. 
+A parallel coordinate plot, cf. Figure 3, is used to visualize the hyperparameters of MHER-DNN as well as the MAE computed by MHER-DNN on the test data sets of the cross sections. The parallel coordinate plot clearly highlights a trade-off between the test set MAEs of the overstrength factor $$s$$ of the three NN models and their hyperparameter choices without a clear favourite choice. Hence the choice of the final MHER-DNN hy-perparameters can only be made in a Pareto optimal sense. Therefore we use the average MAE on the test sets (represented by the colorbar) as decision criterion for choosing the values reported in table 1. 
 
 <div style="text-align:center;">
   <img src="https://mkrausai.github.io/research/01_SciML/02_Overstrength/figs/Figure_07.png" width="70%" alt="Parallel_coordinates_plot" /><br />
-  Parallel coordinates plot of the hyperparameter tuning together with the MAE results on the test data sets for the cross sections as well as the average MAE score.<br />
+  Figure 3: Parallel coordinates plot of the hyperparameter tuning together with the MAE results on the test data sets for the cross sections as well as the average MAE score.<br />
   </a>
 </div>
 
-
-Fig. 8 provides plots for comparing predictions s ̂ and ground truth data s for the finally chosen MHER-DNN hyperparameters for all cross sectional data sets (while different markers indicate training, validation and test data sets).
+Figure 4 provides plots for comparing predictions  $$\hat{s}$$ and ground truth data $$s$$ for the finally chosen MHER-DNN hyperparameters for all cross sectional data sets (while different markers indicate training, validation and test data sets).
  
 <div style="text-align:center;">
-  <img src="https://mkrausai.github.io/research/01_SciML/02_Overstrength/figs/Figure_07.png" width="70%" alt="Parallel_coordinates_plot" /><br />
-  Parallel coordinates plot of the hyperparameter tuning together with the MAE results on the test data sets for the cross sections as well as the average MAE score.<br />
+  <img src="https://mkrausai.github.io/research/01_SciML/02_Overstrength/figs/Figure_08.png" width="70%" alt="Predictioncapability1" /><br />
+  Figure 4: Prediction capability of the MHER-DNN model on the train, validation and test data sets over all cross sections.<br />
   </a>
 </div>
 
-Figure 8 Prediction capability of the MHER-DNN model on the train, validation and test data sets over all cross sections.
-First, it should be noted that the three MHER-DNN cross sectional sub-regression models predict their respective targets very well as proven by the respective reported RMSE, MAE and R² values. However, approximately linear deviation trends with different magnitudes can be observed. In order to investigate the deviations more closely, Fig. 9 compares the performance of the proposed MHER-DNN models by plotting the overstrength ratios of predictions s ̂ against the corresponding experimental normalised by the experimental ground truth values s. 
- 
-Figure 9 Prediction capability of the MHER-DNN model on the train, validation and test data sets over all cross sections.
-In Fig. 9, a normalized value of 1.0 represents a perfect estimation and indicates the most accurate prediction performance area. It can be seen, that most values are within a precision band of +/- 10%, where the linear patterns of predictive deviations confirm model dependent heteroscedasticity. The sub-model deviations manifest in the form that smaller value ranges (on the left side of the diagrams) are generally underestimating overstrength whereas larger value ranges are rather overestimated. The coefficients of variation (CoV) for the cross sectional MHER-DNN sub-models are around 0.14 and would now allow for the determination of the design values for predictions given by the sub-models together with partial safety factors in accordance with Annex D of EN 1990, which is omitted at this point.
+First, it should be noted that the three MHER-DNN cross sectional sub-regression models predict their respective targets very well as proven by the respective reported RMSE, MAE and $$R^2$$ values. However, approximately linear deviation trends with different magnitudes can be observed. In order to investigate the deviations more closely, Fig. 5 compares the performance of the proposed MHER-DNN models by plotting the overstrength ratios of predictions s ̂ against the corresponding experimental normalised by the experimental ground truth values s. 
 
 <div style="text-align:center;">
-  <img src="https://mkrausai.github.io/research/01_SciML/02_Overstrength/figs/Figure_07.png" width="70%" alt="Parallel_coordinates_plot" /><br />
-  Parallel coordinates plot of the hyperparameter tuning together with the MAE results on the test data sets for the cross sections as well as the average MAE score.<br />
+  <img src="https://mkrausai.github.io/research/01_SciML/02_Overstrength/figs/Figure_09.png" width="70%" alt="Predictioncapability2" /><br />
+  Figure 5: Prediction capability of the MHER-DNN model on the train, validation and test data sets over all cross sections.<br />
   </a>
 </div>
 
+In Fig. 5, a normalized value of 1.0 represents a perfect estimation and indicates the most accurate prediction performance area. It can be seen, that most values are within a precision band of $$+/- 10\%$$, where the linear patterns of predictive deviations confirm model dependent heteroscedasticity. The sub-model deviations manifest in the form that smaller value ranges (on the left side of the diagrams) are generally underestimating overstrength whereas larger value ranges are rather overestimated. The coefficients of variation (CoV) for the cross sectional MHER-DNN sub-models are around 0.14 and would now allow for the determination of the design values for predictions given by the sub-models together with partial safety factors in accordance with Annex D of EN 1990, which is omitted at this point.
 
 # <a name="sec:sensitivity"></a> Latent Space Inspection and Interpretation
-A key feature of the proposed MHER-DNN model is inspection of the cross sectional embeddings into the latent space variables of the shared layer. Latent space inspection is a critical step in evaluating the performance of a deep learning model and gaining understanding of the latent structure within the data. In this regard, the latent space is a low-dimensional representation of the cross sections within the data set learned by the MHER-DNN model during training. As the finally chose MHER-DNN possesses a three dimensional latent space, no further dimensionality reduction e.g. via t-distributed stochastic neighbour embedding (t-SNE) or Uniform Manifold Approximation and Projection (UMAP) projection is necessary for human perception.
+A key feature of the proposed MHER-DNN model is inspection of the cross sectional embeddings into the latent space variables of the shared layer. Latent space inspection is a critical step in evaluating the performance of a deep learning model and gaining understanding of the latent structure within the data. In this regard, the latent space is a low-dimensional representation of the cross sections within the data set learned by the MHER-DNN model during training. As the finally chose MHER-DNN possesses a three dimensional latent space, no further dimensionality reduction e.g. via $$t$$-distributed stochastic neighbour embedding (t-SNE) or Uniform Manifold Approximation and Projection (UMAP) projection is necessary for human perception.
 
 <div style="text-align:center;">
   <img src="https://mkrausai.github.io/research/01_SciML/02_Overstrength/figs/Figure_10.png" width="70%" alt="Parallel_coordinates_plot" /><br />
-  Visualisation of the 3-D latent space spanned by the coordinates of the embedding layer of MHER-DNN.<br />
+  Figure 6: Visualisation of the 3-D latent space spanned by the coordinates of the embedding layer of MHER-DNN.<br />
   </a>
 </div>
 
-Fig. 10 provides a visualisation of the latent space as 3D plot together with projections in the latent dimen-sions as top and side views. Cross sections are indi-cated by markers while the colouring highlights the overstrength factor. By examining the visualization in Fig. 10 humans can get a sense of how the MHER-DNN has learned to separate the cross sectional input data together with detection of clusters in the latent representation of the input data.
-
-
+Fig. 6 provides a visualisation of the latent space as 3D plot together with projections in the latent dimen-sions as top and side views. Cross sections are indi-cated by markers while the colouring highlights the overstrength factor. By examining the visualization in Fig. 6 humans can get a sense of how the MHER-DNN has learned to separate the cross sectional input data together with detection of clusters in the latent representation of the input data. It especially allows to recognize, that the model detected several cross sectional clusters in the latent space. The individual clusters seem to possess a 1-dimensional intrinsic dimension (as the data are aligned on one line), however multiple branches within the 3D space can be recognized. Further model archi-tecture changes as well as feature engineering is nec-essary to further improve the overall model perfor-mances due to the obvious intrinsic correlation clusters between the cross sections w.r.t. the overstrength.
 
 
 ## <a name="sec:Conclusions"></a> Conclusions
 
 This study addresses the regression of overstrength factors for specific types of steel sections. We propose novel methods for formulating relations between cross-sectional features and the overstrength of beams in CHS, RHS, SHS, I, and H sections. We introduce a multi-head encoder-regressor Deep Neural Network (MHER-DNN) architecture to predict the overstrength factor and learn a compressed representation of section-specific inputs for regression and inspection purposes. Experimental data for different cross sections are used to train and validate the MHER-DNN. The model shows reasonable precision and accuracy compared to existing models. We also explore the disentanglement of the latent space representation of the MHER-DNN, allowing for common feature derivation and human interpretation. Future research involves further tuning of hyperparameters, investigating hybrid autoencoder-multi-head regressor architectures, and establishing Eurocode-compliant models for engineering design practice.
-
 
 
 ## <a name="sec:WebApp"></a> Web Application
