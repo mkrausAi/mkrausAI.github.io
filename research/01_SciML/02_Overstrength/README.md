@@ -139,11 +139,7 @@ This study addresses the regression of overstrength factors for specific types o
 
 
 ## <a name="WebApp"></a> Web Application
-Now it is your turn to try out our neural network overstrength predictors yourself:
-<div style="text-align:center;">
-  <img src="https://mkrausai.github.io/research/01_SciML/02_Overstrength/figs/Figure_01.png" width="50%" alt="cVAE_Model" /><br />
-  Figure 1: Generalized moment–rotation curve for a steel beam and EN 1993:1-1 classification criteria.<br />
-</div>
+Now it is your turn to try out our neural network overstrength predictors yourself!
 
 
 <!--
