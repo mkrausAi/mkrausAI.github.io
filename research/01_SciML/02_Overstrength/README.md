@@ -53,9 +53,10 @@ The MHER-DNN, cf. Figure 2, is designed with three input heads, one for each cro
 
 <div style="text-align:center; white-space: nowrap;">
   <img src="https://mkrausai.github.io/research/01_SciML/02_Overstrength/figs/Figure_05.png" width="50%" alt="cVAE_Model" /><br />
-  Figure 2: Multi-head encoder – Regressor Deep Neural Network (MHER-DNN) with shared embedding layer for predicting the overstrength factor \(s\) given cross-sectional features for CHS, RHS, SHS, I and H profiles.<br />
+  Figure 2: Multi-head encoder – Regressor Deep Neural Network (MHER-DNN) with shared embedding layer for predicting the overstrength factor \(s\) given 
+  cross-sectional features for CHS, RHS, SHS, I and H profiles.<br />
 </div>
-
+<br />
 
 All MHER-DNN hyperparameters together with their search intervalls and final choices are summarized in the following table.
 
@@ -126,7 +127,7 @@ In Fig. 5, a normalized value of 1.0 represents a perfect estimation and indicat
 A key feature of the proposed MHER-DNN model is inspection of the cross sectional embeddings into the latent space variables of the shared layer. Latent space inspection is a critical step in evaluating the performance of a deep learning model and gaining understanding of the latent structure within the data. In this regard, the latent space is a low-dimensional representation of the cross sections within the data set learned by the MHER-DNN model during training. As the finally chose MHER-DNN possesses a three dimensional latent space, no further dimensionality reduction e.g. via $$t$$-distributed stochastic neighbour embedding (t-SNE) or Uniform Manifold Approximation and Projection (UMAP) projection is necessary for human perception.
 
 <div style="text-align:center;">
-  <img src="https://mkrausai.github.io/research/01_SciML/02_Overstrength/figs/Figure_10.png" width="90%" alt="Parallel_coordinates_plot" />
+  <img src="https://mkrausai.github.io/research/01_SciML/02_Overstrength/figs/Figure_10.png" width="90%" alt="Parallel_coordinates_plot" /><br />
   Figure 6: Visualisation of the 3-D latent space spanned by the coordinates of the embedding layer of MHER-DNN.<br />
 </div><br />
 
