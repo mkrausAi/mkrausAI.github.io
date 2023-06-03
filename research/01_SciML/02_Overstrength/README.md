@@ -9,8 +9,9 @@
 
 *   [Abstract](#Abstract)
 *   [Introduction](#intro)
-*   [Methods](#methods)
-*   [Content](#content)
+*   [Methods and Results](#methods)
+*   [Conclusions](#Conclusions)
+*   [Web Applications](#WebApp)
 *   [Contributors](#contributors)
 
 <!-- -->
@@ -132,16 +133,13 @@ A key feature of the proposed MHER-DNN model is inspection of the cross sectiona
 Fig. 6 provides a visualisation of the latent space as 3D plot together with projections in the latent dimen-sions as top and side views. Cross sections are indi-cated by markers while the colouring highlights the overstrength factor. By examining the visualization in Fig. 6 humans can get a sense of how the MHER-DNN has learned to separate the cross sectional input data together with detection of clusters in the latent representation of the input data. It especially allows to recognize, that the model detected several cross sectional clusters in the latent space. The individual clusters seem to possess a 1-dimensional intrinsic dimension (as the data are aligned on one line), however multiple branches within the 3D space can be recognized. Further model archi-tecture changes as well as feature engineering is nec-essary to further improve the overall model perfor-mances due to the obvious intrinsic correlation clusters between the cross sections w.r.t. the overstrength.
 
 
-## <a name="sec:Conclusions"></a> Conclusions
-
+## <a name="Conclusions"></a> Conclusions
 This study addresses the regression of overstrength factors for specific types of steel sections. We propose novel methods for formulating relations between cross-sectional features and the overstrength of beams in CHS, RHS, SHS, I, and H sections. We introduce a multi-head encoder-regressor Deep Neural Network (MHER-DNN) architecture to predict the overstrength factor and learn a compressed representation of section-specific inputs for regression and inspection purposes. Experimental data for different cross sections are used to train and validate the MHER-DNN. The model shows reasonable precision and accuracy compared to existing models. We also explore the disentanglement of the latent space representation of the MHER-DNN, allowing for common feature derivation and human interpretation. Future research involves further tuning of hyperparameters, investigating hybrid autoencoder-multi-head regressor architectures, and establishing Eurocode-compliant models for engineering design practice.
 
 
-## <a name="sec:WebApp"></a> Web Application
+## <a name="WebApp"></a> Web Application
 Now it is turn to try out our neural network overstrength predictors yourself. Just follow these steps:
 1) 
-
-
 
 
 <!--
