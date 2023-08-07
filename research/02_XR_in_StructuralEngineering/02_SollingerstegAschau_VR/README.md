@@ -58,11 +58,11 @@ Das VR Modell ist dabei als interaktives 3D-Modell der Umgebung (Ausschnitt 1 km
 <div style="display: flex; justify-content: center;">
   <div style="display: flex; flex-direction: row;">
     <div style="margin: 10px;">
-      <img src="https://mkrausai.github.io/research/01_SciML/02_SollingerstegAschau_VR/figs/Snapshot_3.PNG" alt="Bild 1" style="height: 350px;">
+      <img src="https://mkrausai.github.io/research/02_XR_in_StructuralEngineering/02_SollingerstegAschau_VR/figs/Snapshot_3.PNG" alt="Bild 1" style="height: 350px;">
       <p style="text-align: center; font-weight: bold;"> (a)</p>
     </div>
     <div style="margin: 10px;">
-      <img src="https://mkrausai.github.io/research/01_SciML/02_SollingerstegAschau_VR/figs/Snapshot_2.PNG" alt="Bild 2" style="height: 350px;">
+      <img src="https://mkrausai.github.io/research/02_XR_in_StructuralEngineering/02_SollingerstegAschau_VR/figs/Snapshot_2.PNG" alt="Bild 2" style="height: 350px;">
       <p style="text-align: center; font-weight: bold;">(b) </p>
     </div>
   </div>
@@ -118,16 +118,16 @@ Diese Arbeit wurde von der Gemeinde Aschau im Chiemgau beauftragt und von den im
 Oberassistent und Co-Leitung des Immersive Design Lab von Design++ an der ETH Zürich <br /></div>
   </div>
   <div style="flex:1; margin-right:10px">
-    <img src="https://mkrausai.github.io/research/01_SciML/02_SollingerstegAschau_VR/figs/koeppl_portrait.jpg" alt="Bild 2" style="width:100%">
+    <img src="https://mkrausai.github.io/research/02_XR_in_StructuralEngineering/02_SollingerstegAschau_VR/figs/koeppl_portrait.jpg" alt="Bild 2" style="width:100%">
     <div style="text-align:center">M.Eng. Johannes Köppl<br />
 Prokurist und Gesellschafter der Köppl-Ingenieure GmbH Rosenheim <br /></div>
   </div>
   <div style="flex:1; margin-right:10px">
-    <img src="https://mkrausai.github.io/research/01_SciML/02_SollingerstegAschau_VR/figs/max.jpg" alt="Max" style="width:100%">
+    <img src="https://mkrausai.github.io/research/02_XR_in_StructuralEngineering/02_SollingerstegAschau_VR/figs/max.jpg" alt="Max" style="width:100%">
     <div style="text-align:center">M.Sc. Maximilian Rietschel <br /> Gründer und Inhaber "Romantic Technologies" Zürich</div>
   </div>
   <div style="flex:1">
-    <img src="https://mkrausai.github.io/research/01_SciML/02_SollingerstegAschau_VR/figs/Eder_portrait.png" alt="Fritz" style="width:95%">
+    <img src="https://mkrausai.github.io/research/02_XR_in_StructuralEngineering/02_SollingerstegAschau_VR/figs/Eder_portrait.png" alt="Fritz" style="width:95%">
     <div style="text-align:center"> M.Eng. Friedrich Eder <br /> Consultant für Softwareentwicklung und BIM </div>
   </div>
 </div>
