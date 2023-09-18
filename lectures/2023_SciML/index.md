@@ -57,6 +57,13 @@ _(Subject to change)_
 | 25.09        | Fundamentals of SciML - Part 1: Data and Maths/Statistics | [slides](https://github.com/mkrausAi/mkrausAI.github.io/blob/main/lectures/2022_SciML/Lectures/SciML_02_Fundamentals_Statistik.pdf) |
 | 25.09        | Fundamentals of SciML - Part 2: ML Systems | [slides](https://github.com/mkrausAi/mkrausAI.github.io/blob/main/lectures/2022_SciML/Lectures/SciML_03_MLSystems.pdf) |
 | _25.09_      | _Exercise 1: Introduction to Python, Pandas etc._ | [slides/notebook](https://mkrausai.github.io/lectures/2022_SciML/Exercises/SciML_Ex_1.rar)  |
+
+
+AI in AEC presentation like Caitlin
+
+| 02.10        | Project Presentation | [slides]() | Presentation template
+
+
 | 02.10        | Data Processing and Visualisation 1 | [slides](https://github.com/mkrausAi/mkrausAI.github.io/blob/main/lectures/2022_SciML/Lectures/SciML_04_DataProcessing_Visualization.pdf) | 
 | _02.10_      | _Exercise 2: Data Processing and Visualisation_ | [slides/notebook](https://mkrausai.github.io/lectures/2022_SciML/Exercises/SciML_Ex_2.rar) |
 | _02.10_      | _Student Projects Pitches_ |   |
@@ -76,6 +83,10 @@ _(Subject to change)_
 | 13.11        | Scientific Machine and Deep Learning | [slides](https://github.com/mkrausAi/mkrausAI.github.io/blob/main/lectures/2022_SciML/Lectures/SciML_10_SciMLDL.pdf) |
 | _13.11_      | _Exercise 8: SciML_ | [slides/notebook](https://mkrausai.github.io/lectures/2022_SciML/Exercises/SciML_Ex_8.rar) |
 | 20.11        | Guest Talk 2, Physics-informed Neural Networks at scale, by Mohammad Nabian, NVIDIA | [invitation](https://github.com/mkrausAi/mkrausAI.github.io/blob/main/lectures/2022_SciML/Lectures/2022115_ETH_talk_flyer.pdf) |
+
+Luis
+
+
 | 27.11        | 3rd Project Consultation (in person, at ETH Hönngerberg)| |
 | 04.12        | Guest Talk 3, SciML in AEC, by Professor Caitlin Mueller, Dept. of Architecture, MIT | |
 | 11.12        | Project Work | |
