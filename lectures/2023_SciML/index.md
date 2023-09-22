@@ -1,5 +1,5 @@
 # Scientific Machine and Deep Learning for Design and Construction in Civil Engineering
-101-0139-00L, Time: Mondays 13:45 – 17:45 in HCI E 8;    Office hours are on Monday: 1 - 2 pm    
+101-0139-00L, Time: Mondays 13:45 – 17:30 in HCI E 8;    Office hours are on Monday after appointment.   
 *   [Description](#description)
 *   [Structure](#structure)
 *   [Objectives](#objectives)
@@ -15,7 +15,7 @@ The availability of data together from different sources together with the inter
 ## <a name="structure"></a>Course Structure
 The course will be delivered as a three phase lecture:
 1.  The first phase introduces fundamentals of the Machine and Deep Learning (ML/DL) technology, as building blocks to be considered during the development of related applications. Highlight of this lecture part are the various methods for deploying civil engineering domain knowledge to ML/DL to form Scientific ML (SciML). The approaches are discussed concerning latest developments and implementation obstacles.
-2.  The second phase consists of 2 guest lectures with specific state-of-the-art industry and research applications of SciML.
+2.  The second phase consists of guest lectures with specific state-of-the-art industry and research applications of SciML.
 3.  The third phase consists of classes for guiding and supporting participants in solving and deploying their project.
 
 In the points of connection, students will see the importance of taking into account the application requirements when designing an AI system, as well as their impact on the building blocks. Guest speakers from both, the AI and AEC domains, provide complementary impulses for participants of this lectures.
@@ -43,8 +43,8 @@ _Instructor and Lecturer_ <br />
 Executive Director of Design++ and PostDoctoral Researcher<br />
 _Co-{Instrucor ; Lecturer}_<br />
 
-<img src="https://mkrausai.github.io/img/persons/VeraBalmer.jpg" width="20%" alt="Sophia Kuhn" /><br />
-**Sophia Kuhn, M.Sc.**<br />
+<img src="https://mkrausai.github.io/img/persons/VeraBalmer.jpg" width="20%" alt="Vera Balmer" /><br />
+**Vera Balmer, M.Sc.**<br />
 PhD student in SciML4AEC <br />
 _Exercise Lecturer and Instructor_<br />
 
