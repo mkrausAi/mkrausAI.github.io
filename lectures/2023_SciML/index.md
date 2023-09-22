@@ -53,40 +53,29 @@ _(Subject to change)_
 
 | DATE         | CLASS TOPIC          | MATERIAL |
 |:-------------|:------------------|:------|
-| 25.09        | Introductory Class + Project Presentation | [Intro](https://github.com/mkrausAi/mkrausAI.github.io/blob/main/lectures/2022_SciML/Lectures/20220914_Projects_Description.pdf) [Projects](https://github.com/mkrausAi/mkrausAI.github.io/blob/main/lectures/2022_SciML/Lectures/SciML_01_Introduction.pdf) |
-| 25.09        | Fundamentals of SciML - Part 1: Data and Maths/Statistics | [slides](https://github.com/mkrausAi/mkrausAI.github.io/blob/main/lectures/2022_SciML/Lectures/SciML_02_Fundamentals_Statistik.pdf) |
-| 25.09        | Fundamentals of SciML - Part 2: ML Systems | [slides](https://github.com/mkrausAi/mkrausAI.github.io/blob/main/lectures/2022_SciML/Lectures/SciML_03_MLSystems.pdf) |
-| _25.09_      | _Exercise 1: Introduction to Python, Pandas etc._ | [slides/notebook](https://mkrausai.github.io/lectures/2022_SciML/Exercises/SciML_Ex_1.rar)  |
-
-
-AI in AEC presentation like Caitlin
-
-| 02.10        | Project Presentation | [slides]() | Presentation template
-
-
-| 02.10        | Data Processing and Visualisation 1 | [slides](https://github.com/mkrausAi/mkrausAI.github.io/blob/main/lectures/2022_SciML/Lectures/SciML_04_DataProcessing_Visualization.pdf) | 
-| _02.10_      | _Exercise 2: Data Processing and Visualisation_ | [slides/notebook](https://mkrausai.github.io/lectures/2022_SciML/Exercises/SciML_Ex_2.rar) |
-| _02.10_      | _Student Projects Pitches_ |   |
-| 09.10        | Supervised Learning: Overview and Supervised (Classification, Regression) | [slides](https://github.com/mkrausAi/mkrausAI.github.io/blob/main/lectures/2022_SciML/Lectures/SciML_04_Supervised_ML.pdf) |
-| 09.10        | Unsupervised Learning | [slides](https://github.com/mkrausAi/mkrausAI.github.io/blob/main/lectures/2022_SciML/Lectures/SciML_04_Unsupervised_ML.pdf) |
-| _09.10_      | _Exercise 3: ML Workflow and Supervised ML_ |[slides/notebook](https://mkrausai.github.io/lectures/2022_SciML/Exercises/SciML_Ex_3.rar) |
-| _09.10_      | _Exercise 4: Unsupervised ML and Feature Engineering_ | [slides/notebook](https://mkrausai.github.io/lectures/2022_SciML/Exercises/SciML_Ex_4.rar) |
-| 16.10        | Deep Learning 1 | [slides](https://github.com/mkrausAi/mkrausAI.github.io/blob/main/lectures/2022_SciML/Lectures/SciML_05_DeepLearning.pdf)|
-| _16.10_      | _Exercise 5: Deep Learning_ | [slides/notebook](https://mkrausai.github.io/lectures/2022_SciML/Exercises/SciML_Ex_5.rar) |
-| 23.10        | Deep Learning 2 | [slides](https://github.com/mkrausAi/mkrausAI.github.io/blob/main/lectures/2022_SciML/Lectures/SciML_06_DeepLearning.pdf)|
-| _23.10_      | _Exercise 6: Deep Learning_ | [slides/notebook](https://mkrausai.github.io/lectures/2022_SciML/Exercises/SciML_Ex_6.rar) |
+| 25.09        | Introductory Class + Project Presentation | [Intro]() [Projects]() |
+| 25.09        | Fundamentals of SciML - Part 1: Data and Maths/Statistics | [slides]() |
+| 25.09        | Fundamentals of SciML - Part 2: ML Systems | [slides]() |
+| _25.09_      | _Exercise 1: Introduction to Python, Pandas etc._ | [slides/notebook]()  |
+| 02.10        | Data Processing and Visualisation 1 | [slides]() | 
+| _02.10_      | _Exercise 2: Data Processing and Visualisation_ | [slides/notebook]() |
+| _02.10_      | _Students declare their projects_ | [Word Report Template](https://mkrausai.github.io/lectures/2023_SciML/Projects/00_Templates/SciML2023_Report_Template.doc)   |
+| 09.10        | Supervised Learning: Overview and Supervised (Classification, Regression) | [slides]() |
+| 09.10        | Unsupervised Learning | [slides]() |
+| _09.10_      | _Exercise 3: ML Workflow and Supervised ML_ |[slides/notebook]() |
+| _09.10_      | _Exercise 4: Unsupervised ML and Feature Engineering_ | [slides/notebook]() |
+| 16.10        | Deep Learning 1 | [slides]()|
+| _16.10_      | _Exercise 5: Deep Learning_ | [slides/notebook]() |
+| 23.10        | Deep Learning 2 | [slides]()|
+| _23.10_      | _Exercise 6: Deep Learning_ | [slides/notebook]() |
 | 23.10        | 1st Project Consultation (in person, at ETH Hönngerberg) |
-| 30.10 _1-3 pm_    | Data Processing and Visualisation 2 | [slides](https://github.com/mkrausAi/mkrausAI.github.io/blob/main/lectures/2022_SciML/Lectures/SciML_07_DataProcessing_Visualization_2.pdf)| 
-| _30.10_      | _Exercise 7: Data Processing and Visualisation_ | [slides/notebook](https://mkrausai.github.io/lectures/2022_SciML/Exercises/SciML_Ex_7.rar) |
+| 30.10        | Data Processing and Visualisation 2 | [slides]()| 
+| _30.10_      | _Exercise 7: Data Processing and Visualisation_ | [slides/notebook]() |
 | 06.11        | 2nd Project Consultation (in person, at ETH Hönngerberg) | |
 | 13.11        | Guest Talk 1, SciML 4 AEC @ETHZ by Doctoral Students / Postdocs | |
-| 13.11        | Scientific Machine and Deep Learning | [slides](https://github.com/mkrausAi/mkrausAI.github.io/blob/main/lectures/2022_SciML/Lectures/SciML_10_SciMLDL.pdf) |
-| _13.11_      | _Exercise 8: SciML_ | [slides/notebook](https://mkrausai.github.io/lectures/2022_SciML/Exercises/SciML_Ex_8.rar) |
-| 20.11        | Guest Talk 2, Physics-informed Neural Networks at scale, by Mohammad Nabian, NVIDIA | [invitation](https://github.com/mkrausAi/mkrausAI.github.io/blob/main/lectures/2022_SciML/Lectures/2022115_ETH_talk_flyer.pdf) |
-
-Luis
-
-
+| 13.11        | Scientific Machine and Deep Learning | [slides]() |
+| _13.11_      | _Exercise 8: SciML_ | [slides/notebook]() |
+| 20.11        | Guest Talk 2, Physics-informed Neural Networks at scale, by Mohammad Nabian, NVIDIA | [invitation]() |
 | 27.11        | 3rd Project Consultation (in person, at ETH Hönngerberg)| |
 | 04.12        | Guest Talk 3, SciML in AEC, by Professor Caitlin Mueller, Dept. of Architecture, MIT | |
 | 11.12        | Project Work | |
