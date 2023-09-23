@@ -56,7 +56,7 @@ _(Subject to change)_
 | 25.09        | Introductory Class + Project Presentation | [Intro]() [Projects]() |
 | 25.09        | Fundamentals of SciML - Part 1: Data and Maths/Statistics | [slides]() |
 | 25.09        | Fundamentals of SciML - Part 2: ML Systems | [slides]() |
-| _25.09_      | _Exercise 1: Introduction to Python, Pandas etc._ | [slides/notebook]()  |
+| _25.09_      | _Exercise 1: Introduction to Python, Pandas etc._ | [slides/notebook](https://mkrausai.github.io/lectures/2023_SciML/Exercises/SciML_Ex_1.rar) |
 | 02.10        | Data Processing and Visualisation 1 | [slides]() | 
 | _02.10_      | _Exercise 2: Data Processing and Visualisation_ | [slides/notebook]() |
 | _02.10_      | _Students declare their projects_ |[Project Description](https://mkrausai.github.io/lectures/2023_SciML/Projects/00_Templates/2023_09_22_SemesterProjectDescription.pdf),
