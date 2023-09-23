@@ -59,7 +59,8 @@ _(Subject to change)_
 | _25.09_      | _Exercise 1: Introduction to Python, Pandas etc._ | [slides/notebook]()  |
 | 02.10        | Data Processing and Visualisation 1 | [slides]() | 
 | _02.10_      | _Exercise 2: Data Processing and Visualisation_ | [slides/notebook]() |
-| _02.10_      | _Students declare their projects_ | [Word Report Template](https://mkrausai.github.io/lectures/2023_SciML/Projects/00_Templates/SciML2023_Report_Template.doc)   |
+| _02.10_      | _Students declare their projects_ |[Project Description](https://mkrausai.github.io/lectures/2023_SciML/Projects/00_Templates/2023_09_22_SemesterProjectDescription.pdf),
+[Pitch Instruction](https://mkrausai.github.io/lectures/2023_SciML/Projects/00_Templates/2023_09_22_Project_pitch.pdf), [Word Report Template](https://mkrausai.github.io/lectures/2023_SciML/Projects/00_Templates/SciML2023_Report_Template.doc)    |
 | 09.10        | Supervised Learning: Overview and Supervised (Classification, Regression) | [slides]() |
 | 09.10        | Unsupervised Learning | [slides]() |
 | _09.10_      | _Exercise 3: ML Workflow and Supervised ML_ |[slides/notebook]() |
@@ -75,9 +76,9 @@ _(Subject to change)_
 | 13.11        | Guest Talk 1, SciML 4 AEC @ETHZ by Doctoral Students / Postdocs | |
 | 13.11        | Scientific Machine and Deep Learning | [slides]() |
 | _13.11_      | _Exercise 8: SciML_ | [slides/notebook]() |
-| 20.11        | Guest Talk 2, Physics-informed Neural Networks at scale, by Mohammad Nabian, NVIDIA | [invitation]() |
+| 20.11        | Guest Talk 2, tbd | [invitation]() |
 | 27.11        | 3rd Project Consultation (in person, at ETH Hönngerberg)| |
-| 04.12        | Guest Talk 3, SciML in AEC, by Professor Caitlin Mueller, Dept. of Architecture, MIT | |
+| 04.12        | Guest Talk 3, tbd | |
 | 11.12        | Project Work | |
 | 18.12        | Final Project Presentation and Exam (in person and online, at ETH Hönngerberg) | |
 | 23.12        | Hand-in of Final Project Report (online / email)| |
