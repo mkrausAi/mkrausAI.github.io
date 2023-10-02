@@ -58,7 +58,7 @@ _(Subject to change)_
 | 25.09        | Fundamentals of SciML - Part 2: ML Systems | [slides](https://mkrausai.github.io/lectures/2023_SciML/Lectures/SciML_03_MLSystems.pdf) |
 | _25.09_      | _Exercise 1: Introduction to Python, Pandas etc._ | [slides/notebook](https://mkrausai.github.io/lectures/2023_SciML/Exercises/SciML_Ex_1.rar) |
 | 02.10        | Data Processing and Visualisation 1 | [slides]() | 
-| _02.10_      | _Exercise 2: Data Processing and Visualisation_ | [slides/notebook]() |
+| _02.10_      | _Exercise 2: Data Processing and Visualisation_ | [slides/notebook](https://mkrausai.github.io/lectures/2023_SciML/Exercises/Exercise_2.zip) |
 | _02.10_      | _Students declare their projects_ | [Project Description](https://mkrausai.github.io/lectures/2023_SciML/Projects/00_Templates/2023_09_22_SemesterProjectDescription.pdf) [Instruction](https://mkrausai.github.io/lectures/2023_SciML/Projects/00_Templates/2023_09_22_Project_pitch.pdf) [Template](https://mkrausai.github.io/lectures/2023_SciML/Projects/00_Templates/SciML2023_Report_Template.doc) |
 | 09.10        | Supervised Learning: Overview and Supervised (Classification, Regression) | [slides](https://mkrausai.github.io/lectures/2023_SciML/Lectures/SciML_04_Supervised_ML.pdf) |
 | 09.10        | Unsupervised Learning | [slides](https://mkrausai.github.io/lectures/2023_SciML/Lectures/SciML_04_Unsupervised_ML.pdf) |
