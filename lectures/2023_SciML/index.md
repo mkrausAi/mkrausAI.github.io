@@ -62,7 +62,7 @@ _(Subject to change)_
 | _02.10_      | _Students declare their projects_ | [Project Description](https://mkrausai.github.io/lectures/2023_SciML/Projects/00_Templates/2023_09_22_SemesterProjectDescription.pdf) [Instruction](https://mkrausai.github.io/lectures/2023_SciML/Projects/00_Templates/2023_09_22_Project_pitch.pdf) [Template](https://mkrausai.github.io/lectures/2023_SciML/Projects/00_Templates/SciML2023_Report_Template.doc) |
 | 09.10        | Supervised Learning: Overview and Supervised (Classification, Regression) | [slides](https://mkrausai.github.io/lectures/2023_SciML/Lectures/SciML_04_Supervised_ML.pdf) |
 | 09.10        | Unsupervised Learning | [slides](https://mkrausai.github.io/lectures/2023_SciML/Lectures/SciML_04_Unsupervised_ML.pdf) |
-| _09.10_      | _Exercise 3: ML Workflow and Supervised ML_ |[slides/notebook]() |
+| _09.10_      | _Exercise 3: ML Workflow and Supervised ML_ |[slides/notebook](https://mkrausai.github.io/lectures/2023_SciML/Exercises/SciML_Ex_3.zip) |
 | _09.10_      | _Exercise 4: Unsupervised ML and Feature Engineering_ | [slides/notebook]() |
 | 16.10        | Deep Learning 1 | [slides]()|
 | _16.10_      | _Exercise 5: Deep Learning_ | [slides/notebook]() |
