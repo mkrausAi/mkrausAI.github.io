@@ -75,6 +75,7 @@ _(Subject to change)_
 | 13.11        | Scientific Machine and Deep Learning | [slides]() |
 | _13.11_      | _Exercise 8: SciML_ | [slides/notebook]() |
 | 20.11        | Guest Talk, tbd | [invitation]() |
+| 27.11        | Project Work | |
 | 04.12        | 3rd Project Consultation (in person, at ETH Hönngerberg)| |
 | 11.12        | Project Work | |
 | 18.12        | Final Project Presentation and Exam (in person and online, at ETH Hönngerberg) | |
