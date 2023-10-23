@@ -64,7 +64,7 @@ _(Subject to change)_
 | _09.10_      | _Exercise 3: ML Workflow and Supervised ML_ |[slides/notebook](https://mkrausai.github.io/lectures/2023_SciML/Exercises/SciML_Ex_3.zip) |
 | 16.10        | Unsupervised Learning | [slides](https://mkrausai.github.io/lectures/2023_SciML/Lectures/SciML_04_Unsupervised_ML.pdf) |
 | _16.10_      | _Exercise 4: Unsupervised ML and Feature Engineering_ | [slides/notebook](https://mkrausai.github.io/lectures/2023_SciML/Exercises/SciML_Ex_4.zip) |
-| 23.10        | Deep Learning 1 | [slides]()|
+| 23.10        | Deep Learning 1 | [slides](https://mkrausai.github.io/lectures/2023_SciML/Lectures/SciML_05_DeepLearning.pdf)|
 | _23.10_      | _Exercise 5: Deep Learning_ | [slides/notebook]() |
 | 30.10        | Deep Learning 2 | [slides]()|
 | _30.10_      | _Exercise 6: Deep Learning_ | [slides/notebook]() |
