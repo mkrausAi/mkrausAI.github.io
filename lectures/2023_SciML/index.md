@@ -65,7 +65,7 @@ _(Subject to change)_
 | 16.10        | Unsupervised Learning | [slides](https://mkrausai.github.io/lectures/2023_SciML/Lectures/SciML_04_Unsupervised_ML.pdf) |
 | _16.10_      | _Exercise 4: Unsupervised ML and Feature Engineering_ | [slides/notebook](https://mkrausai.github.io/lectures/2023_SciML/Exercises/SciML_Ex_4.zip) |
 | 23.10        | Deep Learning 1 | [slides]()|
-| _23.10_      | _Exercise 5: Deep Learning_ | [slides/notebook]() |
+| _23.10_      | _Exercise 5: Deep Learning_ | [slides/notebook](https://mkrausai.github.io/lectures/2023_SciML/Exercises/SciML_Ex_5.zip) |
 | 30.10        | Deep Learning 2 | [slides]()|
 | _30.10_      | _Exercise 6: Deep Learning_ | [slides/notebook]() |
 | 30.10        | 1st Project Consultation (in person, at ETH Hönngerberg) |
