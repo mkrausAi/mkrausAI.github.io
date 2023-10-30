@@ -67,8 +67,8 @@ _(Subject to change)_
 | 23.10        | Deep Learning 1 | [slides](https://mkrausai.github.io/lectures/2023_SciML/Lectures/SciML_05_DeepLearning.pdf)|
 | _23.10_      | _Exercise 5: Deep Learning_ | [slides/notebook](https://mkrausai.github.io/lectures/2023_SciML/Exercises/SciML_Ex_5.zip) |
 | 30.10        | 1st Project Consultation (in person, at ETH Hönngerberg) |
-| 30.10        | Deep Learning 2 | [slides](https://mkrausai.github.io/lectures/2023_SciML/Lectures/SciML_05_DeepLearning.pdf)|
-| _30.10_      | _Exercise 6: Deep Learning_ | [slides/notebook](https://mkrausai.github.io/lectures/2023_SciML/Lectures/SciML_06_DeepLearning.pdf) |
+| 30.10        | Deep Learning 2 | [slides](https://mkrausai.github.io/lectures/2023_SciML/Lectures/SciML_06_DeepLearning.pdf)|
+| _30.10_      | _Exercise 6: Deep Learning_ | [slides/notebook](https://mkrausai.github.io/lectures/2023_SciML/Exercises/SciML_Ex_6.zip)|
 | 06.11        | Scientific Machine and Deep Learning | [slides]() |
 | _06.11_      | _Exercise 7: SciML_ | [slides/notebook]() |
 | 13.11        | Data Processing and Visualisation 2 | [slides]()| 
