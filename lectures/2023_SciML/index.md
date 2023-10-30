@@ -65,17 +65,15 @@ _(Subject to change)_
 | 16.10        | Unsupervised Learning | [slides](https://mkrausai.github.io/lectures/2023_SciML/Lectures/SciML_04_Unsupervised_ML.pdf) |
 | _16.10_      | _Exercise 4: Unsupervised ML and Feature Engineering_ | [slides/notebook](https://mkrausai.github.io/lectures/2023_SciML/Exercises/SciML_Ex_4.zip) |
 | 23.10        | Deep Learning 1 | [slides](https://mkrausai.github.io/lectures/2023_SciML/Lectures/SciML_05_DeepLearning.pdf)|
-| _23.10_      | _Exercise 5: Deep Learning_ | [slides/notebook]() |
-| 23.10        | Deep Learning 1 | [slides]()|
 | _23.10_      | _Exercise 5: Deep Learning_ | [slides/notebook](https://mkrausai.github.io/lectures/2023_SciML/Exercises/SciML_Ex_5.zip) |
-| 30.10        | Deep Learning 2 | [slides]()|
-| _30.10_      | _Exercise 6: Deep Learning_ | [slides/notebook]() |
 | 30.10        | 1st Project Consultation (in person, at ETH Hönngerberg) |
-| 06.11        | Data Processing and Visualisation 2 | [slides]()| 
-| _06.11_      | _Exercise 7: Data Processing and Visualisation_ | [slides/notebook]() |
+| 30.10        | Deep Learning 2 | [slides](https://mkrausai.github.io/lectures/2023_SciML/Lectures/SciML_05_DeepLearning.pdf)|
+| _30.10_      | _Exercise 6: Deep Learning_ | [slides/notebook](https://mkrausai.github.io/lectures/2023_SciML/Lectures/SciML_06_DeepLearning.pdf) |
+| 06.11        | Scientific Machine and Deep Learning | [slides]() |
+| _06.11_      | _Exercise 7: SciML_ | [slides/notebook]() |
+| 13.11        | Data Processing and Visualisation 2 | [slides]()| 
+| _13.11_      | _Exercise 8: Data Processing and Visualisation_ | [slides/notebook]() |
 | 13.11        | 2nd Project Consultation (in person, at ETH Hönngerberg) | |
-| 13.11        | Scientific Machine and Deep Learning | [slides]() |
-| _13.11_      | _Exercise 8: SciML_ | [slides/notebook]() |
 | 20.11        | Guest Talk, tbd | [invitation]() |
 | 27.11        | Project Work | |
 | 04.12        | 3rd Project Consultation (in person, at ETH Hönngerberg)| |
