@@ -71,7 +71,7 @@ _(Subject to change)_
 | _06.11_      | _Exercise 6: Deep Learning_ | [slides/notebook](https://mkrausai.github.io/lectures/2023_SciML/Exercises/SciML_Ex_6.zip)|
 | 13.11        | Scientific Machine and Deep Learning | [slides](https://mkrausai.github.io/lectures/2023_SciML/Lectures/SciML_07_SciMLDL.pdf) |
 | _13.11_      | _Exercise 7: SciML_ | [slides/notebook](https://mkrausai.github.io/lectures/2023_SciML/Exercises/SciML_Ex_7.zip) |
-| 20.11        | Data Processing and Visualisation 2 | [slides]()| 
+| 20.11        | Data Processing and Visualisation 2 | [slides](https://mkrausai.github.io/lectures/2023_SciML/Lectures/SciML_08_DataProcessing_Visualization.pdf)| 
 | _20.11_      | _Exercise 8: Data Processing and Visualisation_ | [slides/notebook]() |
 | 27.11        | 2nd Project Consultation (in person, at ETH Hönngerberg) | |
 | 04.12        | Guest Talk, tbd | [invitation]() |
