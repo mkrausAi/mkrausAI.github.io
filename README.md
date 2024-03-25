@@ -18,7 +18,7 @@ Besides that i am running a consultancy office for structural analysis and deplo
 - 💻 Find more information on my [personal website](https://mkrausai.com)
 
 Have a look at my:
-[research work](https://github.com/mkrausAi/mkrausAI.github.io/blob/main/ResearchWork/)
-[papers](https://scholar.google.com/citations?hl=de&user=Z0dBOV0AAAAJ&view_op=list_works&sortby=pubdate)
-[personal website](https://mkrausai.com)
+- [research work](https://github.com/mkrausAi/mkrausAI.github.io/blob/main/ResearchWork/)
+- [papers](https://scholar.google.com/citations?hl=de&user=Z0dBOV0AAAAJ&view_op=list_works&sortby=pubdate)
+- [personal website](https://mkrausai.com)
 
