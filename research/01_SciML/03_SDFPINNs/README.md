@@ -36,7 +36,7 @@ $$s = \frac{f_{LB}}{f_y} = \frac{M_u}{M_p} $$
 or by the more practical relation using the maximum moment $$M_u$$ to the theoretical full plastic moment $$M_p$$. The ultimate bearing capacity of steel beams can be significantly greater than the plastic bending strength because of strain hardening before complete local buckling or fractures as given in Figure 1 by the generalized moment-rotation curves. The overstrength factor is used for seismic design in the Italian codes OPCM 3274 (2003) and NTC 2018 but neglected for cross-section classes in Eurocode 3 (EN 1993:1-1).
 
 <div style="text-align:center;">
-  <img src="https://mkrausai.github.io/research/01_SciML/03_SDFPINNs/figs/Figure_01.png" width="50%" alt="cVAE_Model" /><br />
+  <img src="https://mkrausai.github.io/research/01_SciML/03_SDFPINNs/figs/Figure_01.jpg" width="50%" alt="cVAE_Model" /><br />
   Figure 1: Proposed Network for combining a Neural Signed Distance Function with a Physics-Informed Neural Network to solve Partial Differential Equations.<br />
 </div>
 
