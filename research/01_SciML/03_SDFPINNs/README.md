@@ -1,8 +1,8 @@
-<!--https://mkrausai.github.io/research/01_SciML/02_Overstrength-->
+<!--https://mkrausai.github.io/research/01_SciML/03_SDFPINNs-->
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=default'></script>
 
 
-# Predictive modelling and latent space exploration of steel profile overstrength factors using multi-head autoencoder-regressors
+# SDF-PINNs: Joining Physics-Informed Neural Networks with Neural Implicit Geometry Representation
 
 <!-- A repository of structural information on the design of pedestrian bridges
 ============================== -->
@@ -18,9 +18,9 @@
 <!-- *   [Citation](#citation)-->
 
 ## <a name="Abstract"></a>Abstract
-This research investigates the suitability and interpretability of a data-driven deep learning algorithm for multi cross sectional overstrength factor prediction. For this purpose, we first compile datasets consisting of experiments from litera-ture on the overstrength factor of circular, rectangular and square hollow sec-tions as well as I- and H-sections. We then propose a novel multi-head en-coder architecture consisting of three input heads (one head per section type represented by respective features), a shared embedding layer as well as a subsequent regression tail for predicting the overstrength factor. By construc-tion, this multi-head architecture simultaneously allows for (i) the exploration of the nonlinear embedding of different cross-sectional profiles towards the overstrength factor within the shared layer, and (ii) a forward prediction of the overstrength factor given profile features. Our framework enables for the first time an exploration of cross-section similarity w.r.t. the overstrength factor across multiple sections and hence provides new domain insights in bearing capacities of steel cross-sections, a much wider data exploration, since the encoder-regressor can serve as meta model predictor. We demonstrate the quality of the predictive capabilities of the model and gain new insights of the latent space of different steel sections w.r.t. the overstrength factor. Our pro-posed method can easily be transferred to other multi-input problems of Scientific Machine Learning.
+This paper presents an advanced method for solving boundary value problems of differential equations over arbitrary spatial domains using Physics-Informed Neural Networks (PINNs) augmented with Signed Distance Functions (SDF). Our approach builds on the framework where the solution to the differential equation is decomposed into two parts: one that inherently satisfies the boundary conditions without any adjustable parameters, and a second that incorporates a physics-informed neural network with adjustable parameters. We propose to use a neural network approximation of the SDF for representation of boundary conditions to model complex geometries accurately in an efficient manner. This novel combination allows for the precise enforcement of Dirichlet boundary conditions and improved solution accuracy over traditional PINN methods. We demonstrate the effectiveness of our approach through an illustrative example of a Poisson equation over a domain bound by the TUM logo. Our results indicate that this method not only preserves the benefits of neural networks in handling various types of differential equations but also leverages the geometric flexibility of SDFs to address complex boundary conditions effectively.
 
-The publication can be found <a href="https://onlinelibrary.wiley.com/doi/10.1002/cepa.2587" target="_blank">here</a> and the corresponding presentation video <a href="https://youtu.be/h-iBCey2fKo" target="_blank">here</a>.
+The publication can be found <a href="https://onlinelibrary.wiley.com/doi/10.1002/cepa.2587" target="_blank">here</a>.
 
 
 ## <a name="intro"></a>Introduction
@@ -36,14 +36,10 @@ $$s = \frac{f_{LB}}{f_y} = \frac{M_u}{M_p} $$
 or by the more practical relation using the maximum moment $$M_u$$ to the theoretical full plastic moment $$M_p$$. The ultimate bearing capacity of steel beams can be significantly greater than the plastic bending strength because of strain hardening before complete local buckling or fractures as given in Figure 1 by the generalized moment-rotation curves. The overstrength factor is used for seismic design in the Italian codes OPCM 3274 (2003) and NTC 2018 but neglected for cross-section classes in Eurocode 3 (EN 1993:1-1).
 
 <div style="text-align:center;">
-  <img src="https://mkrausai.github.io/research/01_SciML/02_Overstrength/figs/Figure_01.png" width="50%" alt="cVAE_Model" /><br />
-  Figure 1: Generalized moment–rotation curve for a steel beam and EN 1993:1-1 classification criteria.<br />
+  <img src="https://mkrausai.github.io/research/01_SciML/03_SDFPINNs/figs/Figure_01.png" width="50%" alt="cVAE_Model" /><br />
+  Figure 1: Proposed Network for combining a Neural Signed Distance Function with a Physics-Informed Neural Network to solve Partial Differential Equations.<br />
 </div>
 
-# <a name="sec:data"></a> Database
-The databases used for calibrating our deep learning model for predicting the flexural overstrength factor s for CHS, RHS, SHS and I-H steel beams were collected from the available scientific literature. The examined test configurations accounting for different load patterns (i.e. bending moment distribution) and cross-sectional. The databases contain samples covering a wide range of cross-sectional typologies under monotonic loading with different local slenderness ratios. The features consist of geometric properties of the section, mechanical prop-erties of the material, and the shear length of the steel beams.
-
-The data set for circular sections contains 128 samples with features: section diameter $$D$$, thickness $$t$$, shear length $$L_v$$, yield strength $$f_y$$. The data set for I-H sections consists of 76 samples with features: flange width $$b_f$$, section depth $$d$$, flange thickness $$t_f$$, web thickness $$t_w$$, shear length $$L_v$$, flange yield stress $$f_{y,flange}$$, web yield stress $$f_{y,web}$$, ratio of the modulus of elasticity of steel to the hardening modulus $$E/{E_h}$$, and ratio of the strain corresponding to the beginning of hardening to the yield strain $$\epsilon_h/\epsilon_y$$. The data set for RHS-SHS sections comprises of 76 samples with features : section width $$b$$, section depth $$d$$, wall thickness $$t$$, inside corner radius $$r$$, shear length $$L_v$$, yield stress $$f_y$$, modulus ratio $$E/{E_h}$$, and strain ratio $$\epsilon_h/\epsilon_y$$.
 
 # <a name="sec:MLmodel"></a> Multi-Head Encoder - Regressor Deep Neural Network (MHER-DNN)
 This research proposes a novel DL architecture called multi-head encoder - regressor Deep Neural Network (MHER-DNN) for twofold use: (i) prediction of the overstrength factor s for five cross section types (CHS, SHS, RHS, I and H) of various steel grades, and (ii) learning a compressed representation of the cross section specific inputs for subsequent regression but also domain-informed inspection. Note, that the MHER-DNN architecture as provided in Fig. 5 is solely used for training as proxy combining the individual models (without the other heads), which have to be used at inference resp. prediction. Inspection of the latent parameters and cross-sectional similarities can be executed on the shared embedding layer.
@@ -135,13 +131,11 @@ Fig. 6 provides a visualisation of the latent space as 3D plot together with pro
 
 
 ## <a name="Conclusions"></a> Conclusions
-This study addresses the regression of overstrength factors for specific types of steel sections. We propose novel methods for formulating relations between cross-sectional features and the overstrength of beams in CHS, RHS, SHS, I, and H sections. We introduce a multi-head encoder-regressor Deep Neural Network (MHER-DNN) architecture to predict the overstrength factor and learn a compressed representation of section-specific inputs for regression and inspection purposes. Experimental data for different cross sections are used to train and validate the MHER-DNN. The model shows reasonable precision and accuracy compared to existing models. We also explore the disentanglement of the latent space representation of the MHER-DNN, allowing for common feature derivation and human interpretation. Future research involves further tuning of hyperparameters, investigating hybrid autoencoder-multi-head regressor architectures, and establishing Eurocode-compliant models for engineering design practice.
+In this paper, we introduced a novel method for solving PDEs with Dirichlet boundary conditions in arbitrarily complex geometries using a combination of PINNs and neural SDFs. The effectiveness of our method is demonstrated via a Poisson problem on the TUM logo versus a standard FEM solution. We found a very good agreement between the two solution methods, where the SDF-PINNs approach comes with the promise of transfer learning to other domains. Future work will focus on extending the approach to other boundary conditions such as Neuman or Robin conditions as well as to inspect the SDF computation and the neural SDF representation with techniques such as convolutional layers, dropout, and batch normalization.
 
-
-## <a name="WebApp"></a> Web Application
-Now it is your turn to try out our neural network overstrength predictors yourself!
-
-The web apps will be released soon!
+## <a name="References"></a> References
+Bischof, R., & Kraus, M., 2021. Multi-objective loss balancing for physics-informed deep learning. arXiv preprint arXiv:2110.09813.
+Bischof, R., & Kraus, M., 2022. Mixture-of-experts-ensemble meta-learning for physics-informed neural networks. In Proceedings of 33. Forum Bauinformatik, pp. 317-324.
 
 
 <!--
@@ -163,31 +157,23 @@ journal = "xx"
 <div style="display:flex; justify-content: center;">
   <div style="flex:1">
     <img src="https://mkrausai.github.io/img/persons/Michael6_3.jpg" alt="Michael" style="width:60%">
-    <div style="text-align:center"> Dr. Michael A. Kraus, M.Sc.(hons) <br />
-    Senior Researcher in SciML4AEC and Co-Leader of the Immersive Design Lab of Design++ at ETH Zurich <br /></div>
+    <div style="text-align:center"> Univ.-Prof. Dr.-Ing. Michael A. Kraus, M.Sc.(hons) <br />
+    Professor for Structural Analysis, TU Darmstadt <br /></div>
   </div>
   <div style="flex:1">
     <img src="https://mkrausai.github.io/img/persons/andreasmueller.jpeg" alt="Mueller" style="width:62%">
-    <div style="text-align:center">M.Sc. Andreas Müller<br />
-Doctoral Researcher in Steel Structures and SciML4AEC at ETH Zurich <br /></div>
-  </div>
-  <div style="flex:1">
-    <img src="https://mkrausai.github.io/img/persons/Rafael-Bischof.png" alt="Rafi" style="width:60%">
-    <div style="text-align:center">M.Sc. Rafael Bischof <br /> Doctoral Researcher in SciML4AEC at ETH Zurich</div>
-  </div>
-  <div style="flex:1">
-    <img src="https://mkrausai.github.io/img/persons/AndreasTaras.jpg" alt="Taras" style="width:80%">
-    <div style="text-align:center"> Prof. Dr. Andreas Taras <br /> Professor for Steel Construction and Composite Structures at ETH Zurich </div>
+    <div style="text-align:center">Dr. Konstantinos Tatsis<br />
+Data Scientist at Swiss Data Science Center (SDSC), Zurich <br /></div>
   </div>
 </div>
 
 
 # Contact
-Dr. Michael A. Kraus, M.Sc.(hons)
-Institute für Baustatik und Konstruktion (IBK)
-ETH Zürich
-kraus@ibk.baug.ethz.ch
-<a href="https://kaufmann.ibk.ethz.ch/de/personen/mitarbeitende/dr-michael-anton-kraus.html">Visit Dr. Michael Anton Kraus</a>
+Univ.-Prof. Dr.-Ing. Michael A. Kraus, M.Sc.(hons)
+Institut für Statik und Konstruktion (ISMD)
+TU Darmstadt
+kraus@ismd.tu-darmstadt.de
+<a href="https://www.ismd.tu-darmstadt.de/das_institut_ismd/mitarbeiter_innen_ismd/team_ismd_details_109888.de.jsp">Visit Prof. Dr. Michael Anton Kraus</a>
 
 ------------
 Shield: [![CC BY 4.0][cc-by-shield]][cc-by]
