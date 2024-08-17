@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DL App</title>
+  <style>
+    .column {
+      float: left;
+      width: 33%;
+      padding: 10px;
+    }
+    .caption {
+      text-align: center;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .input-box {
+      display: block;
+      margin-bottom: 5px;
+    }
+    .btn {
+      margin-top: 10px;
+    }
+    .input-group {
+    display: flex;
+    align-items: center;
+  }
+
+  .input-group label {
+    margin-right: 5px;
+  }
+  </style>
+</head>
+<body>
+  <h1>Overstrength Prediction App</h1>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+  
+  <div class="column">
+    <figure>
+      <img src="figs/circ.png" alt="Circ" style="width: 30%;">
+      <figcaption class="caption">CHS Profile</figcaption>
+    </figure>
+    <div class="input-group">
+      <label for="input-d">\(D\) [mm]:</label>
+      <input type="text" class="input-box" id="input-d" placeholder="Enter D">
+    </div>
+    <div class="input-group">
+      <label for="input-t">\(t\) [mm]:</label>
+      <input type="text" class="input-box" id="input-t" placeholder="Enter t">
+    </div>
+    <div class="input-group">
+      <label for="input-lv">\(L_v\) [mm]:</label>
+      <input type="text" class="input-box" id="input-lv" placeholder="Enter L_v">
+    </div>
+    <div class="input-group">
+      <label for="input-fy">\(f_y\) [MPa]:</label>
+      <input type="text" class="input-box" id="input-fy" placeholder="Enter f_y">
+    </div>
+    <button id="predict-chs" class="btn" type="submit" onclick="predict()">Predict</button>
+    <button class="btn" type="reset" onclick="clearInputs()">Clear</button>
+    <div style="margin-top: 20px;"></div>
+
+    <fieldset>
+        <legend>MHER-DNN Prediction for CHS Profile</legend>
+        {% if s_circ_pred %}
+        <p>Overstrength \(s\) [-]: {{ s_circ_pred }}</p>
+        {% endif %}
+        {% if error is not none and error != '' %}
+        <p style="color:red">{{ error }}</p>
+        {% endif %}
+    </fieldset>
+  </div>
+    
+
+  <div class="column">
+    <figure>
+      <img src="figs/RHSSHS.png" alt="RHSSHS" style="width: 50%;">
+      <figcaption class="caption">RHS / SHS Profile</figcaption>
+    </figure>
+    <div class="input-group">
+      <label for="input-bf">\(b\) [mm]:</label>
+      <input type="text" class="input-box" id="input-bf" placeholder="Enter b">
+    </div>
+    <div class="input-group">
+      <label for="input-d">\(d\) [mm]:</label>
+      <input type="text" class="input-box" id="input-d" placeholder="Enter d">
+    </div>
+    <div class="input-group">
+        <label for="input-tf">\(t\) [mm]:</label>
+        <input type="text" class="input-box" id="input-tf" placeholder="Enter t">
+    </div>
+    <div class="input-group">
+        <label for="input-tw">\(r\) [mm]:</label>
+        <input type="text" class="input-box" id="input-tw" placeholder="Enter r">
+    </div>
+    <div class="input-group">
+      <label for="input-lv">\(L_v\) [mm]:</label>
+      <input type="text" class="input-box" id="input-lv" placeholder="Enter L_v">
+    </div>
+    <div class="input-group">
+        <label for="input-EEh">\(E/E_h\) [-]:</label>
+        <input type="text" class="input-box" id="input-EEh" placeholder="Enter E/E_h">
+      </div>
+      <div class="input-group">
+        <label for="input-epshepsy">\(\epsilon_h / \epsilon_y\) [-]:</label>
+        <input type="text" class="input-box" id="input-epshepsy" placeholder="Enter epsilon_h / epsilon_y">
+      </div>
+    <div class="input-group">
+        <label for="input-fyweb">\(f_y\) [MPa]:</label>
+        <input type="text" class="input-box" id="input-fy" placeholder="Enter f_y">
+    </div>
+    <button id="predict-rhsshs" class="btn" type="submit" onclick="predict()">Predict</button>
+    <button class="btn" type="reset" onclick="clearInputs()">Clear</button>
+    <div style="margin-top: 20px;"></div>
+    <fieldset>
+        <legend>MHER-DNN Prediction for RHS / SHS Profile</legend>
+        {% if s_rhsshs_pred %}
+        <p>Overstrength \(s\) [-]: {{ s_rhsshs_pred }}</p>
+        {% endif %}
+        {% if error is not none and error != '' %}
+        <p style="color:red">{{ error }}</p>
+        {% endif %}
+    </fieldset>
+
+  </div>
+
+
+  <div class="column">
+    <figure>
+      <img src="figs/IH.png" alt="IH" style="width: 30%;">
+      <figcaption class="caption">I / H Profile</figcaption>
+    </figure>
+    <div class="input-group">
+      <label for="input-bf">\(b_f\) [mm]:</label>
+      <input type="text" class="input-box" id="input-bf" placeholder="Enter b_f">
+    </div>
+    <div class="input-group">
+      <label for="input-d">\(d\) [mm]:</label>
+      <input type="text" class="input-box" id="input-d" placeholder="Enter d">
+    </div>
+    <div class="input-group">
+        <label for="input-tf">\(t_f\) [mm]:</label>
+        <input type="text" class="input-box" id="input-tf" placeholder="Enter t_f">
+    </div>
+    <div class="input-group">
+        <label for="input-tw">\(t_w\) [mm]:</label>
+        <input type="text" class="input-box" id="input-tw" placeholder="Enter t_w">
+    </div>
+    <div class="input-group">
+      <label for="input-lv">\(L_v\) [mm]:</label>
+      <input type="text" class="input-box" id="input-lv" placeholder="Enter L_v">
+    </div>
+    <div class="input-group">
+        <label for="input-EEh">\(E/E_h\) [-]:</label>
+        <input type="text" class="input-box" id="input-EEh" placeholder="Enter E/E_h">
+      </div>
+      <div class="input-group">
+        <label for="input-epshepsy">\(\epsilon_h / \epsilon_y\) [-]:</label>
+        <input type="text" class="input-box" id="input-epshepsy" placeholder="Enter epsilon_h / epsilon_y">
+      </div>
+    <div class="input-group">
+      <label for="input-fyflange">\(f_{y,flange}\) [MPa]:</label>
+      <input type="text" class="input-box" id="input-fy" placeholder="Enter f_{y,flange}">
+    </div>
+    <div class="input-group">
+        <label for="input-fyweb">\(f_{y,web}\) [MPa]:</label>
+        <input type="text" class="input-box" id="input-fy" placeholder="Enter f_{y,web}">
+    </div>
+    <button id="predict-ih" class="btn" type="submit" onclick="predict()">Predict</button>
+    <button class="btn" type="reset" onclick="clearInputs()">Clear</button>
+    <div style="margin-top: 20px;"></div>
+
+    <fieldset>
+        <legend>MHER-DNN Prediction for I / H Profile</legend>
+        {% if s_ih_pred %}
+        <p>Overstrength \(s\) [-]: {{ s_ih_pred }}</p>
+        {% endif %}
+        {% if error is not none and error != '' %}
+        <p style="color:red">{{ error }}</p>
+        {% endif %}
+    </fieldset>
+
+  </div>
+
+
+  <script>
+
+    function clearInputs() {
+      var inputBoxes = document.getElementsByClassName("input-box");
+      for (var i = 0; i < inputBoxes.length; i++) {
+        inputBoxes[i].value = "";
+      }
+    }
+  </script>
+</body>
+</html>
