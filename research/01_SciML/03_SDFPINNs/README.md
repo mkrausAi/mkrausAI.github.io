@@ -8,10 +8,13 @@
 ============================== -->
 
 *   [Abstract](#Abstract)
-*   [Methods and Results](#methods)
+*   [Methods](#methods)
+*   [SDF-PINN Framework](#MLmodel)
+*   [Results and Discussions](#Results)
 *   [Conclusions](#Conclusions)
-*   [Web Applications](#WebApp)
+*   [References](#References)
 *   [Contributors](#contributors)
+
 
 <!-- -->
 <!-- *   [Citation](#citation)-->
@@ -93,7 +96,7 @@ Neural shape representation employs neural networks to encode 3D geometry, typic
 </table>
 
 
-## <a name="Results and Discussions"></a> Results
+## <a name="Results"></a> Results and Discussions
 <p>To study the proposed method, we investigate a membrane structure with prescribed deflection on the boundary &Gamma; over a domain &Omega; in form of the TUM logo using Poisson's equation:</p>
 
 <p style="text-align: center;">
@@ -143,7 +146,7 @@ journal = "xx"
 ## <a name="contributors"></a>Contributors
 <div style="display:flex; justify-content: center;">
   <div style="flex:1">
-    <img src="https://mkrausai.github.io/img/persons/Michael6_3.jpg" alt="Michael" style="width:60%">
+    <img src="https://mkrausai.github.io/img/persons/Michael6_3.jpg" alt="Michael" style="width:40%">
     <div style="text-align:center"> Univ.-Prof. Dr.-Ing. Michael A. Kraus, M.Sc.(hons) <br />
     Professor for Structural Analysis, TU Darmstadt <br /></div>
   </div>
