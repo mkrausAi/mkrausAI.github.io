@@ -123,10 +123,20 @@ As can be seen from Figure 2, there is almost excellent agreement between the FE
 In this paper, we introduced a novel method for solving PDEs with Dirichlet boundary conditions in arbitrarily complex geometries using a combination of PINNs and neural SDFs. The effectiveness of our method is demonstrated via a Poisson problem on the TUM logo versus a standard FEM solution. We found a very good agreement between the two solution methods, where the SDF-PINNs approach comes with the promise of transfer learning to other domains. Future work will focus on extending the approach to other boundary conditions such as Neuman or Robin conditions as well as to inspect the SDF computation and the neural SDF representation with techniques such as convolutional layers, dropout, and batch normalization.
 
 ## <a name="References"></a> References
-Bischof, R., & Kraus, M., 2021. Multi-objective loss balancing for physics-informed deep learning. arXiv preprint arXiv:2110.09813.
-Bischof, R., & Kraus, M., 2022. Mixture-of-experts-ensemble meta-learning for physics-informed neural networks. In Proceedings of 33. Forum Bauinformatik, pp. 317-324.
-Jeske, S. R., Klein, J., Michels, D. L., & Bender, J. (2023). Zero-Level-Set Encoder for Neural Distance Fields. arXiv preprint arXiv:2310.06644.
-Tancik, M., Srinivasan, P., Mildenhall, B., Fridovich-Keil, S., Raghavan, N., Singhal, U., Ramamoorthi, R., Barron, J. & Ng, R., 2020. Fourier features let networks learn high frequency functions in low dimensional domains. Advances in neural information processing systems, 33, 7537-7547.
+<ol>
+  <li>
+    Bischof, R., &amp; Kraus, M. (2021). Multi-objective loss balancing for physics-informed deep learning. <em>arXiv preprint arXiv:2110.09813</em>.
+  </li>
+  <li>
+    Bischof, R., &amp; Kraus, M. (2022). Mixture-of-experts-ensemble meta-learning for physics-informed neural networks. In <em>Proceedings of 33. Forum Bauinformatik</em> (pp. 317-324).
+  </li>
+  <li>
+    Jeske, S. R., Klein, J., Michels, D. L., &amp; Bender, J. (2023). Zero-Level-Set Encoder for Neural Distance Fields. <em>arXiv preprint arXiv:2310.06644</em>.
+  </li>
+  <li>
+    Tancik, M., Srinivasan, P., Mildenhall, B., Fridovich-Keil, S., Raghavan, N., Singhal, U., Ramamoorthi, R., Barron, J. &amp; Ng, R. (2020). Fourier features let networks learn high frequency functions in low dimensional domains. <em>Advances in neural information processing systems, 33</em>, 7537-7547.
+  </li>
+</ol>
 
 
 
