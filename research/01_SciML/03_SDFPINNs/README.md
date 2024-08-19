@@ -50,7 +50,7 @@ Neural shape representation employs neural networks to encode 3D geometry, typic
 </p>
 
 <div style="text-align:center; white-space: nowrap;">
-  <img src="https://mkrausai.github.io/research/01_SciML/03_SDFPINNs/figs/Figure_01.jpg" width="50%" alt="cVAE_Model" /><br />
+  <img src="https://mkrausai.github.io/research/01_SciML/03_SDFPINNs/figs/Figure_01.jpg" width="80%" alt="cVAE_Model" /><br />
   Figure 1: Proposed Network for combining a Neural Signed Distance Function with a Physics-Informed Neural Network to solve Partial Differential Equations.<br />
 </div>
 <br />
