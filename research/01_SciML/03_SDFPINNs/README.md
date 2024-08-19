@@ -8,7 +8,6 @@
 ============================== -->
 
 *   [Abstract](#Abstract)
-*   [Introduction](#intro)
 *   [Methods and Results](#methods)
 *   [Conclusions](#Conclusions)
 *   [Web Applications](#WebApp)
@@ -23,112 +22,97 @@ This paper presents an advanced method for solving boundary value problems of di
 The publication can be found <a href="https://onlinelibrary.wiley.com/doi/10.1002/cepa.2587" target="_blank">here</a>.
 
 
-## <a name="intro"></a>Introduction
-The performance of steel structures is influenced by the behavior of their load-bearing components, particularly the flexural characteristics. Designing steel constructions that can provide sufficient local ductility for the development of plastic hinges while maintaining moment capacity is crucial for ensuring a global dissipative mechanism. In the context of bending steel beams, two key parameters, rotation capacity ($$r$$) and flexural overstrength ($$s$$), play a decisive role. Understanding these parameters is essential for achieving safe and reliable structural designs, especially when considering seismic codes such as EN 1998. While empirical methods exist to estimate the rotation capacity $$r$$ and flexural overstrength $$s$$ of steel members, there is a need for comprehensive analytical estimation, specifically for circular (CHS), rectangular (RHS), and square (SHS) hollow sections, as well as I and H profiles. This study aims to develop a precise and efficient deep learning technique for predicting the flexural overstrength factor of steel beams with different cross sections under pure bending. This technique will enable the identification of latent correlations and provide a better understanding of cross-sectional similarities concerning flexural overstrength $$s$$.
-
 ## <a name="methods"></a>Methods
 
-# <a name="sec:Overstrength"></a> The Flexural Overstrength Factor $$s$$
-The flexural overstrength factor $$s$$ is a non-dimensional parameter used for characterizing the ultimate bending capacity of steel beams exceeding the plastic bending strength due to the strain hardening [2]. It is originally ([3],[4]) computed by the ratio of the stress fLB corresponding to complete local buckling development or the lateral torsional buckling to the yield stress $$f_y$$: <br />
-<div style="text-align:center;">
-$$s = \frac{f_{LB}}{f_y} = \frac{M_u}{M_p} $$
-</div>
-or by the more practical relation using the maximum moment $$M_u$$ to the theoretical full plastic moment $$M_p$$. The ultimate bearing capacity of steel beams can be significantly greater than the plastic bending strength because of strain hardening before complete local buckling or fractures as given in Figure 1 by the generalized moment-rotation curves. The overstrength factor is used for seismic design in the Italian codes OPCM 3274 (2003) and NTC 2018 but neglected for cross-section classes in Eurocode 3 (EN 1993:1-1).
+<p>We are interested in solving stationary PDEs of the form</p>
 
-<div style="text-align:center;">
+<p>
+    <em>Lu</em> = <em>f</em>, &nbsp;&nbsp;&nbsp; <em>x</em> &isin; &Omega; &nbsp;&nbsp;&nbsp; (1)<br>
+    <em>Bu</em> = <em>g</em>, &nbsp;&nbsp;&nbsp; <em>x</em> &isin; &Gamma; &sub; &part;&Omega; &nbsp;&nbsp;&nbsp; (2)
+</p>
+
+<p>where <em>L</em> is a differential operator, <em>f</em> a forcing function, <em>B</em> a boundary operator, and <em>g</em> the boundary data. The domain of interest is &Omega; &sub; &#8477;<sup><em>N</em></sup>, &part;&Omega; denotes its boundary, and &Gamma; is the part of the boundary where boundary conditions should be imposed. Specifically in the context of this paper, we assume <em>B</em> to be the identity operator, which implies PDEs with Dirichlet boundary conditions. The extension to other operator types will be discussed in an upcoming paper.</p>
+
+Physics Informed Neural Networks (PINNs) leverage neural networks to approximate solutions to differential equations while incorporating physics-based constraints into the loss function, allowing them to generate accurate and physically consistent models with no or limited data (Bischof et al., 2022; Bischof et al., 2023). This paper sticks to the no-data forward only setting of time-independent PINNs, which implies loss functions for the boundary and the governing PDE only. The solution is obtained via tuning the trainable parameters (weights and biases) of the fully connected feed-forward neural network via numerical optimization of the scalarized combined losses.
+
+Neural shape representation refers to representing 3D geometry using neural networks, e.g., to compute a signed distance or occupancy value at a specific spatial position (Jeske et al., 2023). After training on the discretely represented samples, the estimated geometry signal is implicitly encoded in the network, where recent works have shown the ability to capture intricate details of 3D geometry with ever increasing fidelity. However, discrete representations comes with a significant drawback: They only contain a discrete amount of information regarding the signal.
+
+Neural shape representation employs neural networks to encode 3D geometry, typically by computing signed distance (SDF) or occupancy values at given spatial coordinates (Jeske et al., 2023). This approach has recently demonstrated remarkable capability in capturing intricate geometric details of complex 3D shapes with high fidelity. The neural network, once trained on discretely represented samples, implicitly encodes the estimated geometry signal within its parameters. Neural signed distance functions (SDFs) offer several key advantages, including the ability to represent complex 3D shapes with infinite resolution, arbitrary topology, and continuous, differentiable surfaces, while providing a compact and memory-efficient encoding of geometry that can be easily manipulated and rendered.
+
+# <a name="sec:MLmodel"></a> SDF-PINN Framework
+<p>In order to solve the PDE defined by equations (1-2), we propose to combine neural SDF and PINN within the following ansatz, which by construction automatically fulfills the boundary constraints:</p>
+
+<p style="text-align: center;">
+    <em>û</em>(<em>x</em>) = <em>v</em>(<em>x</em>)<em>d</em>(<em>x</em>) + <em>h</em>(<em>x</em>) &nbsp;&nbsp;&nbsp; (3)
+</p>
+
+<div style="text-align:center; white-space: nowrap;">
   <img src="https://mkrausai.github.io/research/01_SciML/03_SDFPINNs/figs/Figure_01.jpg" width="50%" alt="cVAE_Model" /><br />
   Figure 1: Proposed Network for combining a Neural Signed Distance Function with a Physics-Informed Neural Network to solve Partial Differential Equations.<br />
 </div>
+<br />
+
+<p>Here <em>v</em> is a smooth function carefully chosen to vanish on &Gamma; and not to vanish anywhere inside the region, hence we suggest it to be a smooth distance function for <em>x</em> &isin; &Omega; to &Gamma; (specifically in the context of this paper we chose the signed distance function / SDF). <em>h</em> is also a smooth, globally defined function. Specifically note, that we can precompute <em>v</em> and <em>h</em> using either analytical formulae (in simple cases) or small neural networks on a subset of collocation points, as the exact form of both functions is not important. <em>d</em> is a PINN and needs to be trained on a discrete grid of collocation points in the region &Omega; via minimizing the induced cost function as shown in Fig. 1.</p>
+
+<table border="1" style="border-collapse: collapse; width: 100%;">
+    <caption>Table 1: Hyperparameters together with their final values of the neural SDF as well as PINN.</caption>
+    <thead>
+        <tr>
+            <th>Hyperparameter</th>
+            <th>Neural SDF <em>v</em>(<em>x</em>)</th>
+            <th>PINN <em>d</em>(<em>x</em>)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Number of Layers N<sub>L</sub></td>
+            <td>6</td>
+            <td>6</td>
+        </tr>
+        <tr>
+            <td>Number of Neurons per Layer N<sub>N</sub></td>
+            <td>512</td>
+            <td>512</td>
+        </tr>
+        <tr>
+            <td>Activation Function</td>
+            <td>relu</td>
+            <td>tanh</td>
+        </tr>
+        <tr>
+            <td>Fourier Feature map size</td>
+            <td>256</td>
+            <td>256</td>
+        </tr>
+        <tr>
+            <td>B sampled from isotropic Gaussian with</td>
+            <td>&sigma; = 1</td>
+            <td>&sigma; = 1</td>
+        </tr>
+    </tbody>
+</table>
 
 
-# <a name="sec:MLmodel"></a> Multi-Head Encoder - Regressor Deep Neural Network (MHER-DNN)
-This research proposes a novel DL architecture called multi-head encoder - regressor Deep Neural Network (MHER-DNN) for twofold use: (i) prediction of the overstrength factor s for five cross section types (CHS, SHS, RHS, I and H) of various steel grades, and (ii) learning a compressed representation of the cross section specific inputs for subsequent regression but also domain-informed inspection. Note, that the MHER-DNN architecture as provided in Fig. 5 is solely used for training as proxy combining the individual models (without the other heads), which have to be used at inference resp. prediction. Inspection of the latent parameters and cross-sectional similarities can be executed on the shared embedding layer.
+## <a name="Results and Discussions"></a> Results
+<p>To study the proposed method, we investigate a membrane structure with prescribed deflection on the boundary &Gamma; over a domain &Omega; in form of the TUM logo using Poisson's equation:</p>
 
-**MHER-DNN Model**<br />
-The MHER-DNN, cf. Figure 2, is designed with three input heads, one for each cross-sectional type, i.e. CHS, RHS, SHS, and I as well as H. The input heads with feature dimensions $$d_{CHS} = 4$$, $$d_{RHSSHS} = 8$$ and $$d_{IH} = 9$$ consist of fully connected Multi-Layer Perceptron (MLP) networks with ‘relu’ activation function, batch normalisation as well as dropout layers and feed into a shared embed-ding layer of dimension $$d_z$$, which learns the similarities and differences between the cross-section types. The embedding layer output is then passed to the regressor MLP network (also with batch normalisation as well as dropout layers) for predicting the overstrength factor s given cross-sectional features for circular, RHS/SHS, and I/H profiles. The MLPs are designed as encoders with decreasing layer width, starting with NN nodes and a subsequent shrinkage at a rate of $$1/N_L$$.
+<p style="text-align: center;">
+    -&nabla;<sup>2</sup> <em>u</em> = 100, &nbsp;&nbsp;&nbsp; <em>x</em> &isin; &Omega; &nbsp;&nbsp;&nbsp; (4)<br>
+    <em>u</em> = 0, &nbsp;&nbsp;&nbsp; <em>x</em> &isin; &Gamma; &sub; &part;&Omega; &nbsp;&nbsp;&nbsp; (5)
+</p>
+
+<p>The FEM reference solution data for <em>u</em> were obtained via the MATLAB 2024 PDE toolbox with a mesh of max 0.01 size. The SDF-PINN implementation is using Tensorflow 2.</p>
+
+<p>As both, the input domain &Omega; and boundary geometry &Gamma; are quite complex, we employ Fourier Features (Tancik et al., 2020) within a custom Keras layer for the SDF network <em>v</em>(<em>x</em>) specified in Table 1, the Dirichlet boundary network is trivial <em>h</em>(<em>x</em>) &equiv; 0. The PINN architecture <em>d</em>(<em>x</em>) is also provided in Table 1. Figure 2 shows the FEM solution <em>u</em><sub>FEM</sub> next to the SDF-PINNs solution <em>u</em><sub>(SDF-PINN)</sub> for the Poisson Equation over the domain &Omega; in form of the TUM logo</p>
+
 
 <div style="text-align:center; white-space: nowrap;">
-  <img src="https://mkrausai.github.io/research/01_SciML/02_Overstrength/figs/Figure_05.png" width="50%" alt="cVAE_Model" /><br />
-  Figure 2: Multi-head encoder – Regressor Deep Neural Network (MHER-DNN) with shared embedding layer for predicting the overstrength factor \(s\) <br />
-  given cross-sectional features for CHS, RHS, SHS, I and H profiles.<br />
+  <img src="https://mkrausai.github.io/research/01_SciML/03_SDFPINNs/figs/Figure_02.jpg" width="50%" alt="cVAE_Model" /><br />
+  Figure 2: Poisson Equation over the TUM logo with Dirichlet boundary condition: (i) FEM reference, (ii) SDF-PINNs result, (iii) Absolute Error.<br />
 </div>
 <br />
 
-All MHER-DNN hyperparameters together with their search intervalls and final choices are summarized in the following table.
-
-<div style="text-align:center;">
-  <p>Table 1: DL architecture search space: hyperparameters and ranges for the gridsearch as well as final hyperparameter choices.</p>
-  <table style="margin: 0 auto;">
-    <tr>
-      <th>Hyperparameter</th>
-      <th>Range</th>
-      <th>Final Choice</th>
-    </tr>
-    <tr>
-      <td>Number of Layers \(N_L\)</td>
-      <td>[2, 8, 32]</td>
-      <td>8</td>
-    </tr>
-    <tr>
-      <td>Number of Nodes \(N_N\)</td>
-      <td>[32, 64, 128]</td>
-      <td>64</td>
-    </tr>
-    <tr>
-      <td>Latent Dim \(d_z\)</td>
-      <td>[2, 3, 10, 15]</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <td>Dropout Rate \(r_d\)</td>
-      <td>[0, 0.25]</td>
-      <td>0.25</td>
-    </tr>
-  </table>
-</div>
-<br />
-
-**Training and Validation of MHER-DNN**<br />
-The data sets for CHS, RHS, SHS, I and H cross sections are split into training (80% of $$N_{S,i}$$) set, validation (10% of $$N_{S,i}$$) set and test (10% of $$N_{S,i}$$) set. The data sets were furthermore standardized before training to yield zero mean and unit standard deviation, where a data scaler function per section type was employed and calibrated using the training sets only. Due to the differing sizes of the single cross-sectional data sets within the data base, a custom data loader for consistent batch training was programmed to ensure a fixed batch length during training for the MHER-DNN.
-
-A hyperparameter search was conducted in order to find the MHER-DNN architecture with optimal performance. The hyperparameters investigated are: number of layers $$N_L$$, number of nodes $$N_N$$ nodes, latent space dimension $$d_z$$, and dropout rate $$r_d$$, while the activation function was not changed, cf. table 1. The hyperparameters value ranges spanning the MHER-DNN’s search space as well as the final choices are provided in Table 1, where a grid search approach was used to find the optimal combination of hyperparameters. The results of the hyperparameter tuning can be found at our Weights&Biases <a href="https://wandb.ai/ai4structeng_ethz/Multihead_AE_forward_overstrength_full/reports/Predictive-modelling-and-latent-space-exploration-of-steel-profile-overstrength-factors-using-multi-head-autoencoder-regressors--Vmlldzo0NTQyNTU5" target="_blank"> project homepage </a>.
-
-Each MHER-DNN training run consisted of 2,000 update epochs with 10 training and 5 validation steps per epoch. We employed a MSE loss as objective without further regularization, where the Adam optimizer with initial learning rate of 0.001 is used. The training also enforces callbacks for learning rate reduction and early stopping for tracking the validation loss with patience of 120 respectively 200 
-
-
-A parallel coordinate plot, cf. Figure 3, is used to visualize the hyperparameters of MHER-DNN as well as the MAE computed by MHER-DNN on the test data sets of the cross sections. The parallel coordinate plot clearly highlights a trade-off between the test set MAEs of the overstrength factor $$s$$ of the three NN models and their hyperparameter choices without a clear favourite choice. Hence the choice of the final MHER-DNN hy-perparameters can only be made in a Pareto optimal sense. Therefore we use the average MAE on the test sets (represented by the colorbar) as decision criterion for choosing the values reported in table 1. 
-
-<div style="text-align:center;">
-  <img src="https://mkrausai.github.io/research/01_SciML/02_Overstrength/figs/Figure_07.png" width="70%" alt="Parallel_coordinates_plot" /><br />
-  Figure 3: Parallel coordinates plot of the hyperparameter tuning including MAE test data results as well as the average MAE score.<br />
-</div><br />
-
-Figure 4 provides plots for comparing predictions  $$\hat{s}$$ and ground truth data $$s$$ for the finally chosen MHER-DNN hyperparameters for all cross sectional data sets (while different markers indicate training, validation and test data sets).
- 
-<div style="text-align:center;">
-  <img src="https://mkrausai.github.io/research/01_SciML/02_Overstrength/figs/Figure_08.png" width="100%" alt="Predictioncapability1" /><br />
-  Figure 4: Prediction capability of the MHER-DNN model on the train, validation and test data sets over all cross sections.<br />
-</div><br />
-
-First, it should be noted that the three MHER-DNN cross sectional sub-regression models predict their respective targets very well as proven by the respective reported RMSE, MAE and $$R^2$$ values. However, approximately linear deviation trends with different magnitudes can be observed. In order to investigate the deviations more closely, Fig. 5 compares the performance of the proposed MHER-DNN models by plotting the overstrength ratios of predictions s ̂ against the corresponding experimental normalised by the experimental ground truth values s. 
-
-<div style="text-align:center;">
-  <img src="https://mkrausai.github.io/research/01_SciML/02_Overstrength/figs/Figure_09.png" width="100%" alt="Predictioncapability2" /><br />
-  Figure 5: Prediction capability of the MHER-DNN model on the train, validation and test data sets over all cross sections.<br />
-</div><br />
-
-In Fig. 5, a normalized value of 1.0 represents a perfect estimation and indicates the most accurate prediction performance area. It can be seen, that most values are within a precision band of $$+/- 10\%$$, where the linear patterns of predictive deviations confirm model dependent heteroscedasticity. The sub-model deviations manifest in the form that smaller value ranges (on the left side of the diagrams) are generally underestimating overstrength whereas larger value ranges are rather overestimated. The coefficients of variation (CoV) for the cross sectional MHER-DNN sub-models are around 0.14 and would now allow for the determination of the design values for predictions given by the sub-models together with partial safety factors in accordance with Annex D of EN 1990, which is omitted at this point.
-
-# <a name="sec:sensitivity"></a> Latent Space Inspection and Interpretation
-A key feature of the proposed MHER-DNN model is inspection of the cross sectional embeddings into the latent space variables of the shared layer. Latent space inspection is a critical step in evaluating the performance of a deep learning model and gaining understanding of the latent structure within the data. In this regard, the latent space is a low-dimensional representation of the cross sections within the data set learned by the MHER-DNN model during training. As the finally chose MHER-DNN possesses a three dimensional latent space, no further dimensionality reduction e.g. via $$t$$-distributed stochastic neighbour embedding (t-SNE) or Uniform Manifold Approximation and Projection (UMAP) projection is necessary for human perception.
-
-<div style="text-align:center;">
-  <img src="https://mkrausai.github.io/research/01_SciML/02_Overstrength/figs/Figure_10.png" width="90%" alt="Parallel_coordinates_plot" /><br />
-  Figure 6: Visualisation of the 3-D latent space spanned by the coordinates of the embedding layer of MHER-DNN.<br />
-</div><br />
-
-Fig. 6 provides a visualisation of the latent space as 3D plot together with projections in the latent dimen-sions as top and side views. Cross sections are indi-cated by markers while the colouring highlights the overstrength factor. By examining the visualization in Fig. 6 humans can get a sense of how the MHER-DNN has learned to separate the cross sectional input data together with detection of clusters in the latent representation of the input data. It especially allows to recognize, that the model detected several cross sectional clusters in the latent space. The individual clusters seem to possess a 1-dimensional intrinsic dimension (as the data are aligned on one line), however multiple branches within the 3D space can be recognized. Further model archi-tecture changes as well as feature engineering is nec-essary to further improve the overall model perfor-mances due to the obvious intrinsic correlation clusters between the cross sections w.r.t. the overstrength.
-
+As can be seen from Figure 2, there is almost excellent agreement between the FEM reference and the SDF-PINNs solution. 
 
 ## <a name="Conclusions"></a> Conclusions
 In this paper, we introduced a novel method for solving PDEs with Dirichlet boundary conditions in arbitrarily complex geometries using a combination of PINNs and neural SDFs. The effectiveness of our method is demonstrated via a Poisson problem on the TUM logo versus a standard FEM solution. We found a very good agreement between the two solution methods, where the SDF-PINNs approach comes with the promise of transfer learning to other domains. Future work will focus on extending the approach to other boundary conditions such as Neuman or Robin conditions as well as to inspect the SDF computation and the neural SDF representation with techniques such as convolutional layers, dropout, and batch normalization.
