@@ -58,40 +58,40 @@ Neural shape representation employs neural networks to encode 3D geometry, typic
 <p>Here <em>v</em> is a smooth function carefully chosen to vanish on &Gamma; and not to vanish anywhere inside the region, hence we suggest it to be a smooth distance function for <em>x</em> &isin; &Omega; to &Gamma; (specifically in the context of this paper we chose the signed distance function / SDF). <em>h</em> is also a smooth, globally defined function. Specifically note, that we can precompute <em>v</em> and <em>h</em> using either analytical formulae (in simple cases) or small neural networks on a subset of collocation points, as the exact form of both functions is not important. <em>d</em> is a PINN and needs to be trained on a discrete grid of collocation points in the region &Omega; via minimizing the induced cost function as shown in Fig. 1.</p>
 
 <div style="text-align: center;">
-    <table style="border-collapse: collapse; margin: 0 auto;">
-        <caption>Table 1: Hyperparameters together with their final values of the neural SDF as well as PINN.</caption>
+    <table style="border-collapse: collapse; margin: 0 auto; width: 80%;">
+        <caption style="margin-bottom: 10px;">Table 1: Hyperparameters together with their final values of the neural SDF as well as PINN.</caption>
         <thead>
             <tr>
-                <th style="border: 1px solid black; padding: 5px;">Hyperparameter</th>
-                <th style="border: 1px solid black; padding: 5px;">Neural SDF <em>v</em>(<em>x</em>)</th>
-                <th style="border: 1px solid black; padding: 5px;">PINN <em>d</em>(<em>x</em>)</th>
+                <th style="border: 1px solid black; padding: 10px; width: 40%;">Hyperparameter</th>
+                <th style="border: 1px solid black; padding: 10px; width: 30%;">Neural SDF <em>v</em>(<em>x</em>)</th>
+                <th style="border: 1px solid black; padding: 10px; width: 30%;">PINN <em>d</em>(<em>x</em>)</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td style="border: 1px solid black; padding: 5px;">Number of Layers N<sub>L</sub></td>
-                <td style="border: 1px solid black; padding: 5px;">6</td>
-                <td style="border: 1px solid black; padding: 5px;">6</td>
+                <td style="border: 1px solid black; padding: 10px;">Number of Layers N<sub>L</sub></td>
+                <td style="border: 1px solid black; padding: 10px;">6</td>
+                <td style="border: 1px solid black; padding: 10px;">6</td>
             </tr>
             <tr>
-                <td style="border: 1px solid black; padding: 5px;">Number of Neurons per Layer N<sub>N</sub></td>
-                <td style="border: 1px solid black; padding: 5px;">512</td>
-                <td style="border: 1px solid black; padding: 5px;">512</td>
+                <td style="border: 1px solid black; padding: 10px;">Number of Neurons per Layer N<sub>N</sub></td>
+                <td style="border: 1px solid black; padding: 10px;">512</td>
+                <td style="border: 1px solid black; padding: 10px;">512</td>
             </tr>
             <tr>
-                <td style="border: 1px solid black; padding: 5px;">Activation Function</td>
-                <td style="border: 1px solid black; padding: 5px;">relu</td>
-                <td style="border: 1px solid black; padding: 5px;">tanh</td>
+                <td style="border: 1px solid black; padding: 10px;">Activation Function</td>
+                <td style="border: 1px solid black; padding: 10px;">relu</td>
+                <td style="border: 1px solid black; padding: 10px;">tanh</td>
             </tr>
             <tr>
-                <td style="border: 1px solid black; padding: 5px;">Fourier Feature map size</td>
-                <td style="border: 1px solid black; padding: 5px;">256</td>
-                <td style="border: 1px solid black; padding: 5px;">256</td>
+                <td style="border: 1px solid black; padding: 10px;">Fourier Feature map size</td>
+                <td style="border: 1px solid black; padding: 10px;">256</td>
+                <td style="border: 1px solid black; padding: 10px;">256</td>
             </tr>
             <tr>
-                <td style="border: 1px solid black; padding: 5px;">B sampled from isotropic Gaussian with</td>
-                <td style="border: 1px solid black; padding: 5px;">&sigma; = 1</td>
-                <td style="border: 1px solid black; padding: 5px;">&sigma; = 1</td>
+                <td style="border: 1px solid black; padding: 10px;">B sampled from isotropic Gaussian with</td>
+                <td style="border: 1px solid black; padding: 10px;">&sigma; = 1</td>
+                <td style="border: 1px solid black; padding: 10px;">&sigma; = 1</td>
             </tr>
         </tbody>
     </table>
@@ -112,7 +112,7 @@ Neural shape representation employs neural networks to encode 3D geometry, typic
 
 
 <div style="text-align:center; white-space: nowrap;">
-  <img src="https://mkrausai.github.io/research/01_SciML/03_SDFPINNs/figs/Figure_02.jpg" width="50%" alt="cVAE_Model" /><br />
+  <img src="https://mkrausai.github.io/research/01_SciML/03_SDFPINNs/figs/Figure_02.jpg" width="90%" alt="cVAE_Model" /><br />
   Figure 2: Poisson Equation over the TUM logo with Dirichlet boundary condition: (i) FEM reference, (ii) SDF-PINNs result, (iii) Absolute Error.<br />
 </div>
 <br />
