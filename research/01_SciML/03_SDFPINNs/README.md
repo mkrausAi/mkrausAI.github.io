@@ -136,6 +136,9 @@ In this paper, we introduced a novel method for solving PDEs with Dirichlet boun
 ## <a name="References"></a> References
 Bischof, R., & Kraus, M., 2021. Multi-objective loss balancing for physics-informed deep learning. arXiv preprint arXiv:2110.09813.
 Bischof, R., & Kraus, M., 2022. Mixture-of-experts-ensemble meta-learning for physics-informed neural networks. In Proceedings of 33. Forum Bauinformatik, pp. 317-324.
+Jeske, S. R., Klein, J., Michels, D. L., & Bender, J. (2023). Zero-Level-Set Encoder for Neural Distance Fields. arXiv preprint arXiv:2310.06644.
+Tancik, M., Srinivasan, P., Mildenhall, B., Fridovich-Keil, S., Raghavan, N., Singhal, U., Ramamoorthi, R., Barron, J. & Ng, R., 2020. Fourier features let networks learn high frequency functions in low dimensional domains. Advances in neural information processing systems, 33, 7537-7547.
+
 
 
 <!--
@@ -161,7 +164,7 @@ journal = "xx"
     Professor for Structural Analysis, TU Darmstadt <br /></div>
   </div>
   <div style="flex:1">
-    <img src="https://mkrausai.github.io/img/persons/andreasmueller.jpeg" alt="Mueller" style="width:62%">
+    <img src="https://mkrausai.github.io/img/persons/konstantinos_tatsis.jpg" alt="Konsti" style="width:62%">
     <div style="text-align:center">Dr. Konstantinos Tatsis<br />
 Data Scientist at Swiss Data Science Center (SDSC), Zurich <br /></div>
   </div>
