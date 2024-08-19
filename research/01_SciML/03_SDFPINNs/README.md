@@ -112,7 +112,7 @@ Neural shape representation employs neural networks to encode 3D geometry, typic
 
 
 <div style="text-align:center; white-space: nowrap;">
-  <img src="https://mkrausai.github.io/research/01_SciML/03_SDFPINNs/figs/Figure_02.jpg" width="90%" alt="cVAE_Model" /><br />
+  <img src="https://mkrausai.github.io/research/01_SciML/03_SDFPINNs/figs/Figure_02.jpg" width="100%" alt="cVAE_Model" /><br />
   Figure 2: Poisson Equation over the TUM logo with Dirichlet boundary condition: (i) FEM reference, (ii) SDF-PINNs result, (iii) Absolute Error.<br />
 </div>
 <br />
