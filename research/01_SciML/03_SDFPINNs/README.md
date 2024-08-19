@@ -145,20 +145,23 @@ journal = "xx"
 }
 ```
  -->
-## <a name="contributors"></a>Contributors
-<div style="display:flex; justify-content: center;">
-  <div style="flex:1">
-    <img src="https://mkrausai.github.io/img/persons/Michael6_3.jpg" alt="Michael" style="width:40%">
-    <div style="text-align:center"> Univ.-Prof. Dr.-Ing. Michael A. Kraus, M.Sc.(hons) <br />
-    Professor for Structural Analysis, TU Darmstadt <br /></div>
+<h2><a name="contributors"></a>Contributors</h2>
+<div style="display: flex; justify-content: center; align-items: flex-start; gap: 20px;">
+  <div style="text-align: center; width: 300px;">
+    <img src="https://mkrausai.github.io/img/persons/Michael6_3.jpg" alt="Michael" style="width: 100%; height: 300px; object-fit: cover;">
+    <p>
+      Univ.-Prof. Dr.-Ing. Michael A. Kraus, M.Sc.(hons)<br>
+      Professor for Structural Analysis, TU Darmstadt
+    </p>
   </div>
-  <div style="flex:1">
-    <img src="https://mkrausai.github.io/img/persons/konstantinos_tatsis.jpg" alt="Konsti" style="width:62%">
-    <div style="text-align:center">Dr. Konstantinos Tatsis<br />
-Data Scientist at Swiss Data Science Center (SDSC), Zurich <br /></div>
+  <div style="text-align: center; width: 300px;">
+    <img src="https://mkrausai.github.io/img/persons/konstantinos_tatsis.jpg" alt="Konsti" style="width: 100%; height: 300px; object-fit: cover;">
+    <p>
+      Dr. Konstantinos Tatsis<br>
+      Data Scientist at Swiss Data Science Center (SDSC), Zurich
+    </p>
   </div>
 </div>
-
 
 # Contact
 Univ.-Prof. Dr.-Ing. Michael A. Kraus, M.Sc.(hons)
