@@ -67,7 +67,7 @@ These metrics provided a robust framework for assessing the fidelity and diversi
 Instead of using conventional metrics such as Fréchet inception distances (FID), this study compares the probability distributions of geometric features (e.g., area, perimeter) extracted from images at time steps \( t \geq 0.5 \), following the approach of Kraus et al. (2019).
 
 ## <a name="results"></a> Results
-The following images show sample frames ("Frame 0" to "Frame 5") from the NCA training process at various time steps. Qualitatively, there is strong agreement between the ground truth fracture pattern and the textures learned by the NCA, especially for training times \( t \geq 0.5 \). A video of the learned fracture texture can be found <a href="https://mkrausai.github.io/research/01_SciML/04_NCA_GlassFracture/" target="_blank">here</a>.
+The following images show sample frames ("Frame 0" to "Frame 5") from the NCA training process at various time steps. Qualitatively, there is strong agreement between the ground truth fracture pattern and the textures learned by the NCA, especially for training times \( t \geq 0.5 \). 
 
 <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
   <figure style="text-align: center;">
@@ -110,6 +110,18 @@ The following images show sample frames ("Frame 0" to "Frame 5") from the NCA tr
   </figure>
 </div>
 
+We provide a video of the trained NCA generating fracture patterns of tempered glass here: 
+<div style="text-align: center;">
+  <video autoplay loop muted style="width: 10cm; height: 10cm;">
+    <source src="NCA_FracturedGlass.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <div style="margin-top: 10px; font-style: italic;">
+    Video of the NCA generating fracture patterns of tempered glass with 
+    <code>U<sub>D</sub> = 8,738.2 J/m³</code> (<code>U<sub>σ<sub>m</sub></sub> = 31.5 MPa</code>) in an area of 50 x 50 mm.
+  </div>
+</div>
+
 For the main geometric evaluation metrics (area, perimeter, major axis length, minor axis length) we provide the histograms using 10-log of the metrics due to their numerical values spanning several scales:
 
 
@@ -135,17 +147,7 @@ For the main geometric evaluation metrics (area, perimeter, major axis length, m
   </figure>
 </div>
 
-We provide a video of the trained NCA generating fracture patterns of tempered glass here: 
-<div style="text-align: center;">
-  <video autoplay loop muted style="width: 10cm; height: 10cm;">
-    <source src="NCA_FracturedGlass.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-  <div style="margin-top: 10px; font-style: italic;">
-    Video of the NCA generating fracture patterns of tempered glass with 
-    <code>U<sub>D</sub> = 8,738.2 J/m³</code> (<code>U<sub>σ<sub>m</sub></sub> = 31.5 MPa</code>) in an area of 50 x 50 mm.
-  </div>
-</div>
+
 
 
 ## <a name="Conclusions"></a> Conclusions and Outlook
