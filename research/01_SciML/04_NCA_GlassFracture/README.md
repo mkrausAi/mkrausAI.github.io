@@ -67,7 +67,7 @@ These metrics provided a robust framework for assessing the fidelity and diversi
 Instead of using conventional metrics such as Fréchet inception distances (FID), this study compares the probability distributions of geometric features (e.g., area, perimeter) extracted from images at time steps \( t \geq 0.5 \), following the approach of Kraus et al. (2019).
 
 ## <a name="results"></a> Results
-The following images show sample frames ("Frame 0" to "Frame 5") from the NCA training process at various time steps. Qualitatively, there is strong agreement between the ground truth fracture pattern and the textures learned by the NCA, especially for training times \( t \geq 0.5 \). 
+The following images show sample frames ("Frame 0" to "Frame 5") from the NCA training process at various time steps. Qualitatively, there is strong agreement between the ground truth fracture pattern and the textures learned by the NCA, especially for training times <span style="font-style: italic;">t</span> ≥ 0.5.
 
 <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
   <figure style="text-align: center;">
