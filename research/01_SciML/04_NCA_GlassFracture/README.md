@@ -131,7 +131,13 @@ A key feature of the proposed MHER-DNN model is inspection of the cross sectiona
   Figure 6: Visualisation of the 3-D latent space spanned by the coordinates of the embedding layer of MHER-DNN.<br />
 </div><br />
 
-Fig. 6 provides a visualisation of the latent space as 3D plot together with projections in the latent dimen-sions as top and side views. Cross sections are indi-cated by markers while the colouring highlights the overstrength factor. By examining the visualization in Fig. 6 humans can get a sense of how the MHER-DNN has learned to separate the cross sectional input data together with detection of clusters in the latent representation of the input data. It especially allows to recognize, that the model detected several cross sectional clusters in the latent space. The individual clusters seem to possess a 1-dimensional intrinsic dimension (as the data are aligned on one line), however multiple branches within the 3D space can be recognized. Further model archi-tecture changes as well as feature engineering is nec-essary to further improve the overall model perfor-mances due to the obvious intrinsic correlation clusters between the cross sections w.r.t. the overstrength.
+
+<video controls style="width: 5cm; height: 5cm;">
+  <source src="NCA_FracturedGlass.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+
 
 
 ## <a name="Conclusions"></a> Conclusions
@@ -163,12 +169,13 @@ This study addresses the regression of overstrength factors for specific types o
 
 
 # Contact
-Univ.-Prof. Dr. Michael A. Kraus, M.Sc.(hons)
-Institute für Statik und Konstruktion (ISM+D)
-TU Darmstadt
-kraus@ismd.tu-darmstadt.de
+Univ.-Prof. Dr. Michael A. Kraus, M.Sc.(hons)<br />
+Institute für Statik und Konstruktion (ISM+D)<br />
+TU Darmstadt<br />
+kraus@ismd.tu-darmstadt.de<br />
 <a href="https://www.ismd.tu-darmstadt.de/das_institut_ismd/mitarbeiter_innen_ismd/team_ismd_details_109888.de.jsp">
-Visit Univ.-Prof. Dr. Michael A. Kraus</a>
+  Visit Univ.-Prof. Dr. Michael A. Kraus
+</a>
 
 ------------
 Shield: [![CC BY 4.0][cc-by-shield]][cc-by]
