@@ -132,7 +132,7 @@ A key feature of the proposed MHER-DNN model is inspection of the cross sectiona
 </div><br />
 
 
-<video controls style="width: 5cm; height: 5cm;">
+<video controls style="width: 10cm; height: 10cm;">
   <source src="NCA_FracturedGlass.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
@@ -145,6 +145,39 @@ This study addresses the regression of overstrength factors for specific types o
 
 
 ## <a name="Literature"></a> Literature
+
+  <ul>
+    <li>
+      Pourmoghaddam, N., Kraus, M. A., Schneider, J., & Siebert, G. (2019). 
+      <em>Relationship between strain energy and fracture pattern morphology of thermally tempered glass for the prediction of the 2D macro-scale fragmentation of glass</em>. 
+      <strong>Glass Structures & Engineering</strong>, 4(2), 257–275.
+    </li>
+    <li>
+      Kraus, M. A. (2019). 
+      <em>Machine learning techniques for the material parameter identification of laminated glass in the intact and post-fracture state</em>. 
+      Universität der Bundeswehr.
+    </li>
+    <li>
+      Tang, J., Kumar, S., De Lorenzis, L., & Hosseini, E. (2023). 
+      <em>Neural Cellular Automata for Solidification Microstructure Modelling</em>. 
+      <strong>Computer Methods in Applied Mechanics and Engineering</strong>, 414, 116197.
+    </li>
+    <li>
+      Mordvintsev, A., & Niklasson, E. (2021). 
+      <em>μ NCA: Texture generation with ultra-compact neural cellular automata</em>. 
+      <strong>arXiv preprint</strong>, arXiv:2111.13545.
+    </li>
+    <li>
+      Drass, M., Berthold, H., Kraus, M. A., & Müller-Braun, S. (2021). 
+      <em>Semantic segmentation with deep learning: detection of cracks at the cut edge of glass</em>. 
+      <strong>Glass Structures & Engineering</strong>, 6(1), 21–37.
+    </li>
+    <li>
+      Riedel, H., Bohmann, L., Bagusat, F., Sauer, M., Schuster, M., & Seel, M. (2024). 
+      <em>Crack segmentation for high-speed imaging: detection of fractures in thermally toughened glass</em>. 
+      <strong>Glass Structures & Engineering</strong>, 1–14.
+    </li>
+
 
 
 
