@@ -132,10 +132,17 @@ A key feature of the proposed MHER-DNN model is inspection of the cross sectiona
 </div><br />
 
 
-<video controls style="width: 10cm; height: 10cm;">
-  <source src="NCA_FracturedGlass.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+<div style="text-align: center;">
+  <video controls style="width: 10cm; height: 10cm;">
+    <source src="NCA_FracturedGlass.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <div style="margin-top: 10px; font-style: italic;">
+    Video of the NCA generating fracture patterns of tempered glass with 
+    <code>U<sub>D</sub> = 8,738.2 J/m³</code> (<code>U<sub>σ<sub>m</sub></sub> = 31.5 MPa</code>) in an area of 50 x 50 mm.
+  </div>
+</div>
+
 
 
 
