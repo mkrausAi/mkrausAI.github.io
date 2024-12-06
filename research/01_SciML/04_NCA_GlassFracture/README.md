@@ -34,16 +34,21 @@ This study employs fracture data from Pourmoghaddam et al. (2019) on thermally t
 
 <figure>
   <img src="figs/Specimen.png" alt="Fractured Glass Specimen" style="width:80%;">
-  <figcaption>Fractured specimen with impact influence zone and NCA training region (green box).</figcaption>
+  <figcaption style="font-style: italic; margin-top: 10px;">
+    Fractured specimen with impact influence zone and NCA training region (green box).
+  </figcaption>
 </figure>
 
 
 ### <a name="sec:NCA"></a> Neural Cellular Automata (NCA)
 The proposed NCA framework, based on Mordvintsev et al. (2020), operates on a 2D grid with 12 channels per cell. It uses convolutional kernels and a compact neural network to model fracture patterns. An update step is illustrated below:
-<figure>
-  <img src="figs/NCA_training_scheme.png" alt="NCA Training Scheme" style="width:100%;">
-  <figcaption>Training scheme for NCA model based on Mordvintsev et al. (2020).</figcaption>
+<figure style="text-align: center;">
+  <img src="figs/NCA_training_scheme.png" alt="NCA Training Scheme" style="width:100%; max-width: 600px;">
+  <figcaption style="font-style: italic; margin-top: 10px;">
+    Training scheme for NCA model based on Mordvintsev et al. (2020).
+  </figcaption>
 </figure>
+
 
 The NCA applies a stochastic update rule and uses a small network with 5,856 parameters, achieving efficient grid-based fracture texture simulations. Despite its small size, the model performs well without requiring hyperparameter optimization.
 
@@ -64,31 +69,44 @@ Instead of using conventional metrics such as Fréchet inception distances (FID)
 ## <a name="results"></a> Results
 The following images show sample frames ("Frame 0" to "Frame 5") from the NCA training process at various time steps. Qualitatively, there is strong agreement between the ground truth fracture pattern and the textures learned by the NCA, especially for training times \( t \geq 0.5 \). A video of the learned fracture texture can be found <a href="https://mkrausai.github.io/research/01_SciML/04_NCA_GlassFracture/" target="_blank">here</a>.
 
-</p>
 <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
   <figure style="text-align: center;">
     <img src="figs/NCA_train_result_frame_1.jpg" alt="Frame 1: t=0" style="width: 200px;">
-    <figcaption>Frame 1: \( t = 0 \)</figcaption>
+    <figcaption style="font-style: italic; margin-top: 10px;">
+      Frame 1: \( t = 0 \)
+    </figcaption>
+
   </figure>
   <figure style="text-align: center;">
     <img src="figs/NCA_train_result_frame_2.jpg" alt="Frame 2: t=0.25" style="width: 200px;">
-    <figcaption>Frame 2: \( t = 0.25 \)</figcaption>
+    <figcaption style="font-style: italic; margin-top: 10px;">
+      Frame 2: \( t = 0.25 \)
+    </figcaption>
+
   </figure>
   <figure style="text-align: center;">
     <img src="figs/NCA_train_result_frame_3.jpg" alt="Frame 3: t=0.50" style="width: 200px;">
-    <figcaption>Frame 3: \( t = 0.50 \)</figcaption>
+    <figcaption style="font-style: italic; margin-top: 10px;">
+      Frame 3: \( t = 0.50 \)
+    </figcaption>
   </figure>
   <figure style="text-align: center;">
     <img src="figs/NCA_train_result_frame_4.jpg" alt="Frame 4: t=0.75" style="width: 200px;">
-    <figcaption>Frame 4: \( t = 0.75 \)</figcaption>
+    <figcaption style="font-style: italic; margin-top: 10px;">
+      Frame 4: \( t = 0.75 \)
+    </figcaption>
   </figure>
   <figure style="text-align: center;">
     <img src="figs/NCA_train_result_frame_5.jpg" alt="Frame 5: t=1.0" style="width: 200px;">
-    <figcaption>Frame 5: \( t = 1.0 \)</figcaption>
+    <figcaption style="font-style: italic; margin-top: 10px;">
+      Frame 5: \( t = 1.0 \)
+    </figcaption>
   </figure>
   <figure style="text-align: center;">
     <img src="figs/piece_1188_7505.png" alt="Ground truth" style="width: 200px;">
-    <figcaption>Ground Truth</figcaption>
+    <figcaption style="font-style: italic; margin-top: 10px;">
+      Ground Truth
+    </figcaption>
   </figure>
 </div>
 
@@ -99,25 +117,21 @@ For the main geometric evaluation metrics (area, perimeter, major axis length, m
   <!-- Log Area -->
   <figure style="text-align: center; width: 45%;">
     <img src="figs/log_area_histogram.png" alt="Log Area Histogram" style="width: 100%;">
-    <figcaption>Log Area</figcaption>
   </figure>
     
   <!-- Log Perimeter -->
   <figure style="text-align: center; width: 45%;">
     <img src="figs/log_perimeter_histogram.png" alt="Log Perimeter Histogram" style="width: 100%">
-    <figcaption>Log Perimeter</figcaption>
   </figure>
   
   <!-- Log Major Axis Length -->
   <figure style="text-align: center; width: 45%;">
     <img src="figs/log_major axis length_histogram.png" alt="Log Major Axis Length Histogram" style="width: 100%">
-    <figcaption>Log Major Axis Length</figcaption>
   </figure>
   
   <!-- Log Minor Axis Length -->
   <figure style="text-align: center; width: 45%;">
     <img src="figs/log_minor axis length_histogram.png" alt="Log Minor Axis Length Histogram" style="width: 100%">
-    <figcaption>Log Minor Axis Length</figcaption>
   </figure>
 </div>
 
