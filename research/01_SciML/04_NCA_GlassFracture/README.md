@@ -123,7 +123,7 @@ For the main geometric evaluation metrics (area, perimeter, major axis length, m
 
 We provide a video of the trained NCA generating fracture patterns of tempered glass here: 
 <div style="text-align: center;">
-  <video controls style="width: 10cm; height: 10cm;">
+  <video autoplay loop muted style="width: 10cm; height: 10cm;">
     <source src="NCA_FracturedGlass.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
@@ -132,6 +132,7 @@ We provide a video of the trained NCA generating fracture patterns of tempered g
     <code>U<sub>D</sub> = 8,738.2 J/m³</code> (<code>U<sub>σ<sub>m</sub></sub> = 31.5 MPa</code>) in an area of 50 x 50 mm.
   </div>
 </div>
+
 
 ## <a name="Conclusions"></a> Conclusions and Outlook
 This study demonstrates the efficacy of Neural Cellular Automata (NCA) for modeling tempered glass fracture patterns, outperforming traditional methods in speed and accuracy. By capturing intricate morphologies and stochastic variability, NCA effectively replicates complex fracture patterns with strong alignment to ground truth data, as evidenced by metrics such as perimeter, area, and axis lengths.
