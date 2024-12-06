@@ -191,20 +191,21 @@ This study addresses the regression of overstrength factors for specific types o
 ## <a name="contributors"></a>Contributors
 <div style="display: flex; justify-content: center; align-items: center; gap: 50px; text-align: center;">
   <div style="flex: 1; max-width: 300px;">
-    <img src="https://mkrausai.github.io/img/persons/Michael6_3.jpg" alt="Michael" style="width: 100%; max-width: 150px; border-radius: 50%;">
+    <img src="https://mkrausai.github.io/img/persons/Michael6_3.jpg" alt="Michael" style="width: auto; height: 5cm;">
     <div> 
       <strong>Univ.-Prof. Dr. Michael A. Kraus, M.Sc.(hons)</strong> <br />
       Professor Structural Mechanics and Design at TU Darmstadt 
     </div>
   </div>
   <div style="flex: 1; max-width: 300px;">
-    <img src="https://mkrausai.github.io/img/persons/Schneider.jpg" alt="Schneider" style="width: 100%; max-width: 150px; border-radius: 50%;">
+    <img src="https://mkrausai.github.io/img/persons/Schneider.jpg" alt="Schneider" style="width: auto; height: 5cm;">
     <div>
       <strong>Univ.-Prof. Dr. Jens Schneider</strong> <br />
       President of TU Wien 
     </div>
   </div>
 </div>
+
 
 
 
