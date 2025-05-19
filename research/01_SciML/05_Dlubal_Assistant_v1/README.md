@@ -27,11 +27,58 @@ This paper introduces an innovative approach to structural concrete analysis and
 ## <a name="intro"></a>Introduction
 Recent advancements in machine learning and deep learning have profoundly influenced engineering, introducing powerful tools for surrogate modeling, generative design, and optimization. A particularly novel development is the integration of multi-modal Large Language Models (mmLLMs) into structural engineering workflows. These models enable intuitive human-computer interaction, allowing engineers to translate natural language and image inputs into precise structural models using platforms like Dlubal’s RFEM/RSTAB API. However, ensuring the reliability and accuracy of such automated processes requires robust data validation and prompt engineering techniques. This paper explores a comprehensive framework combining mmLLMs, data validation, and structured output extraction to streamline and enhance structural design automation.
 
+<figure>
+  <img src="figs/Bild1.png" alt="Fractured Glass Specimen" style="width:80%;">
+  <figcaption style="font-style: italic; margin-top: 10px;">
+    Fig. 1: Workflow illustrating the conversion of multi-modal inputs (image, text, speech) into RFEM model code definitions using a multi-modal foundation model.
+  </figcaption>
+</figure>
+
 
 ## <a name="methods"></a>Methods
 
-### <a name="sec:GlassData"></a> Pre-Stressed Glass Fracture Data
-This study employs fracture data from Pourmoghaddam et al. (2019) on thermally tempered glass specimens. The dataset consists of a 50 mm cutout from a 12 mm-thick glass plate with mid-plane pre-stress of 31.5 MPa and energy density of 8738.2 J/m³. A visualization of the fractured specimen is shown below:
+In this study, we introduce a robust template-driven method for generating Dlubal RFEM Python API code using advanced prompt engineering, data validation, and structured output techniques. Our approach ensures precise, consistent, and replicable extraction of structural engineering data from text or images, regardless of the language model or application context. Built on domain expertise and the Dlubal Python library, this modular framework empowers prompt engineers to automate and streamline code generation for structural analysis-especially for concrete structures-while maintaining accuracy and adaptability across various scenarios.
+
+
+### <a name="sec:RFEMCodeGeneration"></a> RFEM Code Generation
+A Python template RFEM (rfem_script_generator.py) is proposed to automate the creation of RFEM models by translating structured data from input text, voice or images via a mmLLM into executable Python scripts compatible with the RFEM software via its API. It systematically con-structs script components corresponding to defined elements of the structural analysis process - such as materials, sections, nodes, and loads - ensuring accurate representation within the RFEM environment. This automation enhances efficiency and reduces potential for human error in the modeling process.
+
+### <a name="sec:PromptFunction"></a> Prompt Engineering and Function Calling
+Prompt engineering involves crafting precise input prompts to guide mmLLMs, which in this study is solely openAI gpt 4o, toward producing desired outputs. By designing effective prompts, we can instruct the model to generate code structures that align with RFEM requirements. This technique has been instrumental in various applications, including structured data extraction from unstructured text. In our approach, we utilized prompt patterns to define the syntax and semantics of RFEM code components, ensuring that the generated code adheres to the expected format and functionality. This method allows for the creation of reusable templates that can be adapted to different scenarios within the RFEM framework.
+
+
+### <a name="sec:DataValidation"></a> Data Validation
+Ensuring the accuracy and reliability of the generated code necessitates robust data validation mechanisms. We incorporated validation techniques using Pydantic to verify that the code pro-duced by the mmLLM meets the structural and logical constraints inherent to RFEM applications. An example is shown in Fig. 1. This involves checking for syntax errors, logical inconsistencies, and adherence to domain-specific standards. By implementing these validation steps, we aim to enhance the quality and trustworthiness of the generated code, which is crucial for applications in safety-critical domains.
+
+### <a name="sec:OutputGen"></a> Structured Output Generation
+Structured output generation refers to the ability of LLMs to produce outputs that conform to predefined formats, such as JSON or YAML This capability is essential for integrating the generated code into existing systems and workflows without the need for extensive post-processing. Recent advancements have enabled LLMs to generate structured data directly, facili-tating seamless integration into various applications. In our methodology, we defined the desired output schema and utilized the LLM's structured output capabilities to generate RFEM code that aligns with this schema, thereby streamlining the code generation process and reducing the poten-tial for errors during integration.
+
+
+
+## <a name="Experiments"></a> Experimental Setup
+
+Our proposed method is evaluated via several examples with varying complexity and modes (text, voice, image). We conduct the experiment of generating RFEM API code in Python with 3 repetitions. The details on data stratification guidelines, the concrete examples and evaluation metrics are specified in the latter of this section.
+
+### <a name="sec:ExpSetup"></a> Data Stratification for the Evaluation Examples
+We synthetically construct a small evaluation data set based on two major stratification principles:
+
+- **Geometric Complexity (GC):**  
+  Defined by the total number of vertices, edges, and faces in each example. Objects with more faces and vertices are classified as more complex, while those with fewer are considered simpler.
+
+- **Structural Engineering Complexity (SEC):**  
+  Defined by the total number of load and support conditions. Examples with more support conditions or loads are considered more complex.
+
+These principles allow us to systematically assess and compare the performance of our approach across varying levels of geometric and structural complexity.
+
+
+### <a name="sec:ExpExamples"></a> Examples
+The study conducted a series of experiments to evaluate the framework's capability in pro-cessing diverse input formats - text, images, and audio - for generating RFEM models. Each ex-periment involved specific input data and was assessed based on the previously described met-rics. Table 1 provides a comprehensive overview of these experiments.
+
+
+### <a name="sec:OutputGen"></a> Structured Output Generation
+
+2.4	
+
 
 <figure>
   <img src="figs/Specimen.png" alt="Fractured Glass Specimen" style="width:80%;">
