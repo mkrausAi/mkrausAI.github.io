@@ -74,10 +74,46 @@ These principles allow us to systematically assess and compare the performance o
 ### <a name="sec:ExpExamples"></a> Examples
 The study conducted a series of experiments to evaluate the framework's capability in pro-cessing diverse input formats - text, images, and audio - for generating RFEM models. Each ex-periment involved specific input data and was assessed based on the previously described met-rics. Table 1 provides a comprehensive overview of these experiments.
 
+| Experiment No. | Input Modality | Description |
+|:--------------:|:--------------:|:------------|
+| 1-5            | Text           | Concrete beams, columns, slabs, and walls with varying dimensions, supports, and loads. |
+| 6-10           | Image          | Structural models provided as images. |
+| 11-15          | Audio          | Verbal descriptions corresponding to experiments 1-5. |
 
-### <a name="sec:OutputGen"></a> Structured Output Generation
+### <a name="sec:ExpSetup"></a> Evaluation Metrics
+The RFEM files generated via the mmLLM approach are evaluated under the following metrics:
+- **Compilation Complexity (CC):** Measures how many attempts the LLM needs to generate correct RFEM code. "Easy" = ≤2 attempts; "Hard" = >2 attempts.
+- **Wall Clock Time (WCT):** Time taken to generate the RFEM file.
+- **Intention Fidelity (IF):** Human-graded score (0–3) reflecting how well the generated model matches the intended design.
 
-2.4	
+
+## <a name="Results"></a> Results
+This section summarizes the results of the approach towards the examples across different modes.
+
+## <a name="Experiments"></a> Code Repository Structure
+The resulting Python files of our project are structured as follows:
+- `models.py`: Defines Pydantic data structures for RFEM entities (materials, geometry, supports, loads).
+- `llm_processor.py`: Extracts RFEM entities from text and images using GPT models, translating unstructured input into structured data.
+- `main.py`: Orchestrates the workflow, processes inputs, and generates RFEM models.
+
+This modular design ensures maintainability and scalability.
+
+## <a name="Experiments"></a> RFEM Models of the Examples and Statistics
+
+- **Text inputs**: Fastest processing (mean WCT ≈ 6.34s), high intention fidelity (IF ≈ 2.3–3.0), especially for simple models.
+- **Image inputs**: Higher computational demands (mean WCT ≈ 9.55s), greater variability in IF (0.3–1.7), especially as complexity increases.
+- **Audio inputs**: Intermediate performance (mean WCT ≈ 8.93s), IF scores between 1.0–2.7.
+
+**Key findings:**
+- Higher geometric and structural complexity leads to lower intention fidelity and longer processing times.
+- Text and audio modalities are more reliable for conveying complex design intent.
+- Compilation complexity ("easy" vs. "hard") significantly impacts both WCT and IF.
+
+## Visual Analysis
+
+- **Pairplots and scatterplots**: Show relationships between complexity, processing time, and intention fidelity across modalities.
+- **Boxplots**: Compare IF across input types and its relationship with WCT.
+- **Model Examples**: Successful and unsuccessful RFEM models are showcased for qualitative assessment.
 
 
 <figure>
@@ -88,191 +124,38 @@ The study conducted a series of experiments to evaluate the framework's capabili
 </figure>
 
 
-### <a name="sec:NCA"></a> Neural Cellular Automata (NCA)
-The proposed NCA framework, based on Mordvintsev et al. (2020), operates on a 2D grid with 12 channels per cell. It uses convolutional kernels and a compact neural network to model fracture patterns. An update step is illustrated below:
-<figure style="text-align: center;">
-  <img src="figs/NCA_training_scheme.png" alt="NCA Training Scheme" style="width:100%; max-width: 600px;">
+
+<figure>
+  <img src="figs/Specimen.png" alt="Fractured Glass Specimen" style="width:80%;">
   <figcaption style="font-style: italic; margin-top: 10px;">
-    Training scheme for NCA model based on Mordvintsev et al. (2020).
+    Fractured specimen with impact influence zone and NCA training region (green box).
   </figcaption>
 </figure>
 
 
-The NCA applies a stochastic update rule and uses a small network with 5,856 parameters, achieving efficient grid-based fracture texture simulations. Despite its small size, the model performs well without requiring hyperparameter optimization.
+## <a name="DiscussionLimitations"></a> Discussion & Limitations
+Comprehensive analysis revealed clear relationships between intention fidelity (IF), computational efficiency (wall clock time, WCT), and complexity parameters (geometric and structural) across text, image, and audio inputs. Text inputs were the fastest and most accurate, especially for simpler models (mean WCT ≈ 6.34s, IF ≈ 2.3–2.7). Image inputs required more computation (mean WCT ≈ 9.55s) and showed greater variability and lower IF under complex conditions. Audio inputs performed intermediately. Higher complexity reduced both efficiency and fidelity, with "hard" cases taking longer and being less accurate. Limitations include small sample size, qualitative complexity assessment, and limited error diagnostics, indicating the need for broader, more quantitative future studies. In brief:
+- **Sample size**: Limited to 15 experiments and one LLM provider (OpenAI).
+- **Complexity quantification**: Especially for images, remains qualitative.
+- **Error analysis**: More granular diagnostics needed for failed cases.
 
-### <a name="sec:evaluation"></a> Evaluation Metrics of Fractured Glass
-The fractured shards, generated by the NCA and ground truth data, were evaluated using qualitative and quantitative methods:
-<ul>
-  <li><strong>Area:</strong> Number of pixels constituting a shard</li>
-  <li><strong>Orientation:</strong> Angle between the x-axis and the shard's major axis</li>
-  <li><strong>Eccentricity:</strong> Elongation of a shard from circular (0) to linear (1)</li>
-  <li><strong>Perimeter:</strong> Boundary length of a shard</li>
-  <li><strong>Major Axis Length</strong></li>
-  <li><strong>Minor Axis Length</strong></li>
-</ul>
-These metrics provided a robust framework for assessing the fidelity and diversity of the generated fracture patterns compared to the ground truth.
-
-Instead of using conventional metrics such as Fréchet inception distances (FID), this study compares the probability distributions of geometric features (e.g., area, perimeter) extracted from images at time steps \( t \geq 0.5 \), following the approach of Kraus et al. (2019).
-
-## <a name="results"></a> Results
-The following images show sample frames ("Frame 0" to "Frame 5") from the NCA training process at various time steps. Qualitatively, there is strong agreement between the ground truth fracture pattern and the textures learned by the NCA, especially for training times <span style="font-style: italic;">t</span> ≥ 0.5.
-
-<div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
-  <figure style="text-align: center;">
-    <img src="figs/NCA_train_result_frame_1.jpg" alt="Frame 1: t=0" style="width: 200px;">
-    <figcaption style="font-style: italic; margin-top: 10px;">
-      Frame 1: \( t = 0 \)
-    </figcaption>
-
-  </figure>
-  <figure style="text-align: center;">
-    <img src="figs/NCA_train_result_frame_2.jpg" alt="Frame 2: t=0.25" style="width: 200px;">
-    <figcaption style="font-style: italic; margin-top: 10px;">
-      Frame 2: \( t = 0.25 \)
-    </figcaption>
-
-  </figure>
-  <figure style="text-align: center;">
-    <img src="figs/NCA_train_result_frame_3.jpg" alt="Frame 3: t=0.50" style="width: 200px;">
-    <figcaption style="font-style: italic; margin-top: 10px;">
-      Frame 3: \( t = 0.50 \)
-    </figcaption>
-  </figure>
-  <figure style="text-align: center;">
-    <img src="figs/NCA_train_result_frame_4.jpg" alt="Frame 4: t=0.75" style="width: 200px;">
-    <figcaption style="font-style: italic; margin-top: 10px;">
-      Frame 4: \( t = 0.75 \)
-    </figcaption>
-  </figure>
-  <figure style="text-align: center;">
-    <img src="figs/NCA_train_result_frame_5.jpg" alt="Frame 5: t=1.0" style="width: 200px;">
-    <figcaption style="font-style: italic; margin-top: 10px;">
-      Frame 5: \( t = 1.0 \)
-    </figcaption>
-  </figure>
-  <figure style="text-align: center;">
-    <img src="figs/piece_1188_7505.png" alt="Ground truth" style="width: 200px;">
-    <figcaption style="font-style: italic; margin-top: 10px;">
-      Ground Truth
-    </figcaption>
-  </figure>
-</div>
-
-We provide a video of the trained NCA generating fracture patterns of tempered glass here: 
-<div style="text-align: center;">
-  <video autoplay loop muted style="width: 10cm; height: 10cm;">
-    <source src="NCA_FracturedGlass.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-  <div style="margin-top: 10px; font-style: italic;">
-    Video of the NCA generating fracture patterns of tempered glass with 
-    <code>U<sub>D</sub> = 8,738.2 J/m³</code> (<code>U<sub>σ<sub>m</sub></sub> = 31.5 MPa</code>) in an area of 50 x 50 mm.
-  </div>
-</div>
-
-For the main geometric evaluation metrics (area, perimeter, major axis length, minor axis length) we provide the histograms using 10-log of the metrics due to their numerical values spanning several scales:
+Future work should address these by expanding datasets, refining complexity metrics, and improving error tracking.
 
 
-<div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
-  <!-- Log Area -->
-  <figure style="text-align: center; width: 45%;">
-    <img src="figs/log_area_histogram.png" alt="Log Area Histogram" style="width: 100%;">
-  </figure>
-    
-  <!-- Log Perimeter -->
-  <figure style="text-align: center; width: 45%;">
-    <img src="figs/log_perimeter_histogram.png" alt="Log Perimeter Histogram" style="width: 100%">
-  </figure>
-  
-  <!-- Log Major Axis Length -->
-  <figure style="text-align: center; width: 45%;">
-    <img src="figs/log_major axis length_histogram.png" alt="Log Major Axis Length Histogram" style="width: 100%">
-  </figure>
-  
-  <!-- Log Minor Axis Length -->
-  <figure style="text-align: center; width: 45%;">
-    <img src="figs/log_minor axis length_histogram.png" alt="Log Minor Axis Length Histogram" style="width: 100%">
-  </figure>
-</div>
-
-
-
-
-## <a name="Conclusions"></a> Conclusions and Outlook
-This study demonstrates the efficacy of Neural Cellular Automata (NCA) for modeling tempered glass fracture patterns, outperforming traditional methods in speed and accuracy. By capturing intricate morphologies and stochastic variability, NCA effectively replicates complex fracture patterns with strong alignment to ground truth data, as evidenced by metrics such as perimeter, area, and axis lengths.
-
-However, key limitations include the use of a single training image and the lack of temporal data to model dynamic fracture processes. Addressing these challenges could significantly enhance the model's capabilities. Incorporate high-speed imaging data (e.g., Riedel et al., 2024) to enable NCA training with spatio-temporal sequences, simulating crack propagation dynamics.
-
-Develop a Conditional Variational NCA (VNCA) framework to generate fracture patterns specific to varying prestress levels, capturing full stochastic variability and correlation structures inherent in fracture data. Explore probabilistic methods and conduct hyperparameter searches to optimize the model's architecture, further improving  accuracy and generalizability.
-
-These advancements could expand the applicability of NCA in structural glass engineering, providing powerful tools for simulating and analyzing fracture patterns under diverse conditions.
-
-
-
-
-
-## <a name="Conclusions"></a> Conclusions and Outlook
-This study addresses the regression of overstrength factors for specific types of steel sections. We propose novel methods for formulating relations between cross-sectional features and the overstrength of beams in CHS, RHS, SHS, I, and H sections. We introduce a multi-head encoder-regressor Deep Neural Network (MHER-DNN) architecture to predict the overstrength factor and learn a compressed representation of section-specific inputs for regression and inspection purposes. Experimental data for different cross sections are used to train and validate the MHER-DNN. The model shows reasonable precision and accuracy compared to existing models. We also explore the disentanglement of the latent space representation of the MHER-DNN, allowing for common feature derivation and human interpretation. Future research involves further tuning of hyperparameters, investigating hybrid autoencoder-multi-head regressor architectures, and establishing Eurocode-compliant models for engineering design practice.
-
-
-## <a name="Literature"></a> Literature
-
-<ul>
-  <li>
-    Pourmoghaddam, N., Kraus, M. A., Schneider, J., & Siebert, G. (2019). 
-    <em>Relationship between strain energy and fracture pattern morphology of thermally tempered glass for the prediction of the 2D macro-scale fragmentation of glass</em>. 
-    <strong>Glass Structures & Engineering</strong>, 4(2), 257–275.
-  </li>
-  <li>
-    Kraus, M. A. (2019). 
-    <em>Machine learning techniques for the material parameter identification of laminated glass in the intact and post-fracture state</em>. 
-    <strong>Universität der Bundeswehr</strong>.
-  </li>
-  <li>
-    Tang, J., Kumar, S., De Lorenzis, L., & Hosseini, E. (2023). 
-    <em>Neural Cellular Automata for Solidification Microstructure Modelling</em>. 
-    <strong>Computer Methods in Applied Mechanics and Engineering</strong>, 414, 116197.
-  </li>
-  <li>
-    Mordvintsev, A., & Niklasson, E. (2021). 
-    <em>μ NCA: Texture generation with ultra-compact neural cellular automata</em>. 
-    <strong>arXiv preprint</strong>, arXiv:2111.13545.
-  </li>
-  <li>
-    Drass, M., Berthold, H., Kraus, M. A., & Müller-Braun, S. (2021). 
-    <em>Semantic segmentation with deep learning: detection of cracks at the cut edge of glass</em>. 
-    <strong>Glass Structures & Engineering</strong>, 6(1), 21–37.
-  </li>
-  <li>
-    Riedel, H., Bohmann, L., Bagusat, F., Sauer, M., Schuster, M., & Seel, M. (2024). 
-    <em>Crack segmentation for high-speed imaging: detection of fractures in thermally toughened glass</em>. 
-    <strong>Glass Structures & Engineering</strong>, 1–14.
-  </li>
-</ul>
-
+## <a name="ConclusionOutlook"></a> Conclusion & Outlook
+This study highlights how input modality and task complexity affect the efficiency and accuracy of multimodal large language models (mmLLMs) in structural model generation. Text inputs are fastest and most reliable for routine tasks, while image inputs demand more computation, especially with complex structures. Audio offers a balanced alternative. Structured data validation, such as with Pydantic, improves output reliability. The research also identifies the need for integrating domain knowledge via Retrieval-Augmented Generation (RAG) to address current limitations in specialized engineering concepts. Future directions include combining mmLLMs with physics-informed neural networks and grammar-based techniques to further advance automated structural engineering design. So key take-aways are:
+- **Input modality** and **task complexity** are critical for optimal performance.
+- Structured validation (e.g., Pydantic) enhances reliability and accuracy.
+- **Retrieval-Augmented Generation (RAG)** and **physics-informed neural networks (PINNs)** are promising directions to enrich domain knowledge and improve model precision.
+- LLMs have significant potential to automate and streamline structural engineering design, especially as domain integration and model interpretability improve.
 
 
 
 ## <a name="contributors"></a>Contributors
-<div style="display: flex; justify-content: center; align-items: center; gap: 50px; text-align: center;">
-  <div style="flex: 1; max-width: 400px;">
-    <img src="https://mkrausai.github.io/img/persons/Michael6_3.jpg" alt="Michael" style="width: auto; height: 5cm;">
-    <div> 
-      <strong>Univ.-Prof. Dr. Michael A. Kraus, M.Sc.(hons)</strong> <br />
-      Professor Structural Mechanics and Design at TU Darmstadt 
-    </div>
-  </div>
-  <div style="flex: 1; max-width: 300px;">
-    <img src="https://mkrausai.github.io/img/persons/Schneider.jpg" alt="Schneider" style="width: auto; height: 5cm;">
-    <div>
-      <strong>Univ.-Prof. Dr. Jens Schneider</strong> <br />
-      President of TU Wien 
-    </div>
-  </div>
-</div>
-
-
-
+- **Univ.-Prof. Dr. Michael A. Kraus, M.Sc.(hons)**
+- **M.Sc. Isamu Lautenschläger**
+- **Dr. Jaroslav Broz**
+- **Georg Dlubal**
 
 # Contact
 Univ.-Prof. Dr. Michael A. Kraus, M.Sc.(hons)<br />
