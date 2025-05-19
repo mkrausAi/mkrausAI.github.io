@@ -2,7 +2,7 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=default'></script>
 
 
-# Implicit Fracture Morphology Modelling for Pre-Stressed Glass via Neural Cellular Automata
+# Structural Design Workflows using Multi-Modal Human-Machine-Interfaces in Dlubal RFEM for Concrete Analysis and Design
 
 <!-- A repository of structural information on the design of pedestrian bridges
 ============================== -->
@@ -19,13 +19,14 @@
 <!-- *   [Citation](#citation)-->
 
 ## <a name="Abstract"></a>Abstract
-Since decades, researcher are investigating the modelling of the fracture morphology of glasses - especially for prestressed glasses. As an alternative to existing mechanics-based or explicit statistical approaches, we propose neural implicit modelling via Neural Cellular Automata (NCA) to simulate microstructure development during the fracture process in pre-stressed glasses. Based on convolutional neural network, NCA can learn essential solidification features, such as preferred growth direction and competitive grain growth. The proposed NCA are more accurate than the “BREAK” method towards texture and geometrical features as well as orders of magnitude faster than the conventional Phase-Field or Finite-Element-based models. While this study employs images of fractured glass panes as training data, NCA can also be trained based on any microstructural simulation data or a mix of synthetic and actual data.
+This paper introduces an innovative approach to structural concrete analysis and design by inte-grating multi-modal Large Language Models (mmLLMs) with Dlubal’s API, creating an intelligent assistant for interpreting images, text and voice commands. We propose structured data extraction prompt patterns with data validation as reusable templates for mmLLMs to extract desired data from unstructured data such as text, images or voice. The method reduces manual effort in mod-elling reinforced concrete structures by translating design specifications into precise RFEM/RSTAB models for e.g. geometry, material, load and solver setting handling. Case studies evaluate the quality and sensitivity of the approach. This workflow marks a significant step to-ward more intuitive and interactive structural design tools with state-of-the-art human-computer-interfaces.
 
 <!-- The publication can be found <a href="https://onlinelibrary.wiley.com/doi/10.1002/cepa.2587" target="_blank">here</a> and the corresponding presentation video <a href="https://youtu.be/h-iBCey2fKo" target="_blank">here</a>. -->
 
 
 ## <a name="intro"></a>Introduction
-Glass, known for its brittleness and low tensile strength, is highly influenced by surface defects, limiting structural applications. Tempering enhances its strength by inducing a parabolic residual stress distribution, with zero stress at 20% of the glass thickness. Advances in statistical modeling and machine learning, such as the BREAK model by Kraus et al. (2019), have improved fracture pattern predictions using Voronoi tessellations and stochastic processes. Pourmoghaddam et al. (2019) established links between strain energy and fracture morphology, advancing 2D fragmentation prediction. Meanwhile, deep learning approaches, including works by Drass et al. (2021) and Riedel et al. (2024), enable precise crack detection in fracture imagery. Neural Cellular Automata (NCA), which learn flexible update rules from data, have shown promise in modeling complex phenomena like texture generation (Mordvintsev et al. (2020)) and metal solidification (Tang et al. (2023)). This paper applies NCA to glass fractures, capturing stochastic variability and learning implicit rules from fracture images.
+Recent advancements in machine learning and deep learning have profoundly influenced engineering, introducing powerful tools for surrogate modeling, generative design, and optimization. A particularly novel development is the integration of multi-modal Large Language Models (mmLLMs) into structural engineering workflows. These models enable intuitive human-computer interaction, allowing engineers to translate natural language and image inputs into precise structural models using platforms like Dlubal’s RFEM/RSTAB API. However, ensuring the reliability and accuracy of such automated processes requires robust data validation and prompt engineering techniques. This paper explores a comprehensive framework combining mmLLMs, data validation, and structured output extraction to streamline and enhance structural design automation.
+
 
 ## <a name="methods"></a>Methods
 
