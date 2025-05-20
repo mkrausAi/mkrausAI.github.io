@@ -99,7 +99,6 @@ The resulting Python files of our project are structured as follows:
 This modular design ensures maintainability and scalability.
 
 ## <a name="Experiments"></a> RFEM Models of the Examples and Statistics
-
 - **Text inputs**: Fastest processing (mean WCT ≈ 6.34s), high intention fidelity (IF ≈ 2.3–3.0), especially for simple models.
 - **Image inputs**: Higher computational demands (mean WCT ≈ 9.55s), greater variability in IF (0.3–1.7), especially as complexity increases.
 - **Audio inputs**: Intermediate performance (mean WCT ≈ 8.93s), IF scores between 1.0–2.7.
@@ -111,26 +110,23 @@ This modular design ensures maintainability and scalability.
 
 ## Visual Analysis
 
+<figure>
+  <img src="figs/Bild3.png" alt="Fractured Glass Specimen" style="width:80%;">
+  <figcaption style="font-style: italic; margin-top: 10px;">
+    Fig. 2: Boxplots: (left) Input Modality vs IF mean, (right) Mean IF vs WCT.
+  </figcaption>
+</figure>
+
+<figure>
+  <img src="figs/Bild4.png" alt="Fractured Glass Specimen" style="width:80%;">
+  <figcaption style="font-style: italic; margin-top: 10px;">
+    Fig. 3: Scatterplot of mean IF against: (left) GC, (middle) SEC, (right) mean WCT.
+  </figcaption>
+</figure>
+
 - **Pairplots and scatterplots**: Show relationships between complexity, processing time, and intention fidelity across modalities.
 - **Boxplots**: Compare IF across input types and its relationship with WCT.
 - **Model Examples**: Successful and unsuccessful RFEM models are showcased for qualitative assessment.
-
-
-<figure>
-  <img src="figs/Specimen.png" alt="Fractured Glass Specimen" style="width:80%;">
-  <figcaption style="font-style: italic; margin-top: 10px;">
-    Fractured specimen with impact influence zone and NCA training region (green box).
-  </figcaption>
-</figure>
-
-
-
-<figure>
-  <img src="figs/Specimen.png" alt="Fractured Glass Specimen" style="width:80%;">
-  <figcaption style="font-style: italic; margin-top: 10px;">
-    Fractured specimen with impact influence zone and NCA training region (green box).
-  </figcaption>
-</figure>
 
 
 ## <a name="DiscussionLimitations"></a> Discussion & Limitations
