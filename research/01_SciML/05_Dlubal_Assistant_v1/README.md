@@ -99,16 +99,6 @@ The resulting Python files of our project are structured as follows:
 This modular design ensures maintainability and scalability.
 
 ## <a name="Experiments"></a> RFEM Models of the Examples and Statistics
-- **Text inputs**: Fastest processing (mean WCT ≈ 6.34s), high intention fidelity (IF ≈ 2.3–3.0), especially for simple models.
-- **Image inputs**: Higher computational demands (mean WCT ≈ 9.55s), greater variability in IF (0.3–1.7), especially as complexity increases.
-- **Audio inputs**: Intermediate performance (mean WCT ≈ 8.93s), IF scores between 1.0–2.7.
-
-**Key findings:**
-- Higher geometric and structural complexity leads to lower intention fidelity and longer processing times.
-- Text and audio modalities are more reliable for conveying complex design intent.
-- Compilation complexity ("easy" vs. "hard") significantly impacts both WCT and IF.
-
-## Visual Analysis
 
 <figure>
   <img src="figs/Bild3.png" alt="Fractured Glass Specimen" style="width:80%;">
@@ -124,9 +114,21 @@ This modular design ensures maintainability and scalability.
   </figcaption>
 </figure>
 
-- **Pairplots and scatterplots**: Show relationships between complexity, processing time, and intention fidelity across modalities.
-- **Boxplots**: Compare IF across input types and its relationship with WCT.
-- **Model Examples**: Successful and unsuccessful RFEM models are showcased for qualitative assessment.
+- **Text inputs**: Fastest processing (mean WCT ≈ 6.34s), high intention fidelity (IF ≈ 2.3–3.0), especially for simple models.
+- **Image inputs**: Higher computational demands (mean WCT ≈ 9.55s), greater variability in IF (0.3–1.7), especially as complexity increases.
+- **Audio inputs**: Intermediate performance (mean WCT ≈ 8.93s), IF scores between 1.0–2.7.
+
+**Key findings:**
+- Higher geometric and structural complexity leads to lower intention fidelity and longer processing times.
+- Text and audio modalities are more reliable for conveying complex design intent.
+- Compilation complexity ("easy" vs. "hard") significantly impacts both WCT and IF.
+
+<figure>
+  <img src="figs/Bild5.png" alt="Fractured Glass Specimen" style="width:80%;">
+  <figcaption style="font-style: italic; margin-top: 10px;">
+    Fig. 4: Example E1 of a successfully generated RFEM model as a result of our pipeline.
+  </figcaption>
+</figure>
 
 
 ## <a name="DiscussionLimitations"></a> Discussion & Limitations
