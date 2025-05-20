@@ -92,9 +92,11 @@ This section summarizes the results of the approach towards the examples across 
 
 ## <a name="Experiments"></a> Code Repository Structure
 The resulting Python files of our project are structured as follows:
-- `models.py`: Defines Pydantic data structures for RFEM entities (materials, geometry, supports, loads).
-- `llm_processor.py`: Extracts RFEM entities from text and images using GPT models, translating unstructured input into structured data.
-- `main.py`: Orchestrates the workflow, processes inputs, and generates RFEM models.
+- [📥 llm_processor.py](llm_processor.py): Extracts RFEM entities from text and images using GPT models, translating unstructured input into structured data.
+- [📥 rfem_script_generator.py](rfem_script_generator.py)
+- [📥 models.py](models.py): Defines Pydantic data structures for RFEM entities (materials, geometry, supports, loads).
+- [📥 main.py](main.py): Orchestrates the workflow, processes inputs, and generates RFEM models.
+- [📥 requirements.txt](requirements.txt): Requirements file.
 
 This modular design ensures maintainability and scalability.
 
