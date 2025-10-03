@@ -28,7 +28,7 @@ By the end of the course students will develop computational thinking related to
 ## <a name="schedule"></a>Schedule
 The course will be delivered as a two day seminar with several blocks:
 
-<html lang="en">
+<html lang="de">
 <head>
   <meta charset="UTF-8">
   <title>Schedule</title>
@@ -41,6 +41,7 @@ The course will be delivered as a two day seminar with several blocks:
       border: 1px solid #333;
       padding: 8px;
       text-align: left;
+      vertical-align: top;
     }
     th {
       background-color: #eee;
@@ -58,8 +59,9 @@ The course will be delivered as a two day seminar with several blocks:
       </tr>
     </thead>
     <tbody>
+      <!-- Donnerstag -->
       <tr>
-        <td rowspan="4">Thursday, 02.10.2025</td>
+        <td rowspan="5">Thursday, 02.10.2025</td>
         <td>9:00 - 10:30</td>
         <td>General Intro AI and AI in AEC</td>
       </tr>
@@ -68,7 +70,8 @@ The course will be delivered as a two day seminar with several blocks:
         <td>Regression, Classification, Images and Text</td>
       </tr>
       <tr>
-        <td colspan="2">Lunch</td>
+        <td>12:15 - 13:15</td>
+        <td>Lunch</td>
       </tr>
       <tr>
         <td>13:15 - 14:45</td>
@@ -76,11 +79,11 @@ The course will be delivered as a two day seminar with several blocks:
       </tr>
       <tr>
         <td>15:00 - 16:30</td>
-        <td colspan="2">Introduction to the parametric problem and hands-on</td>
+        <td>Introduction to the parametric problem and hands-on</td>
       </tr>
-
+      <!-- Freitag -->
       <tr>
-        <td rowspan="3">Friday, 03.10.2025</td>
+        <td rowspan="5">Friday, 03.10.2025</td>
         <td>9:00 - 10:30</td>
         <td>Data Generation & discussion</td>
       </tr>
@@ -89,11 +92,14 @@ The course will be delivered as a two day seminar with several blocks:
         <td>Model fitting and evaluation & discussion</td>
       </tr>
       <tr>
+        <td>12:15 - 13:15</td>
+        <td>Lunch</td>
+      </tr>
+      <tr>
         <td>13:15 - 14:45</td>
         <td>Design Space Exploration with AIXD toolbox</td>
       </tr>
       <tr>
-        <td></td>
         <td>15:00 - 16:30</td>
         <td>Final Discussion and Wrap-up</td>
       </tr>
@@ -101,8 +107,6 @@ The course will be delivered as a two day seminar with several blocks:
   </table>
 </body>
 </html>
-
-
 
 
 ## <a name="task"></a>Task
