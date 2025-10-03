@@ -28,7 +28,6 @@ By the end of the course students will develop computational thinking related to
 ## <a name="schedule"></a>Schedule
 The course will be delivered as a two day seminar with several blocks:
 
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
