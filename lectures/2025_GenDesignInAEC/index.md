@@ -135,6 +135,8 @@ Students can use the following files if they do not achieve a subgoal:
 
 [GHFile3dm](https://mkrausai.github.io/lectures/2025_GenDesignInAEC/251002 parametric setup.3dm)
 
+[LHSNotebook](https://mkrausai.github.io/lectures/2025_GenDesignInAEC/LHS.ipynb)
+
 [CVAENotebook](https://mkrausai.github.io/lectures/2025_GenDesignInAEC/bridge_design.ipynb)
 
 [LHSParameters](https://mkrausai.github.io/lectures/2025_GenDesignInAEC/lhs_samples.csv)
