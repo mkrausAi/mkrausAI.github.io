@@ -228,7 +228,7 @@ This study addresses the regression of overstrength factors for specific types o
 
 # Contact
 Univ.-Prof. Dr. Michael A. Kraus, M.Sc.(hons)<br />
-Institute für Statik und Konstruktion (ISM+D)<br />
+Institut für Statik und Konstruktion (ISM+D)<br />
 TU Darmstadt<br />
 kraus@ismd.tu-darmstadt.de<br />
 <a href="https://www.ismd.tu-darmstadt.de/das_institut_ismd/mitarbeiter_innen_ismd/team_ismd_details_109888.de.jsp">
