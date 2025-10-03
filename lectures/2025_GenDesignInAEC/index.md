@@ -31,7 +31,6 @@ The course will be delivered as a two day seminar with several blocks:
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <title>Schedule</title>
   <style>
     table {
       border-collapse: collapse;
