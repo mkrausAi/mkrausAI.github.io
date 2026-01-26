@@ -4,13 +4,13 @@ I am Professor for Structural Analysis at ISMD of TU Darmstadt, working in the f
 
 I am interested in interdisciplinary research between Civil Engineering and Machine Perception leveraging multi-modal data and engineering theory.
 
-I studied civil engineering at Technical University Munich and completed my PhD at Bundeswehr University Munich in February 2019, Civil and Environmental Engineering Department. My research was concerned with machine learning based material modelling of interlayer polymers and glass fracture patterns. From January to September 2020 i was postdoctoral scholar with Prof. Christian Linder at the Stanford University (CA/USA) for Scientific Machine Learning material modelling. Since October 2020 I held the position of a Postdoctoral Researcher and was Co-leader of the Immersive Design Lab at ETH Zurich (CH) in the field of Scientific Machine Learning {material; structural systems} modelling and extended reality (XR).
+I studied civil engineering at Technical University Munich and completed my PhD at Bundeswehr University Munich in February 2019, Civil and Environmental Engineering Department. My research was concerned with machine learning based material modelling of interlayer polymers and glass fracture patterns. From January to September 2020 i was postdoctoral scholar with Prof. Christian Linder at the Stanford University (CA/USA) for Scientific Machine Learning material modelling. From October 2020 to February 2024 I held the position of a Postdoctoral Researcher and was Co-leader of the Immersive Design Lab at ETH Zurich (CH) in the field of Scientific Machine Learning {material; structural systems} modelling and extended reality (XR). Since April 2024 i am appointed Tenure-Track Professor for Structural Analysis at Technical University of Darmstadt with research groups with focus on SciML, glass, paper and snow.
 
-Besides that i am running a consultancy office for structural analysis and deployment of Machine and Deep Learning to the AEC industry.
+Besides that i affiliated with the ZM-I group and consult projects in advanced structural analysis as well as Machine and Deep Learning for the AEC industry.
 
 
 - 🔭 I’m currently working on SciML and ML/DL applications with specific focus on Civil Engineering Design and Construction
-- 🌱 I’m currently learning ...
+- 🌱 I’m currently learning genAI around LLMs but also GANs and AE
 - 👯 I’m looking to collaborate on SciML augmented {(multi-scale) material modelling, structural analysis}, GraphML, scan/drawing2BIM
 - 🤔 I’m looking for help with GraphML for structural analysis
 - 💬 Ask me about SciML in Civil Engineering and "classical" Structural Engineering
